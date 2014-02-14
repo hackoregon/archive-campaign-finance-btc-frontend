@@ -2,12 +2,11 @@
 <html>
 <head>
   <title>OrestarClone</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-</head>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</script>
 
 <body>
   <form>
@@ -27,6 +26,16 @@
       data: $("form").serialize(),
       success: function(data) {
         console.log(data);
+
+        if ($('table').length == 0) {
+          $('form').after("<table class='table table-striped'>")
+        }
+
+        var d = JSON.parse(data)
+        $.each(d, function(i, item) {
+          $('table').append('<tr><td>Name</td><td>' + item['Committee Name'] + '</td></tr>');
+          console.log(item)
+        })
       }
     });
     event.preventDefault();
