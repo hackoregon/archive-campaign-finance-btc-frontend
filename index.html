@@ -8,23 +8,23 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head>
-<body>
 
+<body>
   <form>
     <p>From Date(YYYY-MM-DD): </p><input type="text" name="from_date"><br>
     <p>To Date(YYYY-MM-DD): </p><input type="text" name="to_date"><br>
     <p>Query</p><input type="text" name="query"><br>
     <input type="submit" value="submit">
   </form>
-
 </body>
 </html>
+
 <script type="text/javascript">
   $("form").submit(function() {
     $.ajax({
       type: "POST",
       url: "http://54.244.132.14:5000/search",
-      data: {query: "gold"},
+      data: $("form").serialize(),
       success: function(data) {
         console.log(data);
       }
