@@ -1,2 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OrestarClone</title>
+</head>
+<body>
+
+<form>
+	
+	<p>From Date(YYYY-MM-DD): </p><input type="text" name="from_date"><br>
+	<p>To Date(YYYY-MM-DD): </p><input type="text" name="to_date"><br>
+	<p>Query</p><input type="text" name="query"><br>
+	<input type="submit" value="submit">
+</form>
+
+</body>
+</html>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript">
+	$("form").submit(function() {
+		$.ajax({
+			type: "POST",
+			url: "http://54.244.132.14:5000/search",
+			data: {query: "gold"},
+			success: function(data) {
+				console.log(data);
+			}
+		});
+		event.preventDefault();
+	})
+</script>
