@@ -9,12 +9,34 @@
 </script>
 
 <body>
-  <form>
-    <p>From Date(YYYY-MM-DD): </p><input type="text" name="from_date"><br>
-    <p>To Date(YYYY-MM-DD): </p><input type="text" name="to_date"><br>
-    <p>Query</p><input type="text" name="query"><br>
-    <input type="submit" value="submit">
-  </form>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Orestar</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+
+  <div class="container">
+    <div class="well" style="height:70px;">
+      <form role="form" style="text-align:center;">
+        <div class="form-group">
+          <label for="exampleInputEmail1">From</label>
+          <input type="text" placeholder="YYYY-MM-DD" name="from_date">
+          <label for="exampleInputPassword1">To</label>
+          <input type="text" placeholder="YYYY-MM-DD" name="to_date">
+          <label for="exampleInputFile">Query</label>
+          <input type="text" name="query">
+          <button type="submit" class="btn btn-default">Submit</button> 
+        </div>
+      </form>
+    </div
+  </div>
 </body>
 </html>
 
@@ -28,10 +50,10 @@
         console.log(data);
 
         if ($('table').length == 0) {
-          $('form').after("<div class='table-responsive'><table class='table table-striped'><thead><th>Active Election</th><th>Addr Line1</th><th>Amount</th><th>Book Type</th><th>Candidate First Name</th><th>Candidate Last Name</th><th>City</th><th>Committee Name</th><th>Zip</th></thead></div>")
+          $('.well').after("<div class='table-responsive'><table class='table table-striped'><thead><th>Active Election</th><th>Addr Line1</th><th>Amount</th><th>Book Type</th><th>Candidate First Name</th><th>Candidate Last Name</th><th>City</th><th>Committee Name</th><th>Zip</th></thead></div>")
         } else {
           $('table').remove();
-          $('form').after("<div class='table-responsive'><table class='table table-striped'>")
+          $('.well').after("<div class='table-responsive'><table class='table table-striped'><thead><th>Active Election</th><th>Addr Line1</th><th>Amount</th><th>Book Type</th><th>Candidate First Name</th><th>Candidate Last Name</th><th>City</th><th>Committee Name</th><th>Zip</th></thead></div>")
         }
 
         var d = JSON.parse(data)
