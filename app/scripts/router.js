@@ -1,3 +1,7 @@
 Frontend.Router.map(function () {
-  // Add your routes here
+
+  this.resource('transactions', function(){
+    this.resource('transaction', { path: '/:transaction_id' });
+  });
+
 });
