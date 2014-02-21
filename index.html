@@ -57,12 +57,12 @@
           $('.well').after("<div class='table-responsive'><table class='table table-striped'><thead><th>Active Election</th><th>Addr Line1</th><th>Amount</th><th>Book Type</th><th>Candidate Name</th><th>City</th><th>Committee Name</th><th>Zip</th></thead></div>")
         } else {
           $('table').remove();
-          $('.well').after("<div class='table-responsive'><table class='table table-striped'><thead><th>Active Election</th><th>Addr Line1</th><th>Amount</th><th>Book Type</th><th>Candidate Name</th><th>City</th><th>Committee Name</th><th>Zip</th></thead></div>")
+          $('.well').after("<div class='table-responsive'><table class='table table-striped'><thead><th>Active Election</th><th>Filer</th><th>Addr Line1</th><th>Amount</th><th>Book Type</th><th>Candidate Name</th><th>City</th><th>Committee Name</th><th>Zip</th></thead></div>")
         }
 
         var d = JSON.parse(data)
         $.each(d, function(i, item) {
-          $('table').append('<tr>' + '<td>' + item['Active Election'] + '</td>' +'<td>' + item['Addr Line1'] + '</td>' + '<td>$' + item['Amount'] + '</td>' + '<td>' + item['Book Type'] + '</td>' + '<td>' + item['Candidate First Name'] + ' ' + item['Candidate Last Name'] + '</td>' + '<td>' + item['City'] + '</td>' + '<td>' + item['Committee Name'] + '</td>' + '<td>' + item['Zip'] + '</td></tr>')
+          $('table').append('<tr>' + '<td>' + item['Active Election'] + '</td>' + '<td>' + item['Filer'] + '</td>' + '<td>' + item['Addr Line1'] + '</td>' + '<td>$' + item['Amount'] + '</td>' + '<td>' + item['Book Type'] + '</td>' + '<td>' + item['Candidate First Name'] + ' ' + item['Candidate Last Name'] + '</td>' + '<td>' + item['City'] + '</td>' + '<td>' + item['Committee Name'] + '</td>' + '<td>' + item['Zip'] + '</td></tr>')
         })
       }
     });
