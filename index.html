@@ -51,7 +51,6 @@
       url: "http://54.244.132.14:5000/search",
       data: $("form").serialize(),
       success: function(data) {
-        console.log(data);
 
         if ($('table').length == 0) {
           $('.well').after("<div class='table-responsive'><table class='table table-striped'><thead><th>Active Election</th><th>Addr Line1</th><th>Amount</th><th>Book Type</th><th>Candidate Name</th><th>City</th><th>Committee Name</th><th>Zip</th></thead></div>")
