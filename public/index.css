@@ -1,0 +1,59 @@
+body {
+  font-family: Helvetica;
+  margin: 0;
+  overflow: hidden;
+}
+
+header, nav, main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 25px;
+  text-align: center;
+}
+
+nav {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+nav a {
+  border: 1px solid #CCC;
+  padding: 5px;
+  text-decoration: none;
+}
+
+main {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+}
+
+footer {
+  z-index: 100;
+  background: white;
+  height: 100px;
+  width: 100%;
+  position:fixed;
+  bottom: 0;
+  border-top: 1px solid #CCC;
+}
+
+#grabber {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  width: 5px;
+  background-color: #26B;
+  cursor: -webkit-grab;
+  -webkit-user-drag: none;
+  margin-left: -2px;
+  -webkit-user-select: none;
+}
+
+#grabber:active {
+  cursor: -webkit-grabbing;
+}
