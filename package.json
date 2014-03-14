@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sara": "^0.4.2"
+    "sara": "^0.4.2",
+    "d3": "^3.4.3"
   },
   "devDependencies": {
     "gulp": "^3.5.5"
