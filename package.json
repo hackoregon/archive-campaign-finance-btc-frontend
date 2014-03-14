@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sara": "^0.4.2",
+    "sara": "http://github.com/sarajs/Sara/tarball/master",
     "d3": "^3.4.3"
   },
   "devDependencies": {
