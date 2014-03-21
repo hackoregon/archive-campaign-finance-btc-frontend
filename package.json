@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sara": "^0.4.3",
+    "sara": "^0.4.4",
     "d3": "^3.4.3"
   },
   "devDependencies": {

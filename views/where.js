@@ -27,9 +27,9 @@ module.exports = new HackOre.View('Where', {
         .attr("height", height);
 
     queue()
-      .defer(d3.json, "/us.json")
-      .defer(d3.tsv, "/before.tsv", function(d) { rateById.set(d.id, +d.rate); })
-      .defer(d3.tsv, "/after.tsv", function(d) { rateByIdAfter.set(d.id, +d.rate); })
+      .defer(d3.json, "/where-map.json")
+      .defer(d3.tsv, "/where-before.tsv", function(d) { rateById.set(d.id, +d.rate); })
+      .defer(d3.tsv, "/where-after.tsv", function(d) { rateByIdAfter.set(d.id, +d.rate); })
       .await(ready);
 
     window.redraw = function (z) {

@@ -1,0 +1,12 @@
+path {
+  stroke: #fff;
+  fill-rule: evenodd;
+}
+
+svg {
+  -webkit-transform: scale(.3);
+  z-index: -1;
+  position: absolute;
+  top: -550px;
+  left: -250px;
+}
