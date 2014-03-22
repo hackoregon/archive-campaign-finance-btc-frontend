@@ -4,8 +4,9 @@ path {
 }
 
 svg {
-  -webkit-transform: scale(.4);
+  zoom: .4;
   position: absolute;
-  top: -575px;
-  left: -300px;
+  top: -200px;
+  left: 50%;
+  margin-left: -850px;
 }

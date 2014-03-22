@@ -1,9 +1,12 @@
 svg {
-  -webkit-transform: scale(4) rotate(-15deg);
+  -webkit-transform: rotate(-15deg) translateZ(0);
+  zoom: 4;
   position: absolute;
   left: 50%;
+  top: -40px;
   margin-left: -150px;
-  top: 275px;
+  -webkit-perspective: 1000;
+  -webkit-transform-style: preserve-3d;
 }
 
 .counties {
