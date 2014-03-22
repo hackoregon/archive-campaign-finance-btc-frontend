@@ -1,6 +1,5 @@
 svg {
   -webkit-transform: scale(4) rotate(-15deg);
-  z-index: -1;
   position: absolute;
   left: 50%;
   margin-left: -150px;

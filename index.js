@@ -24,7 +24,7 @@ HackOre.storage('hackoregon', require('sara/lib/adapters/mongodb'))
 
     document.addEventListener('mousemove', function (e) {
       if (isDragging) {
-        grabber.style.left = e.pageX
+        document.querySelector('#grabber').style.left = e.pageX + 'px'
         var z =  e.pageX / window.innerWidth
         if (window.redraw instanceof Function) window.redraw(z)
       }

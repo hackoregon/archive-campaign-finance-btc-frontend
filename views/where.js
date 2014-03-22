@@ -7,7 +7,7 @@ module.exports = new HackOre.View('Where', {
   prerender: false
 , render: function () {
     document.querySelector('#viz-style').href = '/where.css'
-    document.querySelector('h3').textContent = 'Concentration of Campaign Money in the State of Oregon'
+    document.querySelector('main').innerHTML  = '<h3>Concentration of Campaign Money in the State of Oregon</h3>'
 
     var width = 300,
         height = 300,

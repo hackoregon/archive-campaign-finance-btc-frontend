@@ -5,7 +5,7 @@ module.exports = new HackOre.View('Who', {
   prerender: false
 , render: function () {
     document.querySelector('#viz-style').href = '/who.css'
-    document.querySelector('main').innerHTML = '<h3>Who</h3>'
+    document.querySelector('main').innerHTML = ''
 var
     width = 1600,
     height = 1600,
