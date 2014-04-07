@@ -1,0 +1,78 @@
+$primary-green: #499242;
+$primary-blue: #68B9FE;
+$background-blue: rgba(104, 185, 254, 0.4);
+$primary-white: #FFFFFF;
+$primary-grey: #4A4A4A;
+$secondary-white: rgba(255, 255, 255, 0.9);
+$trim: #68B9FE 1px solid;
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-Bold.ttf');
+}
+
+body {
+    padding-top: 70px;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Open Sans';
+}
+
+h1 {
+  font-family: Montserrat;
+  font-weight: 100;
+}
+
+
+#main-nav {
+    #navbar-logo {max-height: 50px;}
+    background-color: $primary-grey;
+    border-bottom: $primary-green 1px solid;
+    .navbar-nav {
+        li {
+            &.dropdown.open {
+                    a {
+                        background: #FFF;
+                        color: $primary-green;
+                        &:hover {
+                            background: $primary-green;
+                            color: $primary-white;
+                        }
+                    }
+                }
+            ul.dropdown-menu { background: #FFF; }
+            a {
+                color: $primary-white;
+                &:active, &:hover {
+                    background: $primary-green;
+                    color: $primary-white;
+                        }
+                }
+        }
+    }
+}
+
+.jumbotron {
+    background-color: #FFF;
+    border-bottom: #EEE 1px solid;
+    text-align: center;
+    h1 {font-size: 45px;}
+}
+
+#question-buttons {
+    .btn.btn-lg {
+        border-radius: 0;
+        border: $primary-green 1px solid;
+        color: $primary-green;
+        &:hover, &:active, &:focus {
+            background: $primary-green;
+            color: $primary-white;
+        }
+
+    }
+}
