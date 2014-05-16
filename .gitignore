@@ -1,2 +1,5 @@
 /node_modules
-.DS_Store
+/old/node_modules
+.DS_Stor
+.tmp
+.sass-cache
