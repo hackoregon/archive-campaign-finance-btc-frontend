@@ -3,7 +3,7 @@
 ## Philosophy
 The core Hack Oregon application is meant to expose answers to 4 main questions about campaign finance using open data:   
 **who?**  Who is being funded, and by which PACs, Corporations, and individuals.    
-**what?**  What are the outcomes of campaing finance dollars at work?  (good or bad)    
+**what?**  What are the outcomes of campaign finance dollars at work?  (good or bad)    
 **when?**  When do cycles of campaign and funding take place and how does this effect the political process and civic life?    
 **where?** What does the breakdown of donors/funders look like in Oregon and how does 'place' effect the political process?
 
