@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default navbar-fixed-top" role=navigation id=main-nav>
+  <div class=container>
+    <div class=navbar-header id=nav-header>
+      <a ng-href=#>
+        <img class=img-responsive id=navbar-logo src=images/base/header_logo.png>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-hreg=#>Etc.</a></li>
+        <li><a ng-hreg=#>About</a></li>
+        <li><a ng-hreg=#>Blog</a></li>
+        <li class=dropdown>
+          <a ng-href="" style="cursor: pointer" id=dropdownMenu1 data-toggle=dropdown>DropItDown</a>
+          <ul class=dropdown-menu aria-labelledby=dropdownMenu1 role=menu>
+                <li role=presentation>
+                  <a role=menuitem tabindex=-1 ng-href=#preferences>your data</a>
+                </li>
+                <li role=presentation>
+                  <a role=menuitem tabindex=-1 href=#>this is awesome!!</a>
+                </li>
+                <li role=presentation class=dropdown-header>YEs</li>
+                <li role=presentation ng-repeat="group in groups">
+                  <a role=menuitem tabindex=-1 href=#>{{group.name}}</a>
+                </li>
+          </ul>
+        </li>
+    </ul>
+    </div>
+  </div>
+</nav>
