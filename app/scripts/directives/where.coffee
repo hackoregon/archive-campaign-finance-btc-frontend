@@ -2,10 +2,8 @@
 
 angular.module('frontendApp')
   .directive('whereDir', () ->
-    # template: '<div></div>'
     restrict: 'EA'
     scope: {}
-    # transclude: true
     link: (scope, element, attrs) ->
         ready = (error, us) ->
             g = svg.append("g")

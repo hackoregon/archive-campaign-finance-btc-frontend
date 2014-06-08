@@ -2,5 +2,12 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+// Import our base styles
 @import '_base';
+
+// Import styles for all other parts of the site
+// all styles should be wrapped at the top level
+// e.g the '_mainViz' partial is wrapped with the id
+// of the main div for that portion of the site #main-viz
 @import '_where';
+@import '_mainViz';

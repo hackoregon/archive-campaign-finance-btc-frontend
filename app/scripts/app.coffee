@@ -24,5 +24,8 @@ angular.module('frontendApp', [
       .when '/where',
         templateUrl: 'views/where.html'
         controller: 'WhereCtrl'
+      .when '/mainviz',
+        templateUrl: 'views/mainviz.html'
+        controller: 'MainvizCtrl'
       .otherwise
         redirectTo: '/'
