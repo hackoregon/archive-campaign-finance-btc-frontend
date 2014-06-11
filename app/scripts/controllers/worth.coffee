@@ -1,5 +1,5 @@
 'use strict'
 
 angular.module('frontendApp')
-  .controller 'WhoCtrl', ($scope) ->
-
+  .controller 'WorthCtrl', ($scope) ->
+    

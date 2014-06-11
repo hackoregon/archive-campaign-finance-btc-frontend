@@ -10,22 +10,41 @@ angular.module('frontendApp', [
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
-        templateUrl: 'views/main.html'
+        templateUrl: 'views/home.html'
         controller: 'MainCtrl'
-      .when '/who',
-        templateUrl: 'views/who.html'
-        controller: 'WhoCtrl'
-      .when '/what',
-        templateUrl: 'views/what.html'
-        controller: 'WhatCtrl'
-      .when '/when',
-        templateUrl: 'views/when.html'
-        controller: 'WhenCtrl'
-      .when '/where',
+      .when '/campaigns/:raceLevel?',
+        templateUrl: 'views/campaigns.html'
+        controller: 'CampaignsCtrl'
+      .when '/contributions/:campaignId',
+        templateUrl: 'views/contributions.html'
+        controller: 'ContributionsCtrl'
+      .when '/spend/:campaignId/:contributorId?',
+        templateUrl: 'views/spend.html'
+        controller: 'SpendCtrl'
+      .when '/where/:campaignId/:raceLevel?',
         templateUrl: 'views/where.html'
         controller: 'WhereCtrl'
-      .when '/mainviz',
-        templateUrl: 'views/mainviz.html'
-        controller: 'MainvizCtrl'
+      .when '/worth/:campaignId/:contributorId?',
+        templateUrl: 'views/worth.html'
+        controller: 'WorthCtrl'
+      .when '/calculate',
+        templateUrl: 'views/calculate.html'
+        controller: 'CalculateCtrl'
+
+      .when '/advanced_search',
+        templateUrl: 'views/advanced_search.html'
+        controller: 'AdvancedSearchCtrl'
+      .when '/sandbox',
+        templateUrl: 'views/sandbox.html'
+        controller: 'SandboxCtrl'
+      .when '/register',
+        templateUrl: 'views/register.html'
+        controller: 'RegisterCtrl'
+      .when '/hack_pac',
+        templateUrl: 'views/hack_pac.html'
+        controller: 'HackPacCtrl'
+      .when '/contact',
+        templateUrl: 'views/contact.html'
+        controller: 'ContactCtrl'
       .otherwise
         redirectTo: '/'

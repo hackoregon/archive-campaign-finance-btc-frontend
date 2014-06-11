@@ -29,6 +29,9 @@
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
 
+
+    <ng-include src="'/views/partials/footer.html'"></ng-include>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,13 +76,20 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/who.js"></script>
-        <script src="scripts/controllers/what.js"></script>
-        <script src="scripts/controllers/when.js"></script>
+        <script src="scripts/controllers/campaigns.js"></script>
+        <script src="scripts/controllers/contributions.js"></script>
+        <script src="scripts/controllers/spend.js"></script>
         <script src="scripts/controllers/where.js"></script>
+        <script src="scripts/controllers/worth.js"></script>
+        <script src="scripts/controllers/calculate.js"></script>
+        <script src="scripts/controllers/advancedSearch.js"></script>
+        <script src="scripts/controllers/sandbox.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/controllers/hackPac.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+
         <script src="scripts/services/d3Service.js"></script>
         <script src="scripts/directives/where.js"></script>
-        <script src="scripts/controllers/mainviz.js"></script>
         <script src="scripts/directives/boilerPlate.js"></script>
         <!-- endbuild -->
 </body>

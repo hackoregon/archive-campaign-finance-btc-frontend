@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('frontendApp')
-  .controller 'MainvizCtrl', ($scope) ->
+  .controller 'SandboxCtrl', ($scope) ->
     # $scope.awesomeThings = [
     #   'HTML5 Boilerplate'
     #   'AngularJS'
