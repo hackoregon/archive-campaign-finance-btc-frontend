@@ -12,9 +12,11 @@ angular.module('frontendApp', [
       .when '/',
         templateUrl: 'views/home.html'
         controller: 'MainCtrl'
-      .when '/campaigns/:raceLevel?',
-        templateUrl: 'views/campaigns.html'
-        controller: 'CampaignsCtrl'
+      .when '/browse/:raceLevel?',
+        templateUrl: 'views/browse.html'
+        controller: 'BrowseCtrl'
+
+      # possibly deprecated
       .when '/contributions/:campaignId',
         templateUrl: 'views/contributions.html'
         controller: 'ContributionsCtrl'
@@ -31,9 +33,10 @@ angular.module('frontendApp', [
         templateUrl: 'views/calculate.html'
         controller: 'CalculateCtrl'
 
-      .when '/advanced_search',
-        templateUrl: 'views/advanced_search.html'
-        controller: 'AdvancedSearchCtrl'
+      # Nav Bar
+      .when '/about',
+        templateUrl: 'views/about.html'
+        controller: 'AboutCtrl'
       .when '/sandbox',
         templateUrl: 'views/sandbox.html'
         controller: 'SandboxCtrl'
