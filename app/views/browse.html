@@ -1,0 +1,30 @@
+<div>
+  <h1>Browse My Ballot</h1>
+
+  <input type="text" placeholder="Enter Your Address" ng-model="viewModel.address" />
+
+  <div class="row">
+    <a ng-href="#browse/{{RACE_LEVEL_NATIONAL}}">National</a>
+    <a ng-href="#browse/{{RACE_LEVEL_STATE}}">State</a>
+    <a ng-href="#browse/{{RACE_LEVEL_COUNTY}}">County</a>
+    <a ng-href="#browse/{{RACE_LEVEL_CITY}}">City</a>
+    <a ng-href="#browse/{{RACE_LEVEL_LOCAL}}">Local</a>
+  </div>
+  <h2>You'll see these candidates on the ballot for the November 4th General Election.</h2>
+  <p>Click a picture to go "Behind the Curtain" on campaign finance.</p>
+  <div class="race">
+    <h3>City Commissioner (Seat #2)</h3>
+    <p>Job Description:</p>
+    <div class="row">
+      <div class="span4">
+        <a href="#contributions/campaign_a">Candidate A</a>
+      </div>
+      <div class="span4">
+        <a href="#contributions/campaign_b">Candidate B</a>
+      </div>
+      <div class="span4">
+        <a href="#contributions/campaign_c">Candidate C</a>
+      </div>
+    </div>
+  </div>
+</div>
