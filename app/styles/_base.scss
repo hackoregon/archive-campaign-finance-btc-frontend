@@ -1,26 +1,34 @@
-$primary-green: #499242;
-$primary-blue: #68B9FE;
-$background-blue: rgba(104, 185, 254, 0.4);
+// $primary-green: #499242;
+// $primary-blue: #68B9FE;
+// $background-blue: rgba(104, 185, 254, 0.4);
 $primary-white: #FFFFFF;
 $primary-grey: #4A4A4A;
-$secondary-white: rgba(255, 255, 255, 0.9);
+// $secondary-white: rgba(255, 255, 255, 0.9);
 $trim: #68B9FE 1px solid;
 
-@font-face {
-  font-family: 'Montserrat';
-  src: font-url('Montserrat-Regular.ttf');
-}
+@include font-face("OpenSansLight", font-files("open-sans/OpenSans-Light.ttf"));
+@include font-face("OpenSansRegular", font-files("open-sans/OpenSans-Regular.ttf"));
+@include font-face("MerriweatherLight", font-files("merriweather/Merriweather-Light.otf"));
 
-@font-face {
-  font-family: 'Montserrat';
-  src: font-url('Montserrat-Bold.ttf');
-}
+// Primary Fonts
+// to do: create as mixins as entire classes
+// instead of just variables
+$headlineFont: "MerriweatherLight";
+$bodyFont: "OpenSansLight";
+$subheadFont: "OpenSansRegular";
+$compactFont: "OpenSansLight";
+$tinytypeFont: "OpenSansRegular";
+
+// Primary Colors
+$lightBlue: #64BCBB;
+$green: #49A14C;
+$darkBlue: #10716F;
 
 body {
     padding-top: 70px;
     margin: 0;
     overflow: hidden;
-    font-family: 'Open Sans';
+    font-family: 'OpenSansLight';
 }
 
 h1 {
@@ -32,15 +40,15 @@ h1 {
 #main-nav {
     #navbar-logo {max-height: 50px;}
     background-color: $primary-grey;
-    border-bottom: $primary-green 1px solid;
+    border-bottom: $green 1px solid;
     .navbar-nav {
         li {
             &.dropdown.open {
                     a {
                         background: #FFF;
-                        color: $primary-green;
+                        color: $green;
                         &:hover {
-                            background: $primary-green;
+                            background: $green;
                             color: $primary-white;
                         }
                     }
@@ -49,7 +57,7 @@ h1 {
             a {
                 color: $primary-white;
                 &:active, &:hover {
-                    background: $primary-green;
+                    background: $green;
                     color: $primary-white;
                         }
                 }
@@ -67,10 +75,10 @@ h1 {
 #question-buttons {
     .btn.btn-lg {
         border-radius: 0;
-        border: $primary-green 1px solid;
-        color: $primary-green;
+        border: $green 1px solid;
+        color: $green;
         &:hover, &:active, &:focus {
-            background: $primary-green;
+            background: $green;
             color: $primary-white;
         }
 

@@ -1,4 +1,9 @@
-<div id=where>
-    <h3>Concentration of Campaign Money in the State of Oregon</h3>
-    <div where-dir=""></div>
+<div>
+  <h1>___ % of this campaign's money is local.</h1>
+  <div>MAP!</div>
+
+  <a ng-if="raceLevel == RACE_LEVEL_LOCAL" href=#where/{{campaignId}}/{{RACE_LEVEL_STATE}}>View in-state vs out-of-state</a>
+  <a ng-if="raceLevel == RACE_LEVEL_STATE" href=#where/{{campaignId}}>View local</a>
+
+  <h2><a href=#spend/{{campaignId}}>What are they spending the money on?</a></h2>
 </div>
