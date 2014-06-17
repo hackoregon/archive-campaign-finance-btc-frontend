@@ -11,3 +11,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 // of the main div for that portion of the site #main-viz
 @import '_where';
 @import '_mainViz';
+
+.jumbotron.minified {
+  transition: padding-top 1s, padding-bottom 1s;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

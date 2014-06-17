@@ -1,7 +1,8 @@
 <div>
   <h1>Browse My Ballot</h1>
 
-  <input type="text" placeholder="Enter Your Address" ng-model="viewModel.address" />
+  <h2>{{viewModel.address.streetAddress}}</h2>
+  <h3>{{viewModel.address.city}}, OR {{viewModel.address.state}}</h3>
 
   <div class="row">
     <a ng-href="#browse/{{RACE_LEVEL_NATIONAL}}">National</a>
