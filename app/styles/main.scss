@@ -17,3 +17,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+input[type='text'].read-only {
+  border-color: rgba(0, 0, 0, 0);
+}

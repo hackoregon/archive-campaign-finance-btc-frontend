@@ -9,7 +9,10 @@
 ###
 angular.module('frontendApp')
   .service 'SessionService', ->
-    this.address = null
+    this.address =
+      streetAddress: ''
+      city: ''
+      zip: ''
     this.addAddress = (value) ->
       this.address = _.clone value
       return

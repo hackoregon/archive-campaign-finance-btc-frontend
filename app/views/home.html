@@ -1,23 +1,36 @@
 <div class="container">
   <div class="row">
     <div class="jumbotron browse">
-      <button class="btn" ng-click="maximize(sections.SECTION_BROWSE)"><h1>Browse My Ballot</h1></button>
+      <button class="btn"
+              ng-click="maximize(sections.SECTION_BROWSE)">
+        <h1>Browse My Ballot</h1>
+      </button>
 
       <div class="address_input"
            ng-class="{hidden: viewModel.openSection !== sections.SECTION_BROWSE}">
         <h2>Enter Your Address</h2></button>
-        <input type="text" placeholder="Street Address" ng-model="viewModel.address.streetAddress" />
-        <input type="text" placeholder="City" ng-model="viewModel.address.city" />
-        <input type="text" placeholder="Zip Code" ng-model="viewModel.address.zip" />
-        <button class="btn" ng-click="onAddressSubmit()">Browse!</button>
+        <input type="text" placeholder="Street Address"
+               ng-model="viewModel.address.streetAddress"
+               ng-change="validate()"/>
+        <input type="text" placeholder="City"
+               ng-model="viewModel.address.city"
+               ng-change="validate()" />
+        <input type="text" placeholder="Zip Code"
+               ng-model="viewModel.address.zip"
+               ng-change="validate()" />
+        <button class="btn"
+                ng-click="onAddressSubmit()"
+                ng-disabled="!viewModel.validAddress">Browse!</button>
       </div>
     </div>
     <div class="jumbotron search">
-      <button class="btn" ng-click="maximize(sections.SECTION_SEARCH)"><h1>Search a Candidate</h1></button>
+      <button class="btn" ng-click="maximize(sections.SECTION_SEARCH)">
+        <h1>Search a Candidate</h1>
+      </button>
 
       <div class="candidate_search hidden"
            ng-class="{hidden: viewModel.openSection !== sections.SECTION_SEARCH}">
-        <input type="text" placeholder="Candidate Name" ng-model="viewModel.address" />
+        <input type="text" placeholder="Candidate Name" ng-model="viewModel.candidateSearch" />
         <button class="btn">Search</button>
       </div>
     </div>
