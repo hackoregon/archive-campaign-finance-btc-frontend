@@ -1,14 +1,45 @@
 <div>
   <h1>Browse My Ballot</h1>
 
-  <input type="text" placeholder="Enter Your Address" ng-model="viewModel.address" />
+  <input type="text" placeholder="Street Address"
+         ng-class="{'read-only': !viewModel.editMode}"
+         ng-model="viewModel.address.streetAddress"
+         ng-disabled="!viewModel.editMode"
+         ng-change="validate()"/>
+  <input type="text" placeholder="City"
+         ng-class="{'read-only': !viewModel.editMode}"
+         ng-model="viewModel.address.city"
+         ng-disabled="!viewModel.editMode"
+         ng-change="validate()" />
+  <input type="text" placeholder="Zip Code"
+         ng-class="{'read-only': !viewModel.editMode}"
+         ng-model="viewModel.address.zip"
+         ng-disabled="!viewModel.editMode"
+         ng-change="validate()" />
+  <button class="btn"
+          ng-click="onAddressSubmit()"
+          ng-disabled="!viewModel.validAddress"
+          ng-show="viewModel.editMode">Browse</button>
+  <button class="btn"
+          ng-click="enableAddressEdit()"
+          ng-show="!viewModel.editMode">Edit</button>
 
   <div class="row">
-    <a ng-href="#browse/{{RACE_LEVEL_NATIONAL}}">National</a>
-    <a ng-href="#browse/{{RACE_LEVEL_STATE}}">State</a>
-    <a ng-href="#browse/{{RACE_LEVEL_COUNTY}}">County</a>
-    <a ng-href="#browse/{{RACE_LEVEL_CITY}}">City</a>
-    <a ng-href="#browse/{{RACE_LEVEL_LOCAL}}">Local</a>
+    <button class="btn"
+            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.NATIONAL}"
+            ng-click="go('browse/'+raceLevels.NATIONAL)">National</button>
+    <button class="btn"
+            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.STATE}"
+            ng-click="go('browse/'+raceLevels.STATE)">State</button>
+    <button class="btn"
+            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.COUNTY}"
+            ng-click="go('browse/'+raceLevels.COUNTY)">County</button>
+    <button class="btn"
+            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.CITY}"
+            ng-click="go('browse/'+raceLevels.CITY)">City</button>
+    <button class="btn"
+            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.LOCAL}"
+            ng-click="go('browse/'+raceLevels.LOCAL)">Local</button>
   </div>
   <h2>You'll see these candidates on the ballot for the November 4th General Election.</h2>
   <p>Click a picture to go "Behind the Curtain" on campaign finance.</p>

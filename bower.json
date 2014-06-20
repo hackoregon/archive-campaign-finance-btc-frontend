@@ -13,7 +13,8 @@
     "angular-route": "~1.2.0",
     "d3": "~3.4.4",
     "topojson": "~1.6.5",
-    "queue-async": "~1.0.7"
+    "queue-async": "~1.0.7",
+    "underscore": "~1.6.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
