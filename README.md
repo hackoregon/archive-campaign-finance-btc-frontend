@@ -55,6 +55,8 @@ git checkout -b <your_awesome_new_feature>
 git branch -D master    
 # hack away!
 ```
+## Wireframes
+https://gomockingbird.com/mockingbird/#44apvbt/sCsPR
 
 When you feel like you are ready for your visualization or enhancement to be included submit a pull request.  There may be some things to change (especially if you are working on the core application) and we'll work together to get things running nicely.
 
