@@ -1,60 +1,77 @@
-<div>
-  <h1>Browse My Ballot</h1>
-
-  <input type="text" placeholder="Street Address"
-         ng-class="{'read-only': !viewModel.editMode}"
-         ng-model="viewModel.address.streetAddress"
-         ng-disabled="!viewModel.editMode"
-         ng-change="validate()"/>
-  <input type="text" placeholder="City"
-         ng-class="{'read-only': !viewModel.editMode}"
-         ng-model="viewModel.address.city"
-         ng-disabled="!viewModel.editMode"
-         ng-change="validate()" />
-  <input type="text" placeholder="Zip Code"
-         ng-class="{'read-only': !viewModel.editMode}"
-         ng-model="viewModel.address.zip"
-         ng-disabled="!viewModel.editMode"
-         ng-change="validate()" />
-  <button class="btn"
-          ng-click="onAddressSubmit()"
-          ng-disabled="!viewModel.validAddress"
-          ng-show="viewModel.editMode">Browse</button>
-  <button class="btn"
-          ng-click="enableAddressEdit()"
-          ng-show="!viewModel.editMode">Edit</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"><h1>Browse My Ballot</h1></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <input type="text" placeholder="Street Address"
+             ng-class="{'read-only': !viewModel.editMode}"
+             ng-model="viewModel.address.streetAddress"
+             ng-disabled="!viewModel.editMode"
+             ng-change="validate()"/>
+      <input type="text" placeholder="City"
+             ng-class="{'read-only': !viewModel.editMode}"
+             ng-model="viewModel.address.city"
+             ng-disabled="!viewModel.editMode"
+             ng-change="validate()" />
+      <input type="text" placeholder="Zip Code"
+             ng-class="{'read-only': !viewModel.editMode}"
+             ng-model="viewModel.address.zip"
+             ng-disabled="!viewModel.editMode"
+             ng-change="validate()" />
+      <button class="btn"
+              ng-click="onAddressSubmit()"
+              ng-disabled="!viewModel.validAddress"
+              ng-show="viewModel.editMode">Browse</button>
+      <button class="btn"
+              ng-click="enableAddressEdit()"
+              ng-show="!viewModel.editMode">Edit</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-11">
+      <button class="btn"
+              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.NATIONAL}"
+              ng-click="go('browse/'+raceLevels.NATIONAL)">National</button>
+      <button class="btn"
+              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.STATE}"
+              ng-click="go('browse/'+raceLevels.STATE)">State</button>
+      <button class="btn"
+              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.COUNTY}"
+              ng-click="go('browse/'+raceLevels.COUNTY)">County</button>
+      <button class="btn"
+              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.CITY}"
+              ng-click="go('browse/'+raceLevels.CITY)">City</button>
+      <button class="btn"
+              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.LOCAL}"
+              ng-click="go('browse/'+raceLevels.LOCAL)">Local</button>
+    </div>
+  </div>
 
   <div class="row">
-    <button class="btn"
-            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.NATIONAL}"
-            ng-click="go('browse/'+raceLevels.NATIONAL)">National</button>
-    <button class="btn"
-            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.STATE}"
-            ng-click="go('browse/'+raceLevels.STATE)">State</button>
-    <button class="btn"
-            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.COUNTY}"
-            ng-click="go('browse/'+raceLevels.COUNTY)">County</button>
-    <button class="btn"
-            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.CITY}"
-            ng-click="go('browse/'+raceLevels.CITY)">City</button>
-    <button class="btn"
-            ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.LOCAL}"
-            ng-click="go('browse/'+raceLevels.LOCAL)">Local</button>
+    <div class="col-md-11">
+      <h2>You'll see these candidates on the ballot for the November 4th General Election.</h2>
+      <p>Click a picture to go "Behind the Curtain" on campaign finance.</p>
+    </div>
   </div>
-  <h2>You'll see these candidates on the ballot for the November 4th General Election.</h2>
-  <p>Click a picture to go "Behind the Curtain" on campaign finance.</p>
-  <div class="race">
-    <h3>City Commissioner (Seat #2)</h3>
-    <p>Job Description:</p>
-    <div class="row">
-      <div class="span4">
-        <a href="#contributions/campaign_a">Candidate A</a>
-      </div>
-      <div class="span4">
-        <a href="#contributions/campaign_b">Candidate B</a>
-      </div>
-      <div class="span4">
-        <a href="#contributions/campaign_c">Candidate C</a>
+
+  <div class="races row" ng-repeat="race in viewModel.races">
+    <div class="col-md-11">
+      <h3>{{race.name}}</h3>
+      <p>Job Description: {{race.description}}</p>
+      <!-- TODO: turn into campaign directive for reuse -->
+      <div class="row">
+        <span ng-repeat="(index, campaign) in race.campaigns">
+          <div class="col-md-4" >
+            <a href="#contributions/{{campaign.id}}">{{campaign.name}}</a>
+            <div class="party">{{campaign.party}}</div>
+            <div class="total">Total Money Raised: ${{campaign.total}}</div>
+            <div class="grassroots">Funding from Grassroots Donors: {{(campaign.grassrootsPercent*100).toFixed(0)}}%</div>
+            <div class="local">Funding from In-district Voters: {{(campaign.localPercent*100).toFixed(0)}}%</div>
+          </div>
+          <br ng-show="(index+1)%3==0" />
+        </span>
+
       </div>
     </div>
   </div>

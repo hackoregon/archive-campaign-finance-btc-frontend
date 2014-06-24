@@ -1,20 +1,16 @@
 'use strict'
 
 angular.module('frontendApp')
-  .controller 'BrowseCtrl', ($scope, $location, $routeParams, SessionService) ->
+  .controller 'BrowseCtrl', ($scope, $location, $routeParams, SessionService, AddressService, DISTRICTS) ->
 
     # TODO: move to constants
-    $scope.raceLevels =
-      LOCAL: 'local'
-      STATE: 'state'
-      CITY: 'city'
-      NATIONAL: 'national'
-      COUNTY: 'county'
+    $scope.raceLevels = DISTRICTS
 
     $scope.go = (location) ->
       $location.path location
 
     $scope.viewModel =
+      races: []
       editMode: false
       raceLevel: $routeParams.raceLevel || $scope.raceLevels.CITY
       validAddress: false
@@ -29,16 +25,19 @@ angular.module('frontendApp')
         $scope.viewModel.address.zip
       return
 
-    $scope.onAddressSubmit = ->
-      SessionService.addAddress $scope.viewModel.address
-      $scope.viewModel.editMode = false;
-      return
-
     $scope.enableAddressEdit = ->
       $scope.viewModel.editMode = true
       return
 
+    $scope.onAddressSubmit = ->
+      AddressService.getRacesByAddress($scope.viewModel.address).then( (result) ->
+        $scope.viewModel.races = result
+      )
+      $scope.viewModel.editMode = false;
+      return
+
     $scope.validate()
+    $scope.onAddressSubmit()
 
     return;
 
