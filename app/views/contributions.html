@@ -22,17 +22,17 @@
     </div>
 
 
-    <div class="row">
+    <div class="row" ng-controller="ContributionsCtrl">
 
         <div class="col-md-6">
-            <h1>Joe Candidate</h1>
-            <h3>County Commissioner, seat 2</h3>
+            <h1>{{candidate.name}}</h1>
+            <h3>{{candidate.race}}</h3>
 
-            <img src="http://placehold.it/150x150" />
+            <img src="{{candidate.photo}}" />
 
             <h2>Get Involved</h2>
-            <a href="#">Official Campaign Website</a>
-            <p>Contact: (555) 5555</p>
+            <a href="{{candidate.website}}">Official Campaign Website</a>
+            <p>Contact: {{candidate.phone}}</p>
             <p>Update your voter registration</p>
             <h4>Pledge your vote to this candidate!</h4>
 
@@ -47,21 +47,21 @@
             <h2>Vital Stats</h2>
 
             <div id="stats-total">
-                <h3>Total money raised: $</h3>
+                <h3>Total money raised: ${{candidate.vitalStats.total}}</h3>
                 <img src="http://placehold.it/150x130" />
                 <img src="http://placehold.it/35x35" alt="twitter" />
                 <img src="http://placehold.it/35x35" alt="facebook" />
             </div>
 
             <div id="stats-grassroots">
-                <h3>Funding from grassroots donors: %</h3>
+                <h3>Funding from grassroots donors: {{candidate.vitalStats.grassroots}}%</h3>
                 <img src="http://placehold.it/150x130" />
                 <img src="http://placehold.it/35x35" alt="twitter" />
                 <img src="http://placehold.it/35x35" alt="facebook" />
             </div>
 
             <div id="stats-district">
-                <h3>Funding from in-district voters: %</h3>
+                <h3>Funding from in-district voters: {{candidate.vitalStats.district}}%</h3>
                 <img src="http://placehold.it/150x130" />
                 <img src="http://placehold.it/35x35" alt="twitter" />
                 <img src="http://placehold.it/35x35" alt="facebook" />
