@@ -1,0 +1,27 @@
+{"nodes":[
+  {"name":"PAC 1"},
+  {"name":"PAC 2"},
+  {"name":"PAC 3"},
+  {"name":"PAC 4"},
+  {"name":"Grassroots Donors"},
+  {"name":""},
+  {"name":"Expenditure 1"},
+  {"name":"Expenditure 2"},
+  {"name":"Expenditure 3"},
+  {"name":"Expenditure 4"},
+  {"name":"Expenditure 5"},
+  {"name":"Expenditure 6"}
+],
+  "links":[
+    {"source":0,"target":5,"value":1},
+    {"source":1,"target":5,"value":2},
+    {"source":2,"target":5,"value":1.5},
+    {"source":3,"target":5,"value":2.2},
+    {"source":4,"target":5,"value":2.2},
+    {"source":5,"target":6,"value":1},
+    {"source":5,"target":7,"value":1},
+    {"source":5,"target":8,"value":0.25},
+    {"source":5,"target":9,"value":0.5},
+    {"source":5,"target":10,"value":5.2},
+    {"source":5,"target":11,"value":1.1}
+  ]}
