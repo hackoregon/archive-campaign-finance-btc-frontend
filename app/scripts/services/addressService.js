@@ -39,36 +39,36 @@
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }
             ]
           },
@@ -81,22 +81,22 @@
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }
             ]
           },
@@ -109,22 +109,22 @@
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }, {
                 id: _.uniqueId(),
                 name: chance.name(),
                 party: 'Independent',
                 total: chance.integer({min: 3000, max: 13000}),
-                grassrootsPercent: Math.random(),
-                localPercent: Math.random()
+                grassroots: Math.random(),
+                local: Math.random()
               }
             ]
           }

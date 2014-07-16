@@ -5,8 +5,11 @@ angular.module('frontendApp')
 
     $scope.campaignId = $routeParams.campaignId
 
+    $scope.viewModel =
+      campaign: []
+
     CampaignService.getCampaign($routeParams.campaignId).then( (result) ->
-      $scope.campaign = result
+      $scope.viewModel.campaign = result
     )
 
     return;

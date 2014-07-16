@@ -63,11 +63,11 @@
       <div class="row">
         <span ng-repeat="(index, campaign) in race.campaigns">
           <div class="col-md-4" >
-            <a href="#contributions/{{campaign.id}}">{{campaign.name}}</a>
+            <a href="#campaign/{{campaign.id}}">{{campaign.name}}</a>
             <div class="party">{{campaign.party}}</div>
             <div class="total">Total Money Raised: ${{campaign.total}}</div>
-            <div class="grassroots">Funding from Grassroots Donors: {{(campaign.grassrootsPercent*100).toFixed(0)}}%</div>
-            <div class="local">Funding from In-district Voters: {{(campaign.localPercent*100).toFixed(0)}}%</div>
+            <div class="grassroots">Funding from Grassroots Donors: {{(campaign.grassroots*100).toFixed(0)}}%</div>
+            <div class="local">Funding from In-district Voters: {{(campaign.local*100).toFixed(0)}}%</div>
           </div>
           <br ng-show="(index+1)%3==0" />
         </span>
