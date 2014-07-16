@@ -58,25 +58,26 @@
             .attr("class", "node")
             .attr("transform", function (d) {
               return "translate(" + d.x + "," + d.y + ")";
-            })
-            .call(d3.behavior.drag()
-              .origin(function (d) {
-                return d;
-              })
-              .on("dragstart", function () {
-                this.parentNode.appendChild(this);
-              })
-              .on("drag", dragmove));
+            });
 
           node.append("rect")
             .attr("height", function (d) {
               return d.dy;
             })
+            .attr("transform", function(d){
+              if (d.name === "") {
+                return "translate(-150)";
+              } else {
+                return null;
+              }
+            })
             .attr("class", "node")
-            .attr("width", sankey.nodeWidth())
-            .append("title")
-            .text(function (d) {
-              return d.name + "\n" + format(d.value);
+            .attr("width", function(d){
+              if(d.name === "") {
+                return 300;
+              } else {
+                sankey.nodeWidth()
+              }
             });
 
           node.append("text")
