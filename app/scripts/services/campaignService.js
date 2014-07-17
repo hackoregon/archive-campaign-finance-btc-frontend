@@ -23,7 +23,7 @@
           var campaign = {
                 name: chance.name(),
                 race: randoRace(),
-                photo: 'http://placehold.it/150x150',
+                photo: 'images/campaign_photo.png',
                 website: 'http://'+chance.domain(),
                 phone: chance.phone(),
                 contributions: {
