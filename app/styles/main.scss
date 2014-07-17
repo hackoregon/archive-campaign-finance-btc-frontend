@@ -23,3 +23,30 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 input[type='text'].read-only {
   border-color: rgba(0, 0, 0, 0);
 }
+
+/** Browse My Ballot Result Page **/
+.browse {
+  .current-address {
+    font-size: 22px;
+  }
+
+  .race-level {
+    .btn {
+      font-size: 22px;
+    }
+  }
+
+}
+
+.campaign-tile {
+  border: 1px solid silver;
+  border-radius: 5px;
+  margin: 10px 10px 0 0;
+  padding: 5px;
+}
+
+
+/*** Campaign Detail Page **/
+.campaign-detail {
+
+}

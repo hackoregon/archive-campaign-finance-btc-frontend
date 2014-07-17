@@ -24,11 +24,11 @@
 
     <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-6 campaign-details">
             <h1>{{viewModel.campaign.name}}</h1>
             <h3>{{viewModel.campaign.race}}</h3>
 
-            <img src="{{viewModel.campaign.photo}}" />
+            <img src="{{viewModel.campaign.photo}}" class="campaign-photo" />
 
             <h2>Get Involved</h2>
             <a href="{{viewModel.campaign.website}}">Official Campaign Website</a>
@@ -36,8 +36,8 @@
             <p>Update your voter registration</p>
             <h4>Pledge your vote to this candidate!</h4>
 
-            <img src="http://placehold.it/35x35" alt="twitter" />
-            <img src="http://placehold.it/35x35" alt="facebook" />
+            <button class="socicon">a</button>
+            <button class="socicon">b</button>
 
             <button>Make a grassroots donation</button>
             <p>(optional paid service-feature for campaigns)</p>
@@ -49,22 +49,22 @@
             <div id="stats-total">
                 <h3>Total money raised: ${{viewModel.campaign.vitalStats.total}}</h3>
                 <img src="http://placehold.it/150x130" />
-                <img src="http://placehold.it/35x35" alt="twitter" />
-                <img src="http://placehold.it/35x35" alt="facebook" />
+                <button class="socicon">a</button>
+                <button class="socicon">b</button>
             </div>
 
             <div id="stats-grassroots">
                 <h3>Funding from grassroots donors: {{viewModel.campaign.vitalStats.grassroots}}%</h3>
                 <img src="http://placehold.it/150x130" />
-                <img src="http://placehold.it/35x35" alt="twitter" />
-                <img src="http://placehold.it/35x35" alt="facebook" />
+                <button class="socicon">a</button>
+                <button class="socicon">b</button>
             </div>
 
             <div id="stats-district">
                 <h3>Funding from in-district voters: {{viewModel.campaign.vitalStats.district}}%</h3>
                 <img src="http://placehold.it/150x130" />
-                <img src="http://placehold.it/35x35" alt="twitter" />
-                <img src="http://placehold.it/35x35" alt="facebook" />
+                <button class="socicon">a</button>
+                <button class="socicon">b</button>
             </div>
         </div>
 
