@@ -1,0 +1,224 @@
+{
+  "local": [
+    {
+      "name": "Park Board Member",
+      "race_id": 1,
+      "description": "What do they do?",
+      "campaigns": [
+        {
+          "campaign_id": "1",
+          "name": "Mittie Crawford",
+          "party": "Independent",
+          "total": 4128,
+          "grassroots": 0.01122668874450028,
+          "local": 0.20758151425980031
+        },
+        {
+          "campaign_id": "2",
+          "name": "Henrietta Soto",
+          "party": "Independent",
+          "total": 6478,
+          "grassroots": 0.12283148663118482,
+          "local": 0.31106586242094636
+        },
+        {
+          "campaign_id": "3",
+          "name": "Ruby Chapman",
+          "party": "Independent",
+          "total": 9173,
+          "grassroots": 0.13730501709505916,
+          "local": 0.9437583924736828
+        },
+        {
+          "campaign_id": "4",
+          "name": "Francisco Santiago",
+          "party": "Independent",
+          "total": 12853,
+          "grassroots": 0.293562717968598,
+          "local": 0.2764268037863076
+        },
+        {
+          "campaign_id": "5",
+          "name": "Leonard Cohen",
+          "party": "Independent",
+          "total": 3661,
+          "grassroots": 0.9759503763634712,
+          "local": 0.37184341438114643
+        }
+      ]
+    },
+    {
+      "name": "City Council Secretary",
+      "race_id": 2,
+      "description": "What do they do?",
+      "campaigns": [
+        {
+          "campaign_id": "6",
+          "name": "Lulu Jones",
+          "party": "Independent",
+          "total": 9556,
+          "grassroots": 0.017339579295367002,
+          "local": 0.8708179916720837
+        },
+        {
+          "campaign_id": "7",
+          "name": "Johnny Medina",
+          "party": "Independent",
+          "total": 6596,
+          "grassroots": 0.20327490335330367,
+          "local": 0.45534401503391564
+        },
+        {
+          "campaign_id": "8",
+          "name": "Louise Vasquez",
+          "party": "Independent",
+          "total": 6990,
+          "grassroots": 0.4392691212706268,
+          "local": 0.6292104150634259
+        }
+      ]
+    },
+    {
+      "name": "School Secretary",
+      "race_id": 3,
+      "description": "What do they do?",
+      "campaigns": [
+        {
+          "campaign_id": "9",
+          "name": "Ada Neal",
+          "party": "Independent",
+          "total": 11730,
+          "grassroots": 0.8822412451263517,
+          "local": 0.15223634871654212
+        },
+        {
+          "campaign_id": "10",
+          "name": "Virginia Chapman",
+          "party": "Independent",
+          "total": 9633,
+          "grassroots": 0.7927466789260507,
+          "local": 0.7780557107180357
+        },
+        {
+          "campaign_id": "11",
+          "name": "Douglas Klein",
+          "party": "Independent",
+          "total": 10929,
+          "grassroots": 0.44927906547673047,
+          "local": 0.6276356803718954
+        }
+      ]
+    }
+  ],
+  "state": [
+    {
+      "name": "County Seat #2",
+      "race_id": 4,
+      "description": "What do they do?",
+      "campaigns": [
+        {
+          "campaign_id": "12",
+          "name": "Elizabeth Marshall",
+          "party": "Independent",
+          "total": 10837,
+          "grassroots": 0.034445146564394236,
+          "local": 0.31940636807121336
+        },
+        {
+          "campaign_id": "13",
+          "name": "Cameron Romero",
+          "party": "Independent",
+          "total": 5208,
+          "grassroots": 0.3504858245141804,
+          "local": 0.3941279121208936
+        },
+        {
+          "campaign_id": "14",
+          "name": "Corey Lawrence",
+          "party": "Independent",
+          "total": 9168,
+          "grassroots": 0.8390057259239256,
+          "local": 0.23941446607932448
+        },
+        {
+          "campaign_id": "15",
+          "name": "Adelaide Keller",
+          "party": "Independent",
+          "total": 3309,
+          "grassroots": 0.9801848884671926,
+          "local": 0.8745623719878495
+        },
+        {
+          "campaign_id": "16",
+          "name": "John Watkins",
+          "party": "Independent",
+          "total": 7418,
+          "grassroots": 0.062407043064013124,
+          "local": 0.3545849621295929
+        }
+      ]
+    },
+    {
+      "name": "Public Utility Treasurer",
+      "race_id": 5,
+      "description": "What do they do?",
+      "campaigns": [
+        {
+          "campaign_id": "17",
+          "name": "Rachel Cortez",
+          "party": "Independent",
+          "total": 7953,
+          "grassroots": 0.8522871455643326,
+          "local": 0.8637027214281261
+        },
+        {
+          "campaign_id": "18",
+          "name": "Isabella Jones",
+          "party": "Independent",
+          "total": 3532,
+          "grassroots": 0.5041567157022655,
+          "local": 0.5809135474264622
+        },
+        {
+          "campaign_id": "19",
+          "name": "Abbie Townsend",
+          "party": "Independent",
+          "total": 7376,
+          "grassroots": 0.9646302713081241,
+          "local": 0.8482691431418061
+        }
+      ]
+    },
+    {
+      "name": "Park Board Chairman",
+      "race_id": 6,
+      "description": "What do they do?",
+      "campaigns": [
+        {
+          "campaign_id": "20",
+          "name": "Teresa Dean",
+          "party": "Independent",
+          "total": 11649,
+          "grassroots": 0.24048946052789688,
+          "local": 0.35138771357014775
+        },
+        {
+          "campaign_id": "21",
+          "name": "Ernest Pena",
+          "party": "Independent",
+          "total": 11812,
+          "grassroots": 0.8227352180983871,
+          "local": 0.7224524938501418
+        },
+        {
+          "campaign_id": "22",
+          "name": "Johnny McBride",
+          "party": "Independent",
+          "total": 5919,
+          "grassroots": 0.42352232662960887,
+          "local": 0.9574730766471475
+        }
+      ]
+    }
+  ]
+}
