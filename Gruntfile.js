@@ -98,9 +98,7 @@ module.exports = function (grunt) {
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },
-      all: [
-        'Gruntfile.js'
-      ]
+      all: []
     },
 
     // Empties folders to start fresh
@@ -197,7 +195,7 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/fonts/*'
+            '<%= yeoman.dist %>/fonts/**/*.{eot,svg,ttf,woff}'
           ]
         }
       }
@@ -298,7 +296,7 @@ module.exports = function (grunt) {
               '.htaccess',
               'bower_components/**/*',
               'images/{,*/}*.{webp}',
-              'fonts/*',
+              'fonts/**/*.{eot,svg,ttf,woff}',
               'data/*'
             ]
           }, 
@@ -315,7 +313,7 @@ module.exports = function (grunt) {
           flatten: true,
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>/fonts',
-          src: ['bower_components/sass-bootstrap/fonts/*.*']
+          src: ['bower_components/sass-bootstrap/fonts/**/*.{eot,svg,ttf,woff}']
         }]
       },
       styles: {
@@ -428,7 +426,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
     'build'
   ]);
 };
