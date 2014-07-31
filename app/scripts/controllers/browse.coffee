@@ -11,7 +11,7 @@ angular.module('frontendApp')
 
     $scope.viewModel =
       races: []
-      editMode: false
+      editMode: true
       raceLevel: $routeParams.raceLevel || $scope.raceLevels.CITY
       validAddress: false
       address:
@@ -36,8 +36,6 @@ angular.module('frontendApp')
       $scope.viewModel.editMode = false;
       return
 
-    $scope.validate()
-    $scope.onAddressSubmit()
 
     return;
 
