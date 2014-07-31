@@ -39,7 +39,7 @@ h1 {
 
 
 #main-nav {
-    #navbar-logo {max-height: 50px;}
+    #navbar-logo {max-height: 75px;}
     background-color: $primary-grey;
     border-bottom: $green 1px solid;
     .navbar-nav {
@@ -64,6 +64,20 @@ h1 {
                 }
         }
     }
+}
+
+.footer {
+  background-color: #4a4a4a;
+  border-top: #49a14c 1px solid;
+  margin-top: 25px;
+
+  .logo {
+    max-height: 75px;
+  }
+  h1 {
+    margin-top: 0;
+    font-size: 24px;
+  }
 }
 
 .jumbotron {
