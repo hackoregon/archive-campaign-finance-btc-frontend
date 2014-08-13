@@ -1,13 +1,12 @@
 (function () {
   'use strict';
-  angular.module('frontendApp').directive('campaignSankey', function () {
+  angular.module('frontendApp').directive('campaignSankey', function (CampaignService) {
     return {
       restrict: 'EA',
       link: function (scope, element, attrs) {
-
         var margin = {top: 1, right: 1, bottom: 6, left: 1},
           width = 960 - margin.left - margin.right,
-          height = 500 - margin.top - margin.bottom;
+          height = 1500 - margin.top - margin.bottom;
 
         var formatNumber = d3.format(",.0f"),
           format = function (d) {
@@ -24,19 +23,35 @@
         var sankey = d3.sankey()
           .nodeWidth(15)
           .nodePadding(10)
-          .size([width, height]);
+          .size([width, 500]);
 
         var path = sankey.link();
 
-        d3.json("/data/sankey.json", function (energy) {
+
+        CampaignService.getCampaignFinances().then(function(finances){
+          var network = {nodes: [], links: []};
+
+          var campaignNode = {name: ""};
+          network.nodes.push(campaignNode);
+          var nodeIndex = 0;
+          _(finances.contributions).each(function(contribution, type){
+            nodeIndex++;
+            network.nodes.push({name: type});
+            network.links.push({source: nodeIndex, target: 0, value: contribution.amount});
+          });
+          _(finances.expenditures).each(function(expenditure, type){
+            nodeIndex++;
+            network.nodes.push({name: type});
+            network.links.push({source: 0, target: nodeIndex, value: expenditure});
+          });
 
           sankey
-            .nodes(energy.nodes)
-            .links(energy.links)
+            .nodes(network.nodes)
+            .links(network.links)
             .layout(32);
 
           var link = svg.append("g").selectAll(".link")
-            .data(energy.links)
+            .data(network.links)
             .enter().append("path")
             .attr("class", "link")
             .attr("d", path)
@@ -53,7 +68,7 @@
             });
 
           var node = svg.append("g").selectAll(".node")
-            .data(energy.nodes)
+            .data(network.nodes)
             .enter().append("g")
             .attr("class", "node")
             .attr("transform", function (d) {
@@ -65,19 +80,17 @@
               return d.dy;
             })
             .attr("transform", function(d){
-              if (d.name === "") {
-                return "translate(-150)";
-              } else {
+//              if (d.name === "") {
+//                return "translate(-150)";
+//              } else {
                 return null;
-              }
+//              }
             })
             .attr("class", "node")
             .attr("width", function(d){
-              if(d.name === "") {
-                return 300;
-              } else {
-                sankey.nodeWidth()
-              }
+
+                return sankey.nodeWidth();
+              //}
             });
 
           node.append("text")
@@ -90,7 +103,7 @@
             .attr("transform", null)
             .text(function (d) {
               if (d.name) {
-                return d.name + ' ($'+ (d.value*1000) + ')';
+                return d.name + ' ($'+ (d.value) + ')';
               }
               return '';
             })
@@ -100,12 +113,10 @@
             .attr("x", 6 + sankey.nodeWidth())
             .attr("text-anchor", "start");
 
-          function dragmove(d) {
-            d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-            sankey.relayout();
-            link.attr("d", path);
-          }
+
         });
+
+
 
       }
     };
