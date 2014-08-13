@@ -15,11 +15,11 @@ angular.module('frontendApp', [
       .when '/browse/:raceLevel?',
         templateUrl: 'views/browse.html'
         controller: 'BrowseCtrl'
-
-      # possibly deprecated
       .when '/campaign/:campaignId',
         templateUrl: 'views/campaign.html'
         controller: 'CampaignCtrl'
+
+      # possibly deprecated
       .when '/spend/:campaignId/:contributorId?',
         templateUrl: 'views/spend.html'
         controller: 'SpendCtrl'
