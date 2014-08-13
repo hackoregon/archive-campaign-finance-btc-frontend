@@ -6,7 +6,7 @@
       link: function (scope, element, attrs) {
         var margin = {top: 1, right: 1, bottom: 6, left: 1},
           width = 960 - margin.left - margin.right,
-          height = 500 - margin.top - margin.bottom;
+          height = 1500 - margin.top - margin.bottom;
 
         var formatNumber = d3.format(",.0f"),
           format = function (d) {
@@ -23,7 +23,7 @@
         var sankey = d3.sankey()
           .nodeWidth(15)
           .nodePadding(10)
-          .size([width, height]);
+          .size([width, 500]);
 
         var path = sankey.link();
 
@@ -80,19 +80,17 @@
               return d.dy;
             })
             .attr("transform", function(d){
-              if (d.name === "") {
-                return "translate(-150)";
-              } else {
+//              if (d.name === "") {
+//                return "translate(-150)";
+//              } else {
                 return null;
-              }
+//              }
             })
             .attr("class", "node")
             .attr("width", function(d){
-              if(d.name === "") {
-                return 300;
-              } else {
-                sankey.nodeWidth()
-              }
+
+                return sankey.nodeWidth();
+              //}
             });
 
           node.append("text")

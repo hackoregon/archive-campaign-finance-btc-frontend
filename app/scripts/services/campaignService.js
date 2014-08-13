@@ -38,7 +38,7 @@
         this.getCampaignFinances = function(campaignId){
           var deferred = $q.defer();
 
-          d3.tsv('/data/bruce_starr.txt', function(finances){
+          d3.tsv('/data/JohnRecent.txt', function(finances){
             var contributions = {
               "PAC": {amount: 0, number: 0},
               "Business": {amount: 0, number: 0},
