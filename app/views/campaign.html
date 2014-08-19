@@ -83,11 +83,11 @@
     <div class="row">
 
         <div class="col-md-3">
-            <h2 ng-mouseover="section = 'who'">WHO?</h2>
+            <h2 ng-mouseover="viewModel.section = 'who'">WHO?</h2>
         </div>
 
         <div class="col-md-3">
-          <h2 ng-mouseover="section = 'where'">WHERE?</h2>
+          <h2 ng-mouseover="viewModel.section = 'where'">WHERE?</h2>
         </div>
 
         <div class="col-md-3">
@@ -101,22 +101,24 @@
     </div>
 
 
-    <div class="row" ng-show="section === 'who'">
-      who
+    <div class="row" ng-show="viewModel.section === 'who'">
+      <div data-bubble-chart
+           data-donations="viewModel.donations"
+           data-color-map="viewModel.donationsColorMap"></div>
 
     </div>
 
-    <div class="row" ng-show="section === 'where'">
+    <div class="row" ng-show="viewModel.section === 'where'">
       where
 
     </div>
 
-    <div class="row" ng-show="section === 'what'">
+    <div class="row" ng-show="viewModel.section === 'what'">
       what
 
     </div>
 
-    <div class="row" ng-show="section === 'how'">
+    <div class="row" ng-show="viewModel.section === 'how'">
       how
 
     </div>
