@@ -74,7 +74,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            <h1>Go Deeper.</h1>
+            <h1>What's the story?.</h1>
         </div>
 
     </div>
@@ -82,36 +82,44 @@
 
     <div class="row">
 
-        <div class="col-md-6">
-            <h2>MONEY IN</h2>
-            <img src="http://placehold.it/100x50" />
-
-            <h2><a href="#contributions/{{campaignId}}">Who's giving?</a></h3>
-            <h2><a href="#where/{{campaignId}}">Where is the money coming from?</a></h2>
+        <div class="col-md-3">
+            <h2 ng-mouseover="viewModel.section = 'who'">WHO?</h2>
         </div>
 
-        <div class="col-md-6">
-            <h2>MONEY OUT</h2>
-            <img src="http://placehold.it/100x50" />
+        <div class="col-md-3">
+          <h2 ng-mouseover="viewModel.section = 'where'">WHERE?</h2>
+        </div>
 
-            <h2><a href="#spend/{{campaignId}}">What are they spending money on?</a></h2>
-            <h2><a href="#worth/{{campaignId}}">How much does my vote matter?</a></h2>
+        <div class="col-md-3">
+          <h2>WHAT?</h2>
+        </div>
+
+        <div class="col-md-3">
+          <h2>HOW?</h2>
         </div>
 
     </div>
 
 
-    <div class="row">
+    <div class="row" ng-show="viewModel.section === 'who'">
+      <div data-bubble-chart
+           data-donations="viewModel.donations"
+           data-color-map="viewModel.donationsColorMap"></div>
 
-        <div class="col-md-12">
-            <h1>{{campaignId}} Contributors</h1>
-            <ul>
-                <li><h2>Contributor A</h2><a href="#spend/{{campaignId}}/contributor_a">Spend?</a></li>
-                <li><h2>Contributor B</h2><a href="#spend/{{campaignId}}/contributor_b">Spend?</a></li>
-                <li><h2>Contributor C</h2><a href="#spend/{{campaignId}}/contributor_c">Spend?</a></li>
-                <li><h2>Contributor D</h2><a href="#spend/{{campaignId}}/contributor_d">Spend?</a></li>
-            </ul>
-        </div>
+    </div>
+
+    <div class="row" ng-show="viewModel.section === 'where'">
+      where
+
+    </div>
+
+    <div class="row" ng-show="viewModel.section === 'what'">
+      what
+
+    </div>
+
+    <div class="row" ng-show="viewModel.section === 'how'">
+      how
 
     </div>
 
