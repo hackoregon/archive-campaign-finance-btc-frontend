@@ -102,6 +102,10 @@
 
 
     <div class="row" ng-show="viewModel.section === 'who'">
+      <input type="range" ng-model=viewModel.startDate min="{{viewModel.minDate}}" max="{{viewModel.maxDate}}" />
+      <input type="range" ng-model=viewModel.endDate min="{{viewModel.minDate}}" max="{{viewModel.maxDate}}" />
+      Start: {{viewModel.startFormatted}}
+      End: {{viewModel.endFormatted}}
       <div data-bubble-chart
            data-donations="viewModel.donations"
            data-color-map="viewModel.donationsColorMap"></div>
