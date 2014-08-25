@@ -43,17 +43,18 @@
             deferred.resolve(campaign);
             return deferred.promise;
         };
-        this.getCampaignFinances = function(start, end){
+        this.getCampaignFinances = function(startDate, endDate) {
+          console.log(startDate, endDate);
           var deferred = $q.defer();
           var self = this;
           d3.tsv('/data/JohnRecent.txt', function(finances){
             var contributions = {};
-            contributions[self.CONTRIBUTION.PAC] = {amount: 0, number: 0},
-            contributions[self.CONTRIBUTION.BUSINESS] = {amount: 0, number: 0},
-            contributions[self.CONTRIBUTION.GRASSROOTS] = {amount: 0, number: 0},
-            contributions[self.CONTRIBUTION.INDIVIDUAL] = {amount: 0, number: 0},
-            contributions[self.CONTRIBUTION.PARTY] = {amount: 0, number: 0},
-            contributions[self.CONTRIBUTION.NA] = {amount: 0, number: 0}
+            contributions[self.CONTRIBUTION.PAC] = {amount: 0, number: 0};
+            contributions[self.CONTRIBUTION.BUSINESS] = {amount: 0, number: 0};
+            contributions[self.CONTRIBUTION.GRASSROOTS] = {amount: 0, number: 0};
+            contributions[self.CONTRIBUTION.INDIVIDUAL] = {amount: 0, number: 0};
+            contributions[self.CONTRIBUTION.PARTY] = {amount: 0, number: 0};
+            contributions[self.CONTRIBUTION.NA] = {amount: 0, number: 0};
 
 //            var expenditureCategories = {
 //              BROADCAST: 'Broadcast Advertising',
@@ -62,7 +63,12 @@
 //
 //            };
             var expenditures = {};
-            _(finances).each(function(row){
+            var total = 0;
+            _(finances).chain().filter(function(row){
+              var rowDate = new Date(row.tran_date);
+              return rowDate.getTime() >= startDate.getTime() && rowDate.getTime() <= endDate.getTime();
+            }).each(function(row){
+              total++;
               var subType = row['sub_type'];
               switch (subType) {
                 case 'Cash Contribution':
@@ -106,6 +112,7 @@
 
               }
             });
+            console.log(total);
             deferred.resolve({contributions: contributions, expenditures: expenditures});
 
           });

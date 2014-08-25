@@ -14,10 +14,12 @@
             render();
           }
         });
-
+        
         var render = function(){
+          element.empty();
+
           var width = 1170;
-          var height = 800;
+          var height = 400;
 
           var colorMap = function(d) {
             return scope.colorMap[d.category];
@@ -27,6 +29,19 @@
             .sort(null)
             .size([width, height])
             .padding(1.5);
+
+          var legend = d3.select(element[0]).append('div').attr('class', 'legend');
+
+          legend.selectAll('.category').data(_(scope.colorMap).keys())
+            .enter().append('div')
+            .attr('class', 'category')
+            .attr('style', function(d){
+              var backgroundColor = scope.colorMap[d];
+              return 'background-color:'+backgroundColor;
+            })
+            .text(function(d){
+              return d;
+            });
 
           var svg = d3.select(element[0]).append('svg')
             .attr('width', width)
@@ -57,6 +72,7 @@
             .attr('dy', '.3em')
             .style('text-anchor', 'middle')
             .text(function(d) { return d.category; });
+
         };
 
       }
