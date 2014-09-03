@@ -47,6 +47,15 @@ input[type='text'].read-only {
 
 
 /*** Campaign Detail Page **/
-.campaign-detail {
 
-}
+  .legend {
+    display: inline-block;
+    width: 150px;
+
+    .category {
+      font-weight: 'bold';
+      margin: 2px 2px 0 0;
+    }
+  }
+
+

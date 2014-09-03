@@ -54,7 +54,7 @@
             return node.category !== CampaignService.CONTRIBUTION.NA;
           })
           .value();
-        $scope.viewModel.donations = {children: nodes};
+        $scope.viewModel.donations = {children: [finances.richardson, finances.kitzhaber]};
       });
     }).throttle(500);
 
