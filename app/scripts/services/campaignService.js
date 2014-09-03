@@ -47,7 +47,8 @@
           console.log(startDate, endDate);
           var deferred = $q.defer();
           var self = this;
-          d3.tsv('/data/JohnRecent.txt', function(finances){
+          var all = {richardson: null, kitzhaber: null};
+          var makeFinances = function(finances) {
             var contributions = {};
             contributions[self.CONTRIBUTION.PAC] = {amount: 0, number: 0};
             contributions[self.CONTRIBUTION.BUSINESS] = {amount: 0, number: 0};
@@ -112,8 +113,24 @@
 
               }
             });
-            console.log(total);
-            deferred.resolve({contributions: contributions, expenditures: expenditures});
+            var nodes = _(contributions).chain()
+              .map(function(contribution, key){
+                return {category: key, value: contribution.amount};
+              })
+              .filter(function(node){
+                return node.category !== self.CONTRIBUTION.NA;
+              })
+              .value();
+            return {children: nodes};
+          };
+          d3.tsv('/data/DennisRecent.txt', function(richardson){
+            all.richardson = makeFinances(richardson);
+            d3.tsv('/data/JohnRecent.txt', function(kitzhaber){
+              all.kitzhaber = makeFinances(kitzhaber);
+
+              deferred.resolve(all);
+            });
+
 
           });
           return deferred.promise;

@@ -18,8 +18,8 @@
         var render = function(){
           element.empty();
 
-          var width = 1170;
-          var height = 400;
+          var width = 800;
+          var height = 600;
 
           var colorMap = function(d) {
             return scope.colorMap[d.category];
