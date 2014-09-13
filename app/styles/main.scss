@@ -24,6 +24,23 @@ input[type='text'].read-only {
   border-color: rgba(0, 0, 0, 0);
 }
 
+/** Home Page **/
+.home {
+  .header {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px 15px 15px;
+    border-bottom: 5px solid black;
+  }
+
+  .sticker {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+}
+
 /** Browse My Ballot Result Page **/
 .browse {
   .current-address {
