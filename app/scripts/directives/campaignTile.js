@@ -3,7 +3,7 @@
   angular.module('frontendApp').directive('campaignTile', function () {
     return {
       restrict: 'EA',
-      templateUrl: '/scripts/directives/templates/campaignTile.html',
+      templateUrl: '/views/directives/campaignTile.html',
       scope: {
         campaign: '='
       },
