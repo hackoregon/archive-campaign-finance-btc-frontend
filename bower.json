@@ -14,11 +14,7 @@
     "d3": "~3.4.4",
     "topojson": "~1.6.5",
     "queue-async": "~1.0.7",
-    "underscore": "~1.6.0",
-    "chance": "~0.5.6",
-    "sankey": "https://raw.githubusercontent.com/d3/d3-plugins/master/sankey/sankey.js",
-    "ui-slider": "https://raw.githubusercontent.com/angular-ui/ui-slider/master/src/slider.js",
-    "jquery-ui": "~1.11.1"
+    "underscore": "~1.6.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

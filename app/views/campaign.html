@@ -1,37 +1,15 @@
 <div class="container">
 
-
-    <div class="row">
-
-        <div class="col-md-4">
-            <input type="text" placeholder="Candidate look up" ng-model="viewModel.candidateSearch" />
-        </div>
-
-        <div class="col-md-4">
-            <button class="btn" ng-click="maximize(sections.SECTION_BROWSE)">
-                Browse My Ballot
-            </button>
-        </div>
-
-        <div class="col-md-4">
-            <button class="btn" ng-click="maximize(sections.SECTION_VIEW_ALL)">
-                View All Oregon
-            </button>
-        </div>
-
-    </div>
-
-
     <div class="row">
 
         <div class="col-md-6 campaign-details">
-            <h1>{{viewModel.campaign.name}}</h1>
+            <h1>{{viewModel.campaign.candidate_name}}</h1>
             <h3>{{viewModel.campaign.race}}</h3>
 
             <img src="{{viewModel.campaign.photo}}" class="campaign-photo" />
 
             <h2>Get Involved</h2>
-            <a href="{{viewModel.campaign.website}}">Official Campaign Website</a>
+            <a href="http://{{viewModel.campaign.website}}">Official Campaign Website</a>
             <p>Contact: {{viewModel.campaign.phone}}</p>
             <p>Update your voter registration</p>
             <h4>Pledge your vote to this candidate!</h4>
@@ -47,21 +25,21 @@
             <h2>Vital Stats</h2>
 
             <div id="stats-total">
-                <h3>Total money raised: ${{viewModel.campaign.vitalStats.total}}</h3>
+                <h3>Total money raised: ${{viewModel.campaign.total}}</h3>
                 <img src="http://placehold.it/150x130" />
                 <button class="socicon">a</button>
                 <button class="socicon">b</button>
             </div>
 
             <div id="stats-grassroots">
-                <h3>Funding from grassroots donors: {{viewModel.campaign.vitalStats.grassroots}}%</h3>
+                <h3>Funding from grassroots donors: {{viewModel.campaign.grassroots}}%</h3>
                 <img src="http://placehold.it/150x130" />
                 <button class="socicon">a</button>
                 <button class="socicon">b</button>
             </div>
 
             <div id="stats-district">
-                <h3>Funding from in-district voters: {{viewModel.campaign.vitalStats.district}}%</h3>
+                <h3>Funding from in-district voters: {{viewModel.campaign.district}}%</h3>
                 <img src="http://placehold.it/150x130" />
                 <button class="socicon">a</button>
                 <button class="socicon">b</button>

@@ -7,6 +7,12 @@
     }).when('/browse/:raceLevel?', {
       templateUrl: 'views/browse.html',
       controller: 'BrowseCtrl'
+    }).when('/search', {
+      templateUrl: 'views/search.html',
+      controller: 'SearchCtrl'
+    }).when('/results/:searchType?/:searchTerm?', {
+      templateUrl: 'views/results.html',
+      controller: 'ResultsCtrl'
     }).when('/campaign/:campaignId', {
       templateUrl: 'views/campaign.html',
       controller: 'CampaignCtrl'
