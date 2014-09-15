@@ -3,7 +3,7 @@
   angular.module('frontendApp').directive('searchBox', function () {
     return {
       restrict: 'EA',
-      templateUrl: '/scripts/directives/templates/searchBox.html',
+      templateUrl: '/views/directives/searchBox.html',
       scope: {
         searchTerm: '@',
         searchType: '@',
