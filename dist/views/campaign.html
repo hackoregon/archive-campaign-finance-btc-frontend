@@ -1,0 +1,105 @@
+<div class=container>
+
+    <div class=row>
+
+        <div class="col-md-6 campaign-details">
+            <h1>{{viewModel.campaign.candidate_name}}</h1>
+            <h3>{{viewModel.campaign.race}}</h3>
+
+            <img src={{viewModel.campaign.photo}} class=campaign-photo>
+
+            <h2>Get Involved</h2>
+            <a href=http://{{viewModel.campaign.website}}>Official Campaign Website</a>
+            <p>Contact: {{viewModel.campaign.phone}}</p>
+            <p>Update your voter registration</p>
+            <h4>Pledge your vote to this candidate!</h4>
+
+            <button class=socicon>a</button>
+            <button class=socicon>b</button>
+
+            <button>Make a grassroots donation</button>
+            <p>(optional paid service-feature for campaigns)</p>
+        </div>
+
+        <div class=col-md-6>
+            <h2>Vital Stats</h2>
+
+            <div id=stats-total>
+                <h3>Total money raised: ${{viewModel.campaign.total}}</h3>
+                <img src=http://placehold.it/150x130>
+                <button class=socicon>a</button>
+                <button class=socicon>b</button>
+            </div>
+
+            <div id=stats-grassroots>
+                <h3>Funding from grassroots donors: {{viewModel.campaign.grassroots}}%</h3>
+                <img src=http://placehold.it/150x130>
+                <button class=socicon>a</button>
+                <button class=socicon>b</button>
+            </div>
+
+            <div id=stats-district>
+                <h3>Funding from in-district voters: {{viewModel.campaign.district}}%</h3>
+                <img src=http://placehold.it/150x130>
+                <button class=socicon>a</button>
+                <button class=socicon>b</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class=row>
+
+        <div class=col-md-12>
+            <h1>What's the story?.</h1>
+        </div>
+
+    </div>
+
+
+    <div class=row>
+
+        <div class=col-md-3>
+            <h2 ng-mouseover="viewModel.section = 'who'">WHO?</h2>
+        </div>
+
+        <div class=col-md-3>
+          <h2 ng-mouseover="viewModel.section = 'where'">WHERE?</h2>
+        </div>
+
+        <div class=col-md-3>
+          <h2>WHAT?</h2>
+        </div>
+
+        <div class=col-md-3>
+          <h2>HOW?</h2>
+        </div>
+
+    </div>
+
+    <div class=row ng-show="viewModel.section === 'who'">
+      <input type=range ng-model=viewModel.startDate min={{viewModel.minDate}} max={{viewModel.maxDate}}>
+      <input type=range ng-model=viewModel.endDate min={{viewModel.minDate}} max={{viewModel.maxDate}}>
+      Start: {{viewModel.startFormatted}}
+      End: {{viewModel.endFormatted}}
+      <div data-bubble-chart="" data-donations=viewModel.donations data-color-map=viewModel.donationsColorMap></div>
+    </div>
+
+    <div class=row ng-show="viewModel.section === 'where'">
+      where
+
+    </div>
+
+    <div class=row ng-show="viewModel.section === 'what'">
+      what
+
+    </div>
+
+    <div class=row ng-show="viewModel.section === 'how'">
+      how
+
+    </div>
+
+
+</div>

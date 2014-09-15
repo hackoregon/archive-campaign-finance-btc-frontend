@@ -1,0 +1,12 @@
+{
+  "name": "Alexander Hayes",
+  "race": "Election Superintendent",
+  "photo": "images/campaign_photo.png",
+  "website": "http://fok.io",
+  "phone": "(922) 913-5926",
+  "contributions": {
+    "total": 6554,
+    "grassroots": 0.6912012721877545,
+    "local": 0.363344264915213
+  }
+}
