@@ -1,0 +1,9 @@
+<div class="campaign-tile">
+  {{JSON.stringify(campaign)}}
+  <a href="#campaign/{{campaign.candidate_name}}">{{campaign.candidate_name}}</a>
+  <div class="party">{{campaign.party}}</div>
+  <div class="total">Total Money Raised: ${{campaign.total}}</div>
+  <h5>Funding Sources</h5>
+  <div class="grassroots">Grassroots: {{(campaign.grassroots*100).toFixed(0)}}%</div>
+  <div class="local">In-district: {{(campaign.instate*100).toFixed(0)}}%</div>
+</div>
