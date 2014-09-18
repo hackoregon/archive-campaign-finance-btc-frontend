@@ -7,6 +7,9 @@
     }).when('/browse', {
       templateUrl: 'views/browse.html',
       controller: 'BrowseCtrl'
+    }).when('/myballot/:raceLevel?', {
+      templateUrl: 'views/myballot.html',
+      controller: 'MyBallotCtrl'
     }).when('/search', {
       templateUrl: 'views/search.html',
       controller: 'SearchCtrl'

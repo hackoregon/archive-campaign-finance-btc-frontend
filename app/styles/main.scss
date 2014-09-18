@@ -48,8 +48,11 @@ input[type='text'].read-only {
   }
 }
 
-/** Browse My Ballot Search Page **/
+/** Browse My Ballot Search and Results Pages **/
 .browse {
+
+  font-size: 22px;
+
   .btn {
     font-family: sans-serif;
     font-size: 22px;
@@ -65,7 +68,7 @@ input[type='text'].read-only {
   }
 
   .current {
-    font-weight: bold;
+    font-weight: bolder;
     .areaLabel {
         border-bottom: 3px solid black;
     }
@@ -82,11 +85,29 @@ input[type='text'].read-only {
   .zip.current {
     background-image: url('../images/icons/navi_zipcodes_selected.svg');
   }
+  .city {
+    background-image: url('../images/icons/navi_city.svg');
+  }
+  .city.current {
+    background-image: url('../images/icons/navi_city_selected.svg');
+  }
   .county {
     background-image: url('../images/icons/navi_counties.svg');
   }
   .county.current {
     background-image: url('../images/icons/navi_counties_selected.svg');
+  }
+  .state {
+    background-image: url('../images/icons/navi_state.svg');
+  }
+  .state.current {
+    background-image: url('../images/icons/navi_state_selected.svg');
+  }
+  .national {
+    background-image: url('../images/icons/navi_national.svg');
+  }
+  .national.current {
+    background-image: url('../images/icons/navi_national_selected.svg');
   }
   input {
     font-size: 22px;
@@ -97,20 +118,10 @@ input[type='text'].read-only {
       border-color: red;
     }
   }
-}
-
-/** Browse My Ballot Result Page **/
-.browse {
-  .current-address {
-    font-size: 22px;
+  .themed {
+    color: #64bcba;
+    font-size: 30px;
   }
-
-  .race-level {
-    .btn {
-      font-size: 22px;
-    }
-  }
-
 }
 
 .campaign-tile {

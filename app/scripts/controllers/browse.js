@@ -33,6 +33,7 @@
       if ($scope.query.$valid) {
         // TODO: check which search is used ($scope.searchArea) and call different methods on SessionService or AddressService?
         SessionService.update($scope.viewModel.address);
+        go('/myballot');
       }
     }
 
