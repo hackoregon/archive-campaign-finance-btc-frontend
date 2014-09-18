@@ -24,6 +24,13 @@ input[type='text'].read-only {
   border-color: rgba(0, 0, 0, 0);
 }
 
+.force-submit {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
 /** Home Page **/
 .home {
   .header {
@@ -38,6 +45,57 @@ input[type='text'].read-only {
     position: absolute;
     right: 30px;
     top: 30px;
+  }
+}
+
+/** Browse My Ballot Search Page **/
+.browse {
+  .btn {
+    font-family: sans-serif;
+    font-size: 22px;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    margin-bottom: 55px;
+
+    .areaLabel {
+      position: relative;
+      top: 100px;
+    }
+  }
+
+  .current {
+    font-weight: bold;
+    .areaLabel {
+        border-bottom: 3px solid black;
+    }
+  }
+  .local {
+    background-image: url('../images/icons/navi_local_gray.svg');
+  }
+  .local.current {
+    background-image: url('../images/icons/navi_local_selected.svg');
+  }
+  .zip {
+    background-image: url('../images/icons/navi_zipcodes.svg');
+  }
+  .zip.current {
+    background-image: url('../images/icons/navi_zipcodes_selected.svg');
+  }
+  .county {
+    background-image: url('../images/icons/navi_counties.svg');
+  }
+  .county.current {
+    background-image: url('../images/icons/navi_counties_selected.svg');
+  }
+  input {
+    font-size: 22px;
+    margin: 5px;
+  }
+  .attempted {
+    .ng-invalid {
+      border-color: red;
+    }
   }
 }
 

@@ -1,33 +1,46 @@
 (function() {
   'use strict';
-  angular.module('frontendApp').controller('BrowseCtrl', function($scope, $location, $routeParams, SessionService, AddressService, DISTRICTS) {
-    $scope.raceLevels = DISTRICTS;
-    $scope.go = function(location) {
-      return $location.path(location);
-    };
+  angular.module('frontendApp').controller('BrowseCtrl', function($scope, $location, SessionService, AddressService, BALLOT) {
+
+    $scope.BALLOT = BALLOT;
+
     $scope.viewModel = {
-      races: [],
-      editMode: true,
-      raceLevel: $routeParams.raceLevel || $scope.raceLevels.CITY,
-      validAddress: false,
+      searchArea: BALLOT.FULLADDRESS,
+      hasAttempted: false,
       address: {
         streetAddress: SessionService.address.streetAddress,
         city: SessionService.address.city,
         zip: SessionService.address.zip
       }
     };
-    $scope.validate = function() {
-      $scope.viewModel.validAddress = $scope.viewModel.address.streetAddress && $scope.viewModel.address.city && $scope.viewModel.address.zip;
+    $scope.selectArea = function(area) {
+      $scope.viewModel.searchArea = area;
+    }
+    $scope.isLocal = function() {
+      return $scope.viewModel.searchArea === BALLOT.FULLADDRESS;
+    }
+    $scope.isZip = function() {
+      return $scope.viewModel.searchArea === BALLOT.ZIP;
+    }
+    $scope.isCounty = function() {
+      return $scope.viewModel.searchArea === BALLOT.COUNTY;
+    }
+    $scope.go = function(location) {
+      return $location.path(location);
     };
-    $scope.enableAddressEdit = function() {
-      $scope.viewModel.editMode = true;
-    };
-    $scope.onAddressSubmit = function() {
-      AddressService.getRacesByAddress($scope.viewModel.address).then(function(result) {
-        return $scope.viewModel.races = result;
-      });
-      $scope.viewModel.editMode = false;
-    };
+    $scope.setMyBallot = function() {
+      $scope.viewModel.hasAttempted = true;
+      if ($scope.query.$valid) {
+        // TODO: check which search is used ($scope.searchArea) and call different methods on SessionService or AddressService?
+        SessionService.update($scope.viewModel.address);
+      }
+    }
+
+  })
+  .constant('BALLOT', {
+    'FULLADDRESS': 'Local',
+    'ZIP': 'Zipcode',
+    'COUNTY': 'County'
   });
 
-}).call(this);
+})();

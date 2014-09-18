@@ -4,7 +4,7 @@
     return $routeProvider.when('/', {
       templateUrl: 'views/home.html',
       controller: 'MainCtrl'
-    }).when('/browse/:raceLevel?', {
+    }).when('/browse', {
       templateUrl: 'views/browse.html',
       controller: 'BrowseCtrl'
     }).when('/search', {
