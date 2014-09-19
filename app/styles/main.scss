@@ -24,6 +24,13 @@ input[type='text'].read-only {
   border-color: rgba(0, 0, 0, 0);
 }
 
+.force-submit {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
 /** Home Page **/
 .home {
   .header {
@@ -41,18 +48,80 @@ input[type='text'].read-only {
   }
 }
 
-/** Browse My Ballot Result Page **/
+/** Browse My Ballot Search and Results Pages **/
 .browse {
-  .current-address {
-    font-size: 22px;
-  }
 
-  .race-level {
-    .btn {
-      font-size: 22px;
+  font-size: 22px;
+
+  .btn {
+    font-family: sans-serif;
+    font-size: 22px;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    margin-bottom: 55px;
+
+    .areaLabel {
+      position: relative;
+      top: 100px;
     }
   }
 
+  .current {
+    font-weight: bolder;
+    .areaLabel {
+        border-bottom: 3px solid black;
+    }
+  }
+  .local {
+    background-image: url('../images/icons/navi_local_gray.svg');
+  }
+  .local.current {
+    background-image: url('../images/icons/navi_local_selected.svg');
+  }
+  .zip {
+    background-image: url('../images/icons/navi_zipcodes.svg');
+  }
+  .zip.current {
+    background-image: url('../images/icons/navi_zipcodes_selected.svg');
+  }
+  .city {
+    background-image: url('../images/icons/navi_city.svg');
+  }
+  .city.current {
+    background-image: url('../images/icons/navi_city_selected.svg');
+  }
+  .county {
+    background-image: url('../images/icons/navi_counties.svg');
+  }
+  .county.current {
+    background-image: url('../images/icons/navi_counties_selected.svg');
+  }
+  .state {
+    background-image: url('../images/icons/navi_state.svg');
+  }
+  .state.current {
+    background-image: url('../images/icons/navi_state_selected.svg');
+  }
+  .national {
+    background-image: url('../images/icons/navi_national.svg');
+  }
+  .national.current {
+    background-image: url('../images/icons/navi_national_selected.svg');
+  }
+  input {
+    font-size: 22px;
+    margin: 5px;
+  }
+  .attempted {
+    .ng-invalid {
+      border-color: red;
+    }
+  }
+  .themed {
+    color: #64bcba;
+    font-size: 30px;
+  }
 }
 
 .campaign-tile {
