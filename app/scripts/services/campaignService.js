@@ -18,6 +18,8 @@
         NA: 'NA'
       };
 
+      var _cachedTransactions = {campaignId: null, transactions: null};
+
       this.searchCampaigns = function(searchTerm){
         var deferred = $q.defer();
         var promise = deferred.promise;
@@ -40,6 +42,33 @@
 
         return promise;
       };
+
+      /**
+       * These results will get cached.  Each result could be many rows of data, so we'll only cache one
+       * candidateId of results at a time.  Other service calls like getFinancialSummary will use the cached results.
+       * @param campaignId
+       * @returns {*}
+       */
+      this.getTransactions = function(campaignId) {
+
+        var deferred = $q.defer();
+        var promise = deferred.promise;
+        if (campaignId === _cachedTransactions.campaignId) {
+          deferred.resolve(_cachedTransaction.transactions);
+        } else {
+          $http.get(urls.transactions(campaignId))
+            .then(function(result){
+              _cachedTransactions = {
+                campaignId: campaignId,
+                transactions: result.data
+              };
+              deferred.resolve(result.data);
+            });
+        }
+
+        return promise;
+      };
+
 
       return this;
     });
