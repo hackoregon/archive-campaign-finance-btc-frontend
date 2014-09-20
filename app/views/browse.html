@@ -1,81 +1,103 @@
 <div class="container browse">
   <div class="row">
-    <div class="col-md-12"><h1>Browse My Ballot</h1></div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 current-address">
-      <input type="text" placeholder="Street Address"
-             ng-class="{'read-only': !viewModel.editMode}"
-             ng-model="viewModel.address.streetAddress"
-             ng-disabled="!viewModel.editMode"
-             ng-change="validate()"/>
-      <input type="text" placeholder="City"
-             ng-class="{'read-only': !viewModel.editMode}"
-             ng-model="viewModel.address.city"
-             ng-disabled="!viewModel.editMode"
-             ng-change="validate()" />
-      <input type="text" placeholder="Zip Code"
-             ng-class="{'read-only': !viewModel.editMode}"
-             ng-model="viewModel.address.zip"
-             ng-disabled="!viewModel.editMode"
-             ng-change="validate()" />
-      <button class="btn"
-              ng-click="onAddressSubmit()"
-              ng-disabled="!viewModel.validAddress"
-              ng-show="viewModel.editMode">Browse</button>
-      <button class="btn"
-              ng-click="enableAddressEdit()"
-              ng-show="!viewModel.editMode">Edit</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 jumbotron race-level">
-      <button class="btn"
-              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.NATIONAL}"
-              ng-click="go('browse/'+raceLevels.NATIONAL)">National</button>
-      <button class="btn"
-              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.STATE}"
-              ng-click="go('browse/'+raceLevels.STATE)">State</button>
-      <button class="btn"
-              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.COUNTY}"
-              ng-click="go('browse/'+raceLevels.COUNTY)">County</button>
-      <button class="btn"
-              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.CITY}"
-              ng-click="go('browse/'+raceLevels.CITY)">City</button>
-      <button class="btn"
-              ng-class="{'btn-primary':viewModel.raceLevel === raceLevels.LOCAL}"
-              ng-click="go('browse/'+raceLevels.LOCAL)">Local</button>
-    </div>
+    <div class="col-md-6 col-md-offset-3"><h1>Browse My Ballot</h1></div>
   </div>
 
   <div class="row">
-    <div class="col-md-11">
-      <h2>You'll see these candidates on the ballot for the November 4th General Election.</h2>
-      <p>Click a picture to go "Behind the Curtain" on campaign finance.</p>
-    </div>
-  </div>
-
-  <div class="races row" ng-repeat="race in viewModel.races">
-    <div class="col-md-11">
-      <h3>{{race.name}}</h3>
-      <p>Job Description: {{race.description}}</p>
-      <!-- TODO: turn into campaign directive for reuse -->
-      <div class="row">
-        <span ng-repeat="(index, campaign) in race.campaigns">
-          <div class="col-md-4" >
-            <div class="campaign-tile">
-                <a href="#campaign/{{campaign.id}}">{{campaign.name}}</a>
-                <div class="party">{{campaign.party}}</div>
-                <div class="total">Total Money Raised: ${{campaign.total}}</div>
-                <h5>Funding Sources</h5>
-                <div class="grassroots">Grassroots: {{(campaign.grassroots*100).toFixed(0)}}%</div>
-                <div class="local">In-district: {{(campaign.local*100).toFixed(0)}}%</div>
-            </div>
-          </div>
-          <br ng-show="(index+1)%3==0" />
-        </span>
-
+    <div class="col-md-6 col-md-offset-3">
+      <div class="btn local"
+           ng-class="{current: isLocal()}"
+           ng-click="selectArea(BALLOT.FULLADDRESS)">
+        <div class="areaLabel">
+          Local
+        </div>
+      </div>
+      <div class="btn zip"
+           ng-class="{current: isZip()}"
+           ng-click="selectArea(BALLOT.ZIP)">
+        <div class="areaLabel">
+           Zipcode
+        </div>
+      </div>
+      <div class="btn county"
+           ng-class="{current: isCounty()}"
+           ng-click="selectArea(BALLOT.COUNTY)">
+        <div class="areaLabel">
+           County
+        </div>
       </div>
     </div>
   </div>
+
+  <form name="query" ng-submit="setMyBallot()" ng-class="{attempted: viewModel.hasAttempted}">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 current-address"
+           ng-show="isLocal()">
+        <form name="address" class="form-group">
+          <div class="col-md-12">
+            <input type="text" placeholder="Street Address"
+                   class="form-control"
+                   ng-model="viewModel.address.streetAddress"
+                   ng-required="isLocal()" />
+            <input type="text" placeholder="City"
+                   class="form-control"
+                   ng-model="viewModel.address.city"
+                   ng-required="isLocal()" />
+          </div>
+          <div class="col-md-3">
+              <input type="text" placeholder="OR" class="form-control"
+                     ng-disabled="true"></input>
+          </div>
+          <div class="col-md-4">
+              <input type="text" name="zip" placeholder="Zip Code"
+                     class="form-control"
+                     ng-model="viewModel.address.zip"
+                     ng-required="isLocal()" />
+          </div>
+          <input type="submit" class="force-submit" />
+        </form>
+      </div>
+    </div>
+
+    <div class="row"
+         ng-show="isZip()">
+      <div class="col-md-6 col-md-offset-3 current-address">
+        <form name="zip" ng-submit="setMyBallot()">
+          <div class="col-md-12">
+            <input type="text" name="code" placeholder="Zip Code"
+                   class="form-control"
+                   ng-model="viewModel.address.zip"
+                   ng-required="isZip()" />
+          </div>
+          <div class="col-md-12">
+            <div class="filler row">&nbsp;</div>
+          </div>
+          <div class="col-md-12">
+            <div class="filler row">&nbsp;</div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row"
+         ng-show="isCounty()">
+      <div class="col-md-6 col-md-offset-3 current-address">
+        <form name="county" ng-submit="setMyBallot()">
+          <div class="col-md-12">
+            <input type="text" name="county" placeholder="County"
+                   class="form-control"
+                   ng-model="viewModel.address.city"
+                   ng-required="isCounty()" />
+          </div>
+          <div class="col-md-12">
+            <div class="filler row">&nbsp;</div>
+          </div>
+          <div class="col-md-12">
+            <div class="filler row">&nbsp;</div>
+          </div>
+        </form>
+      </form>
+    </div>
+  </form>
+
 </div>
