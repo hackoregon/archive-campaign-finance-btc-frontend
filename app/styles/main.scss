@@ -125,10 +125,71 @@ input[type='text'].read-only {
 }
 
 .campaign-tile {
-  border: 1px solid silver;
+  border: 1px solid #666666;
   border-radius: 5px;
   margin: 10px 10px 0 0;
   padding: 5px;
+
+  h1 {
+    font-family: OpenSansBold;
+    font-size: 2.5em;
+    a {
+      color: #666666;
+    }
+  }
+  .portrait {
+    float: left;
+    display: inline-block;
+    width: 170px;
+    height: 170px;
+  }
+  .total {
+    clear: both;
+    font-size: 2.5em;
+  }
+  .radial {
+    display: inline-block;
+  }
+  .percent {
+    font-size: 2em;
+  }
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin-top: -50px;
+    position: relative;
+    top: 75px;
+    left: 25px;
+  }
+  .icon-grassroots {
+    background-image: url('../images/icons/grassroots_funding_heart.svg');
+  }
+  .icon-district {
+    background-image: url('../images/icons/indistrict_funding__gps.svg');
+  }
+  .icon-money {
+    background-image: url('../images/icons/total_money_raised.svg');
+  }
+  .icon-individuals {
+    background-image: url('../images/icons/whos_giving_indv.svg');
+  }
+  .icon-pac {
+    background-image: url('../images/icons/whos_giving_pac.svg');
+  }
+  .icon-party {
+    background-image: url('../images/icons/whos_giving_party.svg');
+  }
+  .party {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+  }
+  .party-democrat {
+    background-image: url('../images/icons/party2_dem_donkey.svg');
+  }
+  .party-republican {
+    background-image: url('../images/icons/party_rep_elphant.svg');
+  }
 }
 
 .candidate-name {
