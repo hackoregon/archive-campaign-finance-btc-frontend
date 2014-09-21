@@ -1,107 +1,124 @@
 <div class="container">
 
-    <div class="row">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="candidate-name">{{viewModel.campaign.candidate_name}}</h1>
 
-        <div class="col-md-6 campaign-details">
-            <h1>{{viewModel.campaign.candidate_name}}</h1>
-            <h3>{{viewModel.campaign.race}}</h3>
-
-            <img src="{{viewModel.campaign.photo}}" class="campaign-photo" />
-
-            <h2>Get Involved</h2>
-            <a href="http://{{viewModel.campaign.website}}">Official Campaign Website</a>
-            <p>Contact: {{viewModel.campaign.phone}}</p>
-            <p>Update your voter registration</p>
-            <h4>Pledge your vote to this candidate!</h4>
-
-            <button class="socicon">a</button>
-            <button class="socicon">b</button>
-
-            <button>Make a grassroots donation</button>
-            <p>(optional paid service-feature for campaigns)</p>
-        </div>
-
-        <div class="col-md-6">
-            <h2>Vital Stats</h2>
-
-            <div id="stats-total">
-                <h3>Total money raised: ${{viewModel.campaign.total}}</h3>
-                <img src="http://placehold.it/150x130" />
-                <button class="socicon">a</button>
-                <button class="socicon">b</button>
-            </div>
-
-            <div id="stats-grassroots">
-                <h3>Funding from grassroots donors: {{viewModel.campaign.grassroots}}%</h3>
-                <img src="http://placehold.it/150x130" />
-                <button class="socicon">a</button>
-                <button class="socicon">b</button>
-            </div>
-
-            <div id="stats-district">
-                <h3>Funding from in-district voters: {{viewModel.campaign.district}}%</h3>
-                <img src="http://placehold.it/150x130" />
-                <button class="socicon">a</button>
-                <button class="socicon">b</button>
-            </div>
-        </div>
-
+      <h2 class="candidate-name">{{viewModel.campaign.race}}</h2>
     </div>
-
-
-    <div class="row">
-
-        <div class="col-md-12">
-            <h1>What's the story?.</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{viewModel.campaign.photo}}" class="campaign-photo" width="100%"/>
+    </div>
+    <div class="col-md-2">
+      <div class="party_{{viewModel.campaign.party}}"></div>
+    </div>
+    <div class="col-md-6 campaign-details">
+      <div class="row">
+        <div class="col-sm-4">
+          <div simple-radial percent="viewModel.campaign.grassroots" title="Grassroots Funding" ></div>
         </div>
-
-    </div>
-
-
-    <div class="row">
-
-        <div class="col-md-3">
-            <h2 ng-mouseover="viewModel.section = 'who'">WHO?</h2>
+        <div class="col-sm-4">
+          <div simple-radial percent="viewModel.campaign.instate" title="In-District Funding"></div>
         </div>
-
-        <div class="col-md-3">
-          <h2 ng-mouseover="viewModel.section = 'where'">WHERE?</h2>
+        <div class="col-sm-4">
+          <div simple-radial percent="viewModel.campaign.spent" title="Spent"></div>
         </div>
-
-        <div class="col-md-3">
-          <h2>WHAT?</h2>
-        </div>
-
-        <div class="col-md-3">
-          <h2>HOW?</h2>
-        </div>
-
+      </div>
     </div>
-
-    <div class="row" ng-show="viewModel.section === 'who'">
-      <input type="range" ng-model=viewModel.startDate min="{{viewModel.minDate}}" max="{{viewModel.maxDate}}" />
-      <input type="range" ng-model=viewModel.endDate min="{{viewModel.minDate}}" max="{{viewModel.maxDate}}" />
-      Start: {{viewModel.startFormatted}}
-      End: {{viewModel.endFormatted}}
-      <div data-bubble-chart
-           data-donations="viewModel.donations"
-           data-color-map="viewModel.donationsColorMap"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Official Campaign Contact</h3>
+      <h3><a href="http://{{viewModel.campaign.website}}">{{viewModel.campaign.website}}</a></h3>
+      <h3>{{viewModel.campaign.phone}}</h3>
+      <div class="btn-group">
+        <a href="">
+          <img src="images/icons/landing_twitter.svg" width="33" />
+        </a>
+        <a href="">
+          <img src="images/icons/landing_facebook.svg" width="33" />
+        </a>
+        <a href="">
+          <img src="images/icons/landing_mail.svg" width="33" />
+        </a>
+      </div>
     </div>
+  </div>
 
-    <div class="row" ng-show="viewModel.section === 'where'">
-      where
 
+  <div class="row">
+    <div class="col-md-9">
+      <h2>Who's Giving?</h2>
     </div>
-
-    <div class="row" ng-show="viewModel.section === 'what'">
-      what
-
+    <div class="col-md-3">
+      Share
+      <a href="">
+        <img src="images/icons/landing_twitter.svg" width="22" />
+      </a>
+      <a href="">
+        <img src="images/icons/landing_facebook.svg" width="22" />
+      </a>
+      <a href="">
+        <img src="images/icons/landing_mail.svg" width="22" />
+      </a>
     </div>
-
-    <div class="row" ng-show="viewModel.section === 'how'">
-      how
-
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div who-chart financial-summary="viewModel.financialSummary"></div>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <h2>What Are They Spending Money On?</h2>
+    </div>
+    <div class="col-md-3">
+      Share
+      <a href="">
+        <img src="images/icons/landing_twitter.svg" width="22" />
+      </a>
+      <a href="">
+        <img src="images/icons/landing_facebook.svg" width="22" />
+      </a>
+      <a href="">
+        <img src="images/icons/landing_mail.svg" width="22" />
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Spending column chart goes here -->
+
+      <!-- Spending/Raising History chart goes here -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <h2>Is the Money Local?</h2>
+    </div>
+    <div class="col-md-3">
+      Share
+      <a href="">
+        <img src="images/icons/landing_twitter.svg" width="22" />
+      </a>
+      <a href="">
+        <img src="images/icons/landing_facebook.svg" width="22" />
+      </a>
+      <a href="">
+        <img src="images/icons/landing_mail.svg" width="22" />
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Where data viz goes here -->
+    </div>
+  </div>
+
 
 
 </div>
