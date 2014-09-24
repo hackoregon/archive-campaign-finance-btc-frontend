@@ -7,6 +7,7 @@ $primary-grey: #4A4A4A;
 $trim: #68B9FE 1px solid;
 
 @include font-face("OpenSansLight", font-files("open-sans/OpenSans-Light.ttf"));
+@include font-face("OpenSansBold", font-files("open-sans/OpenSans-Bold.ttf"));
 @include font-face("OpenSansRegular", font-files("open-sans/OpenSans-Regular.ttf"));
 @include font-face("MerriweatherLight", font-files("merriweather/Merriweather-Light.otf"));
 @include font-face("socicon", font-files("socicons/socicon-webfont.ttf"));
