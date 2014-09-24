@@ -8,12 +8,12 @@
       campaigns: []
     };
 
-    $scope.$watchCollection('[viewModel.searchType, viewModel.searchTerm]', _(function(){
+    $scope.$watchCollection('[viewModel.searchType, viewModel.searchTerm]', _.debounce(function(){
       CampaignService.searchCampaigns($scope.viewModel.searchTerm)
         .then(function(campaigns){
           $scope.viewModel.campaigns = campaigns;
         });
-    }).debounce(250));
+    }, 250));
 
 
   });

@@ -19,8 +19,8 @@
         campaignDetail: function(campaignId) {
           return campaignDetailUrl({campaignId: campaignId});
         },
-        campaignMoneyByState: function(name) {
-          return moneyByStateUrl({name: name});
+        campaignMoneyByState: function(campaignId) {
+          return moneyByStateUrl({campaignId: campaignId});
         }
       };
     });
