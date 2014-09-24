@@ -11,36 +11,30 @@
     $scope.viewModel = {
       section: 'who',
       campaign: [],
-      donations: {},
-      donationsColorMap: {},
-      minDate: startDate,
-      maxDate: endDate,
-      startDate: startDate,
-      startFormatted: '',
-      endDate: endDate,
-      endFormatted: ''
+      financialSummary: null,
+      moneyByState: null
     };
 
-    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PAC] = '#fbb4ae';
-    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.BUSINESS] = '#b3cde3';
-    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.GRASSROOTS] = '#ccebc5';
-    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.INDIVIDUAL] = '#decbe4';
-    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PARTY] = '#fed9a6';
-    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.NA] = '#ffffcc';
+//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PAC] = '#fbb4ae';
+//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.BUSINESS] = '#b3cde3';
+//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.GRASSROOTS] = '#ccebc5';
+//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.INDIVIDUAL] = '#decbe4';
+//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PARTY] = '#fed9a6';
+//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.NA] = '#ffffcc';
 
     CampaignService.getCampaign($routeParams.campaignId).then(function(result) {
       $scope.viewModel.campaign = result;
+
+      CampaignService.getCampaignFinancialSummary($scope.viewModel.campaign.filer_id).then(function(result) {
+        $scope.viewModel.financialSummary = result;
+      });
+
+      CampaignService.getCampaignMoneyByState($routeParams.campaignId).then(function(result) {
+        $scope.viewModel.moneyByState = result;
+      });
     });
 
-    $scope.$watch('viewModel.startDate', function(){
-      $scope.viewModel.startFormatted = new Date(parseInt($scope.viewModel.startDate)).toString()
-      render();
-    });
 
-    $scope.$watch('viewModel.endDate', function(){
-      $scope.viewModel.endFormatted = new Date(parseInt($scope.viewModel.endDate)).toString();
-      render();
-    });
 
     var render = _(function() {
       var startDate = new Date(parseInt($scope.viewModel.startDate));
