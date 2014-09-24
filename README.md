@@ -15,7 +15,7 @@ Components for the core application lives at the top level of each directory.  A
 We're using yeoman for workflow.  
 ```
 #Install yeoman:
-npm install -g yeoman
+npm install -g yo
 git clone <this_repo>
 cd <this_repo>
 #install node packages:    
