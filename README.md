@@ -12,6 +12,7 @@ Components for the core application lives at the top level of each directory.  A
 <!-- ** TODO add gist viewer (like bl.ocks.org) to allow easy integration of community apps ** -->
 
 ## Getting started    
+<<<<<<< HEAD
 We're using yeoman for workflow.  You'll also need the [Compass](http://compass-style.org/), the css authoring framework.
 
 ```bash
@@ -22,6 +23,12 @@ npm install -g generator-angular
 # Install compass
 gem install compass
 
+=======
+We're using yeoman for workflow.  
+```
+#Install yeoman:
+npm install -g yo
+>>>>>>> 5ee51f4394e4021ef22ae7a1fe58884810176ef3
 git clone <this_repo>
 cd <this_repo>
 
