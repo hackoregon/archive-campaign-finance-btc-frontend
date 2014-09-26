@@ -1,14 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
-<path fill="#48A04B" d="M404.3,308c0,4.8-3.9,8.7-8.6,8.7c-4.8,0-8.7-3.9-8.7-8.7c0-3.6,2.2-6.6,5.2-7.9l-2.2-4.7
-	c0-0.5,0.3-0.7,0.7-0.7h9.7c0.4,0,0.7,0.2,0.7,0.7L399,300C402.1,301.3,404.3,304.4,404.3,308z M398.9,305.8l0.2,0.1l1.2-2.4
-	l-0.2-0.1c-0.2,0.1-0.3,0.2-0.4,0.2c-0.1,0-0.2,0-0.3-0.1c-1.6-0.6-2.4-0.9-3.3-0.9v-0.5c0-0.2,0.1-0.4,0.5-0.5v-0.2h-2.1v0.2
-	c0.4,0.1,0.4,0.3,0.4,0.5v0.4c-2.6,0.1-4,1.3-4,3.2c0,2,1.1,2.6,4,2.9v2.6c-2.1-0.2-3.1-1-3.1-1.7l-0.2-0.1l-1.1,2.5l0.2,0.1
-	c0.2-0.1,0.2-0.1,0.3-0.1c0,0,0.2,0,0.2,0.1c1.3,0.6,2.5,1,3.6,1.1v0.5c0,0.3-0.1,0.4-0.4,0.5v0.2h2.1V314c-0.4-0.1-0.5-0.2-0.5-0.5
-	V313c2.6-0.1,4.2-1.4,4.2-3.3c0-1.9-1.4-2.8-3.9-3h-0.3v-2.3c0.6,0,1.2,0.2,1.9,0.5C398.7,305.2,398.9,305.4,398.9,305.8z
-	 M395,304.2v2.3c-1.3-0.1-2-0.2-2-1c0-0.2,0.1-0.4,0.3-0.6C393.6,304.4,394.2,304.3,395,304.2z M396.1,308.8
-	c1.6,0.1,2.1,0.2,2.1,0.9c0,0.8-0.6,1.3-2.1,1.5V308.8z"/>
-</svg>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 17.3 22"
+   enable-background="new 0 0 792 612"
+   xml:space="preserve"
+   inkscape:version="0.48.5 r10040"
+   width="100%"
+   height="100%"
+   sodipodi:docname="total_money_raised.svg"><metadata
+     id="metadata3293"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs3291" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview3289"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.38562092"
+     inkscape:cx="9"
+     inkscape:cy="10.7"
+     inkscape:window-x="59"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" /><path
+     d="M 17.3,13.3 C 17.3,18.1 13.4,22 8.7,22 3.9,22 0,18.1 0,13.3 0,9.7 2.2,6.7 5.2,5.4 L 3,0.7 C 3,0.2 3.3,0 3.7,0 h 9.7 c 0.4,0 0.7,0.2 0.7,0.7 L 12,5.3 c 3.1,1.3 5.3,4.4 5.3,8 z m -5.4,-2.2 0.2,0.1 1.2,-2.4 -0.2,-0.1 c -0.2,0.1 -0.3,0.2 -0.4,0.2 -0.1,0 -0.2,0 -0.3,-0.1 C 10.8,8.2 10,7.9 9.1,7.9 V 7.4 C 9.1,7.2 9.2,7 9.6,6.9 V 6.7 H 7.5 V 6.9 C 7.9,7 7.9,7.2 7.9,7.4 v 0.4 c -2.6,0.1 -4,1.3 -4,3.2 0,2 1.1,2.6 4,2.9 v 2.6 C 5.8,16.3 4.8,15.5 4.8,14.8 l -0.2,-0.1 -1.1,2.5 0.2,0.1 c 0.2,-0.1 0.2,-0.1 0.3,-0.1 0,0 0.2,0 0.2,0.1 1.3,0.6 2.5,1 3.6,1.1 v 0.5 c 0,0.3 -0.1,0.4 -0.4,0.5 v 0.2 H 9.5 V 19.3 C 9.1,19.2 9,19.1 9,18.8 v -0.5 c 2.6,-0.1 4.2,-1.4 4.2,-3.3 0,-1.9 -1.4,-2.8 -3.9,-3 H 9 V 9.7 c 0.6,0 1.2,0.2 1.9,0.5 0.8,0.3 1,0.5 1,0.9 z M 8,9.5 v 2.3 C 6.7,11.7 6,11.6 6,10.8 6,10.6 6.1,10.4 6.3,10.2 6.6,9.7 7.2,9.6 8,9.5 z m 1.1,4.6 c 1.6,0.1 2.1,0.2 2.1,0.9 0,0.8 -0.6,1.3 -2.1,1.5 v -2.4 z"
+     id="path3287"
+     inkscape:connector-curvature="0"
+     style="fill:#48a04b" /></svg>
