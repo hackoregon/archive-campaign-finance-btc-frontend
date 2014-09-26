@@ -1,8 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
-<path fill="#64BCBB" d="M357,308.6c-1.8-1.8-2.6-3.7-2.6-5.4c0-2.9,2-4.9,4.9-4.9c2.8,0,3.7,1.3,5.3,3.1c1.6-1.9,2.6-3.1,5.3-3.1
-	c3,0,4.9,2,4.9,4.9c0,1.7-0.8,3.6-2.6,5.4l-7.7,7.6L357,308.6z"/>
-</svg>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 20.4 20.4"
+   enable-background="new 0 0 792 612"
+   xml:space="preserve"
+   inkscape:version="0.48.5 r10040"
+   width="100%"
+   height="100%"
+   sodipodi:docname="grassroots_funding_heart.svg"><metadata
+     id="metadata3033"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs3031" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview3029"
+     showgrid="false"
+     fit-margin-top="1.25"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="1.25"
+     inkscape:zoom="0.38562092"
+     inkscape:cx="41.6"
+     inkscape:cy="11.449999"
+     inkscape:window-x="59"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" /><path
+     d="M 2.6,11.55 C 0.8,9.7499998 0,7.8499998 0,6.1499998 c 0,-2.9 2,-4.9 4.9,-4.9 2.8,0 3.7,1.3 5.3,3.1 1.6,-1.9 2.6,-3.1 5.3,-3.1 3,0 4.9,2 4.9,4.9 0,1.7 -0.8,3.6 -2.6,5.4000002 l -7.7,7.6 -7.5,-7.6 z"
+     id="path3027"
+     inkscape:connector-curvature="0"
+     style="fill:#64bcbb" /></svg>
