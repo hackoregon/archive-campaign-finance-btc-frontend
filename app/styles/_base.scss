@@ -26,6 +26,8 @@ $tinytypeFont: "OpenSansRegular";
 $lightBlue: #64BCBB;
 $green: #49A14C;
 $darkBlue: #10716F;
+$darkGray: #828282;
+$lightGray: #D9D9D9;
 
 body {
     padding-top: 70px;
@@ -44,33 +46,47 @@ h3 {
   letter-spacing: 3px;
 }
 
-
 #main-nav {
-    #navbar-logo {max-height: 75px;}
-    background-color: $primary-grey;
-    border-bottom: $green 1px solid;
+    background-color: $primary-white;
+    font-size: 2em;
+
+    .selected {
+      font-family: OpenSansBold;
+
+      div {
+        border-bottom: 6px solid black;
+      }
+    }
+
     .navbar-nav {
         li {
-            &.dropdown.open {
-                    a {
-                        background: #FFF;
-                        color: $green;
-                        &:hover {
-                            background: $green;
-                            color: $primary-white;
-                        }
-                    }
+          div {
+            display: inline;
+            padding-bottom: 5%;
+            margin-right: 20px;
+            margin-top: 15px;
+
+            &:active, &:hover {
+                background: #E8F5F5;
+
+                a {
+                  color: $darkGray;
                 }
-            ul.dropdown-menu { background: #FFF; }
-            a {
-                color: $primary-white;
-                &:active, &:hover {
-                    background: $green;
-                    color: $primary-white;
-                        }
-                }
+            }
+          }
+          a {
+              color: black;
+              text-decoration: none;
+              &:active, &:hover {
+                  text-decoration: none;
+              }
+            }
         }
     }
+}
+#main-nav.navbar {
+  border: none;
+  min-height: 75px;
 }
 
 .footer {
