@@ -134,6 +134,8 @@ input[type='text'].read-only {
   margin: 10px 10px 0 0;
   padding: 5px;
 
+}
+.campaign-tile, .campaign-detail {
   h1 {
     font-family: OpenSansBold;
     font-size: 2.5em;
@@ -196,12 +198,23 @@ input[type='text'].read-only {
   }
 }
 
+/*** Campaign Detail Page **/
+
+.campaign-detail {
+  .detail-header {
+    border-bottom: 5px solid black;
+  }
+  h3 {
+    font-family: OpenSansBold;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
 .candidate-name {
   text-transform: capitalize;
 }
-
-
-/*** Campaign Detail Page **/
 
   .legend {
     display: inline-block;
@@ -212,5 +225,4 @@ input[type='text'].read-only {
       margin: 2px 2px 0 0;
     }
   }
-
 
