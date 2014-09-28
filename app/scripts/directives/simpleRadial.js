@@ -42,8 +42,12 @@
           svg.selectAll("path")
               .data( pie([scope.percent, 1.0-scope.percent]) )
             .enter().append("path")
-              .attr("d", arc)
-              .attr("fill", function(d, i) { return colors[ (i % colors.length) ]} );
+              .attr("fill", function(d, i) { return colors[ (i % colors.length) ]} )
+              .transition().duration(1000).ease('cubic')
+              .attrTween("d", function(b) {
+                var i = d3.interpolate({startAngle: 0, endAngle: 2*Math.PI}, b);
+                return function(t) { return arc(i(t)); };
+              });
         }
 
         scope.$watch('percent', function(){
