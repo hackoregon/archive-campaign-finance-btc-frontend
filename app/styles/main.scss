@@ -226,3 +226,57 @@ input[type='text'].read-only {
     }
   }
 
+$iconSize: 85px;
+
+.search {
+
+  h1 {
+    font-size: 3.5em;
+    letter-spacing: 2px;
+  }
+
+  .icon {
+    display: inline-block;
+    width: $iconSize;
+    height: $iconSize;
+    margin: 15px;
+  }
+  .icon-candidate {
+    background-image: url('../images/icons/search_campgains.svg');
+  }
+  .icon-initiative {
+    background-image: url('../images/icons/search_campgains2.svg');
+  }
+  .icon-party {
+    background-image: url('../images/icons/search_campgains4.svg');
+  }
+  .icon-arrow {
+    height: ($iconSize + 15px) / 2;
+    width: ($iconSize + 15px) / 2;
+    margin-top: ($iconSize / 3) + 5px;
+    margin-left: -20px;
+    background-image: url('../images/icons/search_arrow.svg');
+  }
+}
+
+.search-box {
+  position: relative;
+
+  .form-control {
+    font-size: 2.5em;
+    height: $iconSize * 7 / 10;
+    margin-top: $iconSize / 3;
+    border: 2px solid #777;
+    border-radius: 7px;
+  }
+  input {
+    padding-left: ($iconSize / 2) + 8px;
+  }
+  .bg-search-icon {
+    width: ($iconSize / 2) - 5px;
+    height: ($iconSize / 2) - 5px;
+    position: absolute;
+    left: 25px;
+    top: 40px;
+  }
+}

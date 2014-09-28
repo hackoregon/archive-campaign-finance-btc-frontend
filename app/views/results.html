@@ -5,13 +5,17 @@
       <h2 class="text-center">Search Candidates</h2>
     </div>
   </div>
-  <search-box search-type="{{viewModel.searchType}}" prompt="Candidate Name" search-term="{{viewModel.searchTerm}}" ></search-box>
+  <div class="col-md-8 col-md-offset-2">
+    <search-box search-type="{{viewModel.searchType}}" prompt="Candidate Name" search-term="{{viewModel.searchTerm}}" ></search-box>
+  </div>
 
+  <div class="row">
   <span ng-repeat="(index, campaign) in viewModel.campaigns">
     <div class="col-md-4" >
       <campaign-tile campaign="campaign"></campaign-tile>
     </div>
     <br ng-show="(index+1)%3==0" />
   </span>
+  </div>
 
 </div>
