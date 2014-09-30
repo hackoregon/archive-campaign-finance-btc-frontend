@@ -41,6 +41,8 @@
                    class="form-control"
                    ng-model="viewModel.address.streetAddress"
                    ng-required="isLocal()" />
+          </div>
+          <div class="col-md-12">
             <input type="text" placeholder="City"
                    class="form-control"
                    ng-model="viewModel.address.city"
@@ -50,7 +52,7 @@
               <input type="text" placeholder="OR" class="form-control"
                      ng-disabled="true"></input>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5">
               <input type="text" name="zip" placeholder="Zip Code"
                      class="form-control"
                      ng-model="viewModel.address.zip"

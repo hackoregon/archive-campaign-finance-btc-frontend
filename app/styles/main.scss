@@ -111,9 +111,12 @@ input[type='text'].read-only {
   .national.current {
     background-image: url('../images/icons/navi_national_selected.svg');
   }
-  input {
-    font-size: 22px;
-    margin: 5px;
+  .form-control {
+    font-size: 2.5em;
+    height: 60px;
+    margin: 10px;
+    border: 2px solid #777;
+    border-radius: 7px;
   }
   .attempted {
     .ng-invalid {
@@ -131,7 +134,6 @@ input[type='text'].read-only {
   border-radius: 5px;
   margin: 10px 10px 0 0;
   padding: 5px;
-
 }
 .campaign-tile, .campaign-detail {
   h2 {
