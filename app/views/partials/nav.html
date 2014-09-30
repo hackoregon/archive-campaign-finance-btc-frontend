@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="main-nav">
-  <div class="container">
-    <div class="navbar-header" id='nav-header'>
-      <a class="" ng-href="#">
-        <img class="img-responsive" id="navbar-logo" src="images/BHC_Logo_OG.png" >
-      </a>
-    </div>
+  <div class="navbar-header" id='nav-header'>
   </div>
+  <ul class="nav navbar-nav navbar-right">
+    <li ng-class="checkFor(SITE.BALLOT)"><div><a class="" href="#myballot">My Ballot</a></div></li>
+    <li ng-class="checkFor(SITE.SEARCH)"><div><a class="" href="#search">Campaigns</a></div></li>
+    <li ng-class="checkFor(SITE.OREGON)"><div><a class="" href="#view_all">Oregon</a></div></li>
+  </ul>
 </nav>

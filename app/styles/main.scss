@@ -46,12 +46,14 @@ input[type='text'].read-only {
     right: 30px;
     top: 30px;
   }
+
+  .spacer {
+    height: 200px;
+  }
 }
 
 /** Browse My Ballot Search and Results Pages **/
 .browse {
-
-  font-size: 22px;
 
   .btn {
     font-family: sans-serif;
@@ -109,9 +111,12 @@ input[type='text'].read-only {
   .national.current {
     background-image: url('../images/icons/navi_national_selected.svg');
   }
-  input {
-    font-size: 22px;
-    margin: 5px;
+  .form-control {
+    font-size: 2.5em;
+    height: 60px;
+    margin: 10px;
+    border: 2px solid #777;
+    border-radius: 7px;
   }
   .attempted {
     .ng-invalid {
@@ -129,8 +134,9 @@ input[type='text'].read-only {
   border-radius: 5px;
   margin: 10px 10px 0 0;
   padding: 5px;
-
-  h1 {
+}
+.campaign-tile, .campaign-detail {
+  h2 {
     font-family: OpenSansBold;
     font-size: 2.5em;
     a {
@@ -192,12 +198,23 @@ input[type='text'].read-only {
   }
 }
 
+/*** Campaign Detail Page **/
+
+.campaign-detail {
+  .detail-header {
+    border-bottom: 5px solid black;
+  }
+  h3 {
+    font-family: OpenSansBold;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
 .candidate-name {
   text-transform: capitalize;
 }
-
-
-/*** Campaign Detail Page **/
 
   .legend {
     display: inline-block;
@@ -209,4 +226,60 @@ input[type='text'].read-only {
     }
   }
 
+$iconSize: 85px;
 
+.search {
+
+  .icon {
+    display: inline-block;
+    width: $iconSize;
+    height: $iconSize;
+    margin: 15px;
+  }
+  .icon-candidate {
+    background-image: url('../images/icons/search_campgains.svg');
+  }
+  .icon-initiative {
+    background-image: url('../images/icons/search_campgains2.svg');
+  }
+  .icon-party {
+    background-image: url('../images/icons/search_campgains4.svg');
+  }
+  .icon-arrow {
+    height: ($iconSize + 15px) / 2;
+    width: ($iconSize + 15px) / 2;
+    margin-top: ($iconSize / 3) + 5px;
+    margin-left: -20px;
+    background-image: url('../images/icons/search_arrow.svg');
+  }
+}
+
+.search-box {
+  position: relative;
+
+  .form-control {
+    font-size: 2.5em;
+    height: $iconSize * 7 / 10;
+    margin-top: $iconSize / 3;
+    border: 2px solid #777;
+    border-radius: 7px;
+  }
+  input {
+    padding-left: ($iconSize / 2) + 8px;
+  }
+  .bg-search-icon {
+    width: ($iconSize / 2) - 5px;
+    height: ($iconSize / 2) - 5px;
+    position: absolute;
+    left: 25px;
+    top: 40px;
+  }
+}
+
+.browse, .search, .results {
+  h1 {
+    font-family: "MerriweatherLight";
+    font-size: 3.5em;
+    letter-spacing: 2px;
+  }
+}

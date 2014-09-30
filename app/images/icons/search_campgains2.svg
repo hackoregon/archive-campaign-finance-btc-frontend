@@ -1,9 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
-<circle fill="#A4A4A4" cx="396.9" cy="305.7" r="26.5"/>
-<path fill="#FFFFFF" d="M379.2,319.6h8.5v-11.8h-8.5V319.6z M390.4,319.6h8.5v-22h-8.5V319.6z M401.7,287.5v32.1h8.5v-32.1H401.7z"
-	/>
-</svg>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 53 53"
+   enable-background="new 0 0 792 612"
+   xml:space="preserve"
+   inkscape:version="0.48.5 r10040"
+   width="100%"
+   height="100%"
+   sodipodi:docname="search_campgains2.svg"><metadata
+     id="metadata3199"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs3197" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview3195"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.38562092"
+     inkscape:cx="25.600006"
+     inkscape:cy="26.200012"
+     inkscape:window-x="59"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" /><circle
+     cx="396.89999"
+     cy="305.70001"
+     r="26.5"
+     id="circle3191"
+     sodipodi:cx="396.89999"
+     sodipodi:cy="305.70001"
+     sodipodi:rx="26.5"
+     sodipodi:ry="26.5"
+     style="fill:#a4a4a4"
+     transform="translate(-370.39999,-279.20001)" /><path
+     d="m 8.8000061,40.399988 h 8.4999999 v -11.8 H 8.8000061 v 11.8 z m 11.1999999,0 h 8.5 v -22 h -8.5 v 22 z m 11.3,-32.1000002 V 40.399988 h 8.5 V 8.2999878 h -8.5 z"
+     id="path3193"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff" /></svg>
