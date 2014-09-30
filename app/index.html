@@ -25,13 +25,15 @@
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+  <div class="content">
     <div ng-controller="NavCtrl">
         <ng-include src="'/views/partials/nav.html'" ng-if="!atHome()"></ng-include>
     </div>
 
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
-
+    <div class="footer-spacer"></div>
+  </div>
 
     <ng-include src="'/views/partials/footer.html'"></ng-include>
 
