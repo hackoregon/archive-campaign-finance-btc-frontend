@@ -6,7 +6,7 @@
     .factory('urls', function (BASE_URL) {
       var campaignSearchUrl = _.template(BASE_URL + 'candidate_search/<%= searchTerm %>/');
       var transactionsUrl = _.template(BASE_URL + 'current_transactions/<%= campaignId %>/');
-      var campaignDetailUrl = _.template(BASE_URL + 'candidate_search/<%= campaignId %>/');
+      var campaignDetailUrl = _.template(BASE_URL + 'committee_data_by_id/<%= campaignId %>/');
       var moneyByStateUrl = _.template(BASE_URL + 'candidate_in_by_state/<%= campaignId %>/');
       var campaignCompetitors = _.template(BASE_URL + 'competitors_from_name/<%= campaignId %>/');
       return {
