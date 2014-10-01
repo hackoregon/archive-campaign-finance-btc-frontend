@@ -1,3 +1,38 @@
 <div class="who-chart">
-  {{financialSummary}}
+  {{money}}
+  <div class="d3funding"></div>
+  <div whos-giving="PAC"></div>
+  <div whos-giving="Business"></div>
+  <div whos-giving="Individual"></div>
+  <div whos-giving="Grassroots"></div>
+  <div whos-giving="Party"></div>
+
+  <div class="col-md-6">
+    <div ng-repeat="d in topDonors">
+      <div class="col-md-7">
+        <span class="col-md-9"> {{ startAt + $index + 1 }} {{ d['contributor_payee'] }}</span>
+        <span class="col-md-3"> {{ d.amount | toMoney }}</span>
+      </div>
+      <div class="col-md-5">
+        <div style="diplay: inline; height: 15px; border-radius: 3px;"
+            ng-style="{'width': donorPercent($index).size, 'background-color': donorPercent($index).color }">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">{{ topDonors.length }} total donors </div>
+  </div>
+  <div class="col-md-6">
+    <div ng-repeat="d in topCorp">
+      <div class="col-md-7">
+        <span class="col-md-9"> {{ startAt + $index + 1 }} {{ d['contributor_payee'] }}</span>
+        <span class="col-md-3"> {{ d.amount | toMoney }}</span>
+      </div>
+      <div class="col-md-5">
+        <div style="diplay: inline; height: 15px; border-radius: 3px;"
+            ng-style="{'width': businessPercent($index).size, 'background-color': businessPercent($index).color }">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">{{ topCorp.length }} business contributions</div>
+  </div>
 </div>

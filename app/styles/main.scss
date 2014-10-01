@@ -175,7 +175,10 @@ input[type='text'].read-only {
   .icon-money {
     background-image: url('../images/icons/total_money_raised.svg');
   }
-  .icon-individuals {
+  .icon-grassroot {
+    background-image: url('../images/icons/whos_giving_grassroots.svg');
+  }
+  .icon-individual {
     background-image: url('../images/icons/whos_giving_indv.svg');
   }
   .icon-pac {
@@ -183,6 +186,12 @@ input[type='text'].read-only {
   }
   .icon-party {
     background-image: url('../images/icons/whos_giving_party.svg');
+  }
+  .icon-corporate {
+    background-image: url('../images/icons/whos_giving.svg');
+  }
+  .icon-union {
+    background-image: url('../images/icons/whos_giving_union_funding.svg');
   }
   .party {
     width: 75px;
@@ -194,6 +203,9 @@ input[type='text'].read-only {
   }
   .party-republican {
     background-image: url('../images/icons/party_rep_elphant.svg');
+  }
+  .funding-icon {
+    display: inline-block;
   }
 }
 
@@ -228,6 +240,17 @@ input[type='text'].read-only {
         position: relative;
         top: -49px;
       }
+    }
+  }
+  .who-chart {
+    .source {
+      display: inline-block;
+      width:160px;
+      height: 280px;
+    }
+    .icon-container {
+      width:160px;
+      height:160px;
     }
   }
   .d3spend {

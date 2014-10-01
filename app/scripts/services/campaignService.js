@@ -85,7 +85,12 @@
       var deferred = $q.defer();
       var promise = deferred.promise;
 
+      var sortEntry = function(a, b) {
+        return Number(b.amount) - Number(a.amount);
+      }
+
       var self = this;
+
       this.getTransactions(campaignId)
         .then(function (transactions) {
           var contributions = {};
@@ -93,6 +98,11 @@
             contributions[type] = {amount:0,number:0};
           });
           var expenditures = {};
+          var donors = {
+            indiv: [],
+            corp: []
+          }
+
           _(transactions).chain()
             .each(function (row) {
               var subType = row['sub_type'];
@@ -103,6 +113,7 @@
                   switch (bookType) {
                     case 'Business Entity':
                       contributionKey = self.CONTRIBUTION.BUSINESS;
+                      donors.corp.push(row);
                       break;
                     case 'Political Committee':
                       contributionKey = self.CONTRIBUTION.PAC;
@@ -118,6 +129,7 @@
                         contributionKey = self.CONTRIBUTION.GRASSROOTS;
                       } else {
                         contributionKey = self.CONTRIBUTION.INDIVIDUAL;
+                        donors.indiv.push(row);
                       }
                       break;
                   }
@@ -139,8 +151,10 @@
               }
             });
 
-          deferred.resolve({contributions:contributions,expenditures:expenditures});
-        });
+          donors.indiv.sort(sortEntry);
+          donors.corp.sort(sortEntry);
+          deferred.resolve({contributions:contributions,expenditures:expenditures, donors: donors});
+      });
 
       return promise;
     };
