@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('frontendApp').controller('MyBallotCtrl', function($scope, $location, $routeParams, SessionService, AddressService, DISTRICTS) {
+  angular.module('frontendApp').controller('MyBallotCtrl', function($scope, $location, $routeParams, SessionService, DISTRICTS) {
 
     $scope.raceLevels = DISTRICTS;
 
