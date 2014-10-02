@@ -1,5 +1,5 @@
 <div class="row search-box">
-  <form submit="onSubmit()">
+  <form ng-submit="onSubmit()">
     <div class="col-sm-2 icon icon-{{ searchType }}"></div>
     <div class="col-sm-9">
       <input type="text" class="form-control" placeholder="{{prompt}}" ng-model="searchTerm" />
