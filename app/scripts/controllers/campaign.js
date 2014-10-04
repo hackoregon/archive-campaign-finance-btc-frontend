@@ -14,7 +14,6 @@
     $scope.photo = $scope.defaults.photo;
 
     $scope.viewModel = {
-      section: 'who',
       campaign: {},
       financialSummary: null,
       moneyByState: null
@@ -35,29 +34,10 @@
         $scope.viewModel.financialSummary = result;
       });
 
-      CampaignService.getCampaignMoneyByState($scope.viewModel.campaign.candidate_name).then(function(result) {
+      CampaignService.getCampaignMoneyByState($scope.viewModel.campaign.filer_id).then(function(result) {
         $scope.viewModel.moneyByState = result;
       });
     });
-
-
-
-    var render = _(function() {
-      var startDate = new Date(parseInt($scope.viewModel.startDate));
-      var endDate = new Date(parseInt($scope.viewModel.endDate));
-//      CampaignService.getCampaignFinances(startDate, endDate).then(function(finances) {
-//        var nodes = _(finances.contributions).chain()
-//          .map(function(contribution, key){
-//            return {category: key, value: contribution.amount};
-//          })
-//          .filter(function(node){
-//            return node.category !== CampaignService.CONTRIBUTION.NA;
-//          })
-//          .value();
-//        $scope.viewModel.donations = {children: [finances.richardson, finances.kitzhaber]};
-//      });
-    }).throttle(500);
-
 
 
 
