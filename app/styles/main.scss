@@ -215,6 +215,29 @@ input[type='text'].read-only {
     margin-top: 5px;
     margin-bottom: 5px;
   }
+  .btn-toggle {
+    position: relative;
+    top: 2px;
+    padding: 0;
+    width: 51px;
+    height: 51px;
+    overflow: hidden;
+
+    &:hover {
+      img {
+        position: relative;
+        top: -49px;
+      }
+    }
+  }
+  .d3spend {
+    text {
+      font-family: OpenSansRegular;
+      font-size: 24px;
+      fill: black;
+      text-anchor: middle;
+    }
+  }
 }
 
 .candidate-name {
