@@ -35,7 +35,7 @@
         $scope.viewModel.financialSummary = result;
       });
 
-      CampaignService.getCampaignMoneyByState($routeParams.campaignId).then(function(result) {
+      CampaignService.getCampaignMoneyByState($scope.viewModel.campaign.candidate_name).then(function(result) {
         $scope.viewModel.moneyByState = result;
       });
     });

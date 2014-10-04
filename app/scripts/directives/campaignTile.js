@@ -8,7 +8,12 @@
         campaign: '='
       },
       controller: function ($scope) {
-
+        $scope.spent = function() {
+          if ($scope.campaign.total) {
+            return ($scope.campaign.total_spent / $scope.campaign.total);
+          }
+          return 0;
+        }
       }
     };
   });

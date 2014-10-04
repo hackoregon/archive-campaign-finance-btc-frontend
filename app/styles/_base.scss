@@ -29,10 +29,19 @@ $darkBlue: #10716F;
 $darkGray: #828282;
 $lightGray: #D9D9D9;
 
+html, body {
+    height: 100%;
+}
 body {
-    padding-top: 70px;
     margin: 0;
     font-family: 'OpenSansLight';
+}
+.content {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -12em;
+  padding-top: 70px;
 }
 
 h1 {
@@ -87,8 +96,11 @@ h3 {
   min-height: 75px;
 }
 
+.footer, .footer-spacer {
+  height: 12em;
+}
+
 .footer {
-  margin-top: 25px;
 
   h1 {
     margin-top: 0;
