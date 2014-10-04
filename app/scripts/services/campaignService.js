@@ -18,29 +18,36 @@
       var promise = deferred.promise;
       $http.get(urls.campaignSearch(searchTerm))
         .then(function (result) {
-          deferred.resolve(result.data);
+          var campaigns = _(result.data).map(function(item){
+            var campaign = new Campaign();
+            campaign.fromObject(item);
+            return campaign;
+          }).value();
+          deferred.resolve(campaigns);
         });
 
       return promise;
     };
 
-    this.getCampaign = function (name) {
+    this.getCampaign = function (campaignId) {
 
       var deferred = $q.defer();
       var promise = deferred.promise;
-      $http.get(urls.campaignDetail(name))
+      $http.get(urls.campaignDetail(campaignId))
         .then(function (result) {
-          deferred.resolve(result.data[0]);
+          var campaign = new Campaign();
+          campaign.fromObject(result.data[0]);
+          deferred.resolve(campaign);
         });
 
       return promise;
     };
 
-    this.getCampaignMoneyByState = function(name){
+    this.getCampaignMoneyByState = function(campaignId){
 
       var deferred = $q.defer();
       var promise = deferred.promise;
-      $http.get(urls.campaignMoneyByState(name))
+      $http.get(urls.campaignMoneyByState(campaignId))
         .then(function (result) {
           deferred.resolve(result.data);
         });
