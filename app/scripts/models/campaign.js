@@ -1,5 +1,5 @@
 function Campaign() {
-  var self = this;
+
   this.candidate_name = '';
   this.committee_name = '';
   this.race = '';
