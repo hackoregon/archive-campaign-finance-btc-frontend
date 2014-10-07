@@ -22,7 +22,7 @@
                 }, {
                     url: '#',
                     imgsrc: 'images/icons/landing_mail.svg'
-                }]
+                }];
 
                 $scope.size = ($attrs.size ? parseInt($attrs.size) : 22);
 
@@ -34,18 +34,18 @@
                     return {
                         'height': $scope.size + 'px',
                         'margin-top': (shouldOverlap ? ('-'+ ($scope.size + 10) + 'px') : '0')
-                    }
-                }
+                    };
+                };
 
                 var interval = function() {
                     return (($scope.size - 6) / 5);
-                }
+                };
                 $scope.computeInterval = function() {
                     return {
                         'margin-left': interval() + 'px'
-                    }
-                }
+                    };
+                };
             }
-        }
-    })
-})()
+        };
+    });
+})();
