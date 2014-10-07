@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('frontendApp').controller('BrowseCtrl', function($scope, $location, SessionService, AddressService, BALLOT) {
+  angular.module('frontendApp').controller('BrowseCtrl', function($scope, $location, SessionService, BALLOT) {
 
     $scope.BALLOT = BALLOT;
 

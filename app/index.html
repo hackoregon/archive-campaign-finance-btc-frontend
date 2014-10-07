@@ -25,13 +25,15 @@
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+  <div class="content">
     <div ng-controller="NavCtrl">
         <ng-include src="'/views/partials/nav.html'" ng-if="!atHome()"></ng-include>
     </div>
 
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
-
+    <div class="footer-spacer"></div>
+  </div>
 
     <ng-include src="'/views/partials/footer.html'"></ng-include>
 
@@ -49,11 +51,7 @@
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
-    <script src="bower_components/sankey/index.js"></script>
-    <script src="bower_components/ui-slider/index.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/lodash/dist/lodash.js"></script>
-    <script src="bower_components/chance/chance.js"></script>
     <!-- where page -->
     <script src="bower_components/topojson/topojson.js"></script>
     <script src="bower_components/queue-async/queue.min.js"></script>
@@ -83,6 +81,9 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+
+        <script src="scripts/models/campaign.js"></script>
+
         <script src="scripts/controllers/nav.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/browse.js"></script>
@@ -107,6 +108,7 @@
         <script src="scripts/directives/whereState.js"></script>
         <script src="scripts/directives/campaignSankey.js"></script>
         <script src="scripts/directives/bubbleChart.js"></script>
+        <script src="scripts/directives/social.js"></script>
         <script src="scripts/services/serverConfig.js"></script>
         <script src="scripts/services/sessionService.js"></script>
         <script src="scripts/services/campaignService.js"></script>
