@@ -1,29 +1,30 @@
-<div class=container>
+<div class="container campaign-detail">
+  <div class="col-md-9 col-md-offset-1">
 
-  <div class=row>
-    <div class=col-md-12>
-      <h1 class=candidate-name>{{viewModel.campaign.candidate_name}}</h1>
-
-      <h2 class=candidate-name>{{viewModel.campaign.race}}</h2>
-    </div>
+  <div class="row detail-header">
+    <h1 class=candidate-name>{{viewModel.campaign.candidate_name}}</h1>
   </div>
+
+  <h2 class=candidate-name>{{viewModel.campaign.race}}</h2>
+
   <div class=row>
     <div class=col-md-4>
-      <img src={{viewModel.campaign.photo}} class=campaign-photo width=100%>
+      <img ng-src="{{ photo }}" class=campaign-photo width=100%>
     </div>
     <div class=col-md-2>
-      <div class=party_{{viewModel.campaign.party}}></div>
+      <div class="party party-{{viewModel.campaign.party}}"></div>
+      {{ viewModel.campaign.party }}
     </div>
     <div class="col-md-6 campaign-details">
       <div class=row>
         <div class=col-sm-4>
-          <div simple-radial="" percent=viewModel.campaign.grassroots title="Grassroots Funding"></div>
+          <div simple-radial="" percent=viewModel.campaign.grassroots title="Grassroots Funding" icon=grassroots></div>
         </div>
         <div class=col-sm-4>
-          <div simple-radial="" percent=viewModel.campaign.instate title="In-District Funding"></div>
+          <div simple-radial="" percent=viewModel.campaign.instate title="In-District Funding" icon=district></div>
         </div>
         <div class=col-sm-4>
-          <div simple-radial="" percent=viewModel.campaign.spent title=Spent></div>
+          <div simple-radial="" percent=viewModel.campaign.spent_percent title=Spent icon=money color=#48a04b></div>
         </div>
       </div>
     </div>
@@ -33,37 +34,14 @@
       <h3>Official Campaign Contact</h3>
       <h3><a href=http://{{viewModel.campaign.website}}>{{viewModel.campaign.website}}</a></h3>
       <h3>{{viewModel.campaign.phone}}</h3>
-      <div class=btn-group>
-        <a href="">
-          <img src=images/icons/landing_twitter.svg width=33>
-        </a>
-        <a href="">
-          <img src=images/icons/landing_facebook.svg width=33>
-        </a>
-        <a href="">
-          <img src=images/icons/landing_mail.svg width=33>
-        </a>
-      </div>
+      <social-tags size=65 overlap=false>
     </div>
   </div>
 
 
-  <div class=row>
-    <div class=col-md-9>
-      <h2>Who's Giving?</h2>
-    </div>
-    <div class=col-md-3>
-      Share
-      <a href="">
-        <img src=images/icons/landing_twitter.svg width=22>
-      </a>
-      <a href="">
-        <img src=images/icons/landing_facebook.svg width=22>
-      </a>
-      <a href="">
-        <img src=images/icons/landing_mail.svg width=22>
-      </a>
-    </div>
+  <div class="row detail-header">
+    <h2>Who's Giving?</h2>
+    <social-tags class=pull-right>Share</social-tags>
   </div>
   <div class=row>
     <div class=col-md-12>
@@ -72,21 +50,10 @@
   </div>
 
   <div class=row>
-    <div class=col-md-9>
+    <div class=detail-header>
       <h2>What Are They Spending Money On?</h2>
     </div>
-    <div class=col-md-3>
-      Share
-      <a href="">
-        <img src=images/icons/landing_twitter.svg width=22>
-      </a>
-      <a href="">
-        <img src=images/icons/landing_facebook.svg width=22>
-      </a>
-      <a href="">
-        <img src=images/icons/landing_mail.svg width=22>
-      </a>
-    </div>
+    <social-tags class=pull-right>Share</social-tags>
   </div>
   <div class=row>
     <div class=col-md-12>
@@ -97,21 +64,10 @@
   </div>
 
   <div class=row>
-    <div class=col-md-9>
+    <div class=detail-header>
       <h2>Is the Money Local?</h2>
     </div>
-    <div class=col-md-3>
-      Share
-      <a href="">
-        <img src=images/icons/landing_twitter.svg width=22>
-      </a>
-      <a href="">
-        <img src=images/icons/landing_facebook.svg width=22>
-      </a>
-      <a href="">
-        <img src=images/icons/landing_mail.svg width=22>
-      </a>
-    </div>
+    <social-tags class=pull-right>Share</social-tags>
   </div>
   <div class=row>
     <div class=col-md-12>
@@ -120,6 +76,5 @@
     </div>
   </div>
 
-
-
+  </div>
 </div>

@@ -11,7 +11,7 @@
     <meta name=viewport content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/d5899c2a.main.css"/>
+        <link rel="stylesheet" href="styles/c1b1afbc.main.css"/>
 
   <body ng-app=frontendApp>
     <!--[if lt IE 7]>
@@ -22,13 +22,15 @@
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+  <div class=content>
     <div ng-controller=NavCtrl>
         <ng-include src="'/views/partials/nav.html'" ng-if=!atHome()></ng-include>
     </div>
 
     <!-- Add your site or application content here -->
     <div class=container ng-view=""></div>
-
+    <div class=footer-spacer></div>
+  </div>
 
     <ng-include src="'/views/partials/footer.html'"></ng-include>
 
@@ -46,11 +48,7 @@
     <script src=//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js></script>
     <script src=bower_components/angular/angular.js></script>
     <script src=bower_components/d3/d3.min.js></script>
-    <script src=bower_components/sankey/index.js></script>
-    <script src=bower_components/ui-slider/index.js></script>
-    <script src=bower_components/jquery-ui/jquery-ui.js></script>
     <script src=bower_components/lodash/dist/lodash.js></script>
-    <script src=bower_components/chance/chance.js></script>
     <!-- where page -->
     <script src=bower_components/topojson/topojson.js></script>
     <script src=bower_components/queue-async/queue.min.js></script>
@@ -60,5 +58,5 @@
 
         <script src="scripts/e8ee067a.modules.js"></script>
 
-        <script src="scripts/4288edd5.scripts.js"></script>
+        <script src="scripts/4fde95d2.scripts.js"></script>
 

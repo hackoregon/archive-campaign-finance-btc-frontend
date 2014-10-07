@@ -1,14 +1,13 @@
-<div class=container>
+<div class="container search">
 
   <h1 class=text-center>Search Campaigns</h1>
 
-    <!-- TODO: needs work to match mockups- add icons when ready,... -->
     <div class=row>
-      <div class="col-md-6 center-block">
+      <div class="col-md-8 col-md-offset-1 center-block">
         <div class=form-group>
-          <search-box search-type={{SEARCH_TYPE.CANDIDATE}} prompt="Candidate Name"></search-box>
-
-          <search-box search-type=party prompt="Party Name"></search-box>
+          <search-box search-type=candidate prompt="Candidate Name"></search-box>
+          <search-box search-type=initiative prompt="Ballot Measure"></search-box>
+          <search-box search-type=party prompt="Political Party"></search-box>
         </div>
       </div>
     </div>

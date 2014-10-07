@@ -1,10 +1,12 @@
-<div class=row>
+<div class="row search-box">
   <form ng-submit=onSubmit()>
-    <div class=col-sm-10>
+    <div class="col-sm-2 icon icon-{{ searchType }}"></div>
+    <div class=col-sm-9>
       <input class=form-control placeholder={{prompt}} ng-model=searchTerm>
+      <img class=bg-search-icon src=images/icons/search.svg>
     </div>
-    <div class=col-sm-2>
-      <button class=btn type=submit>GO</button>
+    <div class=col-sm-1>
+      <div class="btn icon-arrow" ng-click=onSubmit()></div>
     </div>
   </form>
 </div>

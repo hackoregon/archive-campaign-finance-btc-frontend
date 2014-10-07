@@ -34,7 +34,7 @@
           <div class=col-md-3>
               <input placeholder=OR class=form-control ng-disabled=true>
           </div>
-          <div class=col-md-4>
+          <div class=col-md-9>
               <input name=zip placeholder="Zip Code" class=form-control ng-model=viewModel.address.zip ng-required=isLocal()>
           </div>
           <input type=submit class=force-submit>
@@ -48,12 +48,6 @@
           <div class=col-md-12>
             <input name=code placeholder="Zip Code" class=form-control ng-model=viewModel.address.zip ng-required=isZip()>
           </div>
-          <div class=col-md-12>
-            <div class="filler row">&nbsp;</div>
-          </div>
-          <div class=col-md-12>
-            <div class="filler row">&nbsp;</div>
-          </div>
         </form>
       </div>
     </div>
@@ -63,12 +57,6 @@
         <form name=county ng-submit=setMyBallot()>
           <div class=col-md-12>
             <input name=county placeholder=County class=form-control ng-model=viewModel.address.city ng-required=isCounty()>
-          </div>
-          <div class=col-md-12>
-            <div class="filler row">&nbsp;</div>
-          </div>
-          <div class=col-md-12>
-            <div class="filler row">&nbsp;</div>
           </div>
         </form>
       </div></div></form>
