@@ -37,14 +37,15 @@ input[type='text'].read-only {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
     padding: 0 15px 15px 15px;
     border-bottom: 5px solid black;
   }
 
   .sticker {
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 0px;
+    top: -55px;
   }
 
   .spacer {
@@ -52,7 +53,7 @@ input[type='text'].read-only {
   }
 }
 
-/** Browse My Ballot Search and Results Pages **/
+/** Browse My Ballot Search and Results Pages ============================ **/
 .browse {
 
   .btn {
@@ -205,7 +206,7 @@ input[type='text'].read-only {
 }
 
 
-/*** Campaign Detail Page **/
+/*** Campaign Detail Page ============================================= ***/
 
 .campaign-detail {
   .detail-header {
@@ -289,4 +290,14 @@ $iconSize: 85px;
     font-size: 3.5em;
     letter-spacing: 2px;
   }
+}
+
+/* MEDIA QUERIES ================================================ */
+
+@media (max-width: 485px) {
+  .home {
+    .header {
+      margin-top: 0px; 
+    }
+  }  
 }
