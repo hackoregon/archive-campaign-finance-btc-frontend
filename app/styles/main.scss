@@ -134,11 +134,12 @@ input[type='text'].read-only {
   border-radius: 5px;
   margin: 10px 10px 0 0;
   padding: 5px;
+  overflow: auto;
 }
 .campaign-tile, .campaign-detail {
   h2 {
     font-family: OpenSansBold;
-    font-size: 2.5em;
+    font-size: 30px;
     a {
       color: #666666;
     }
@@ -197,6 +198,12 @@ input[type='text'].read-only {
     background-image: url('../images/icons/party_rep_elphant.svg');
   }
 }
+
+.funding-icons {
+  float: left;
+  width: 33%;
+}
+
 
 /*** Campaign Detail Page **/
 
