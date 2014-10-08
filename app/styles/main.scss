@@ -48,9 +48,6 @@ input[type='text'].read-only {
     top: -55px;
   }
 
-  .spacer {
-    height: 200px;
-  }
 }
 
 /** Browse My Ballot Search and Results Pages ============================ **/
@@ -292,7 +289,30 @@ $iconSize: 85px;
   }
 }
 
+/* FOOTER ======================================================= */
+
+.footer {
+  margin-top: 75px;
+}
+
 /* MEDIA QUERIES ================================================ */
+
+@media (max-width: 1199px) {
+  .footer {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    h4 {
+      margin-right: 0px;
+    }
+    .social-media-thumbnails {
+      text-align: center;
+    }
+  }
+}
 
 @media (max-width: 485px) {
   .home {
@@ -301,3 +321,5 @@ $iconSize: 85px;
     }
   }  
 }
+
+
