@@ -37,22 +37,20 @@ input[type='text'].read-only {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
     padding: 0 15px 15px 15px;
     border-bottom: 5px solid black;
   }
 
   .sticker {
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 0px;
+    top: -55px;
   }
 
-  .spacer {
-    height: 200px;
-  }
 }
 
-/** Browse My Ballot Search and Results Pages **/
+/** Browse My Ballot Search and Results Pages ============================ **/
 .browse {
 
   .btn {
@@ -134,11 +132,12 @@ input[type='text'].read-only {
   border-radius: 5px;
   margin: 10px 10px 0 0;
   padding: 5px;
+  overflow: auto;
 }
 .campaign-tile, .campaign-detail {
   h2 {
     font-family: OpenSansBold;
-    font-size: 2.5em;
+    font-size: 30px;
     a {
       color: #666666;
     }
@@ -198,7 +197,13 @@ input[type='text'].read-only {
   }
 }
 
-/*** Campaign Detail Page **/
+.funding-icons {
+  float: left;
+  width: 33%;
+}
+
+
+/*** Campaign Detail Page ============================================= ***/
 
 .campaign-detail {
   .detail-header {
@@ -283,3 +288,38 @@ $iconSize: 85px;
     letter-spacing: 2px;
   }
 }
+
+/* FOOTER ======================================================= */
+
+.footer {
+  margin-top: 75px;
+}
+
+/* MEDIA QUERIES ================================================ */
+
+@media (max-width: 1199px) {
+  .footer {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    h4 {
+      margin-right: 0px;
+    }
+    .social-media-thumbnails {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 485px) {
+  .home {
+    .header {
+      margin-top: 0px; 
+    }
+  }  
+}
+
+
