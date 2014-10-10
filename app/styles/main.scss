@@ -243,6 +243,8 @@ input[type='text'].read-only {
     }
   }
   .who-chart {
+    padding-top: 15px;
+
     .source {
       display: inline-block;
       width:160px;
@@ -251,6 +253,13 @@ input[type='text'].read-only {
     .icon-container {
       width:160px;
       height:160px;
+    }
+    .donorList {
+      height: 100px;
+      overflow: hidden;
+    }
+    .donorList.fullList {
+      overflow: initial;
     }
   }
   .d3spend {

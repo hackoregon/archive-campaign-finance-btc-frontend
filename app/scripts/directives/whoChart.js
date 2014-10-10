@@ -78,11 +78,10 @@
 
         $scope.maxVal = 1.0;
         $scope.dataSet = [];
-        
-        $scope.topDonors = [];
-        $scope.topCorp = [];
+
         $scope.startAt = 0;
-        $scope.selectLength = 5;
+        $scope.selectLength = 3;
+        $scope.showAll = false;
 
         $scope.formatData = function(dataSrc) {
           $scope.dataSet.length = 0;
@@ -111,51 +110,35 @@
           }
           return (0.7 * $scope.h) * Math.sqrt(1.0 * val / $scope.maxVal);
         }
-        function transfer(fromList, toList) {
-          toList.length = 0;
-          if (fromList) {
-            var start = $scope.startAt;
-            var end = Math.min(fromList.length, start + $scope.selectLength);
-            for(var i = start; i < end; i += 1) {
-              toList.push(fromList[i]);
-            }
-          }
-        }
-        $scope.fillTopDonors = function() {
-          if ($scope.donors && $scope.donors.indiv) {
-            transfer($scope.donors.indiv, $scope.topDonors);
-          }
-          if ($scope.donors && $scope.donors.corp) {
-            transfer($scope.donors.corp, $scope.topCorp);
-          }
-        }
         var colorBlend = d3.interpolateRgb('#A3D3D2', '#10716F');
-        $scope.donorPercent = function(i) {
-          var val = $scope.topDonors[i].amount / $scope.topDonors[0].amount; 
-          return {
-            size: 100 * val + '%',
-            color: colorBlend(val)
-          };
+        $scope.donorPercent = function(i, donorName) {
+          var donorList = $scope.donors[donorName];
+          if (donorList && donorList.length > 0) {
+            var val = donorList[i].amount / donorList[0].amount; 
+            return {
+              size: 100 * val + '%',
+              color: colorBlend(val)
+            };
+          }
+          else return { size: '0%', color: '#FFF'};
         }
-        $scope.businessPercent = function(i) {
-          var val = $scope.topCorp[i].amount / $scope.topCorp[i].amount;
-          return {
-            size: 100 * val + '%',
-            color: colorBlend(val)
-          };
+        $scope.toggleSize = function() {
+          $scope.showAll = !$scope.showAll;
+        }
+        $scope.haveMoreDonors = function() {
+          if ($scope.donors && $scope.donors.indiv && $scope.donors.corp) {
+            return ($scope.donors.indiv.length > 4 || $scope.donors.corp.length > 4);
+          }
+          return false;
         }
       },
       link: function(scope) {
 
         scope.$watch('money', function(newVal, oldVal) {
-          var data = newVal || scope.defaultMoney;
+          var data = newVal;
           scope.formatData(data);
           scope.computeMax(data);
         });
-        scope.$watch('donors', function(newVal) {
-          scope.fillTopDonors();
-        });
-
       }
     };
   });
@@ -169,7 +152,7 @@
         amt = Math.round(amt / 1000000);
         suffix = ' m';
       }
-      return '$' + amt + suffix;
+      return '$' + Math.round(amt) + suffix;
     }
   })
 
