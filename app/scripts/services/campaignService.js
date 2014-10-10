@@ -99,9 +99,18 @@
           });
           var expenditures = {};
           var donors = {
-            indiv: [],
-            corp: []
+            indiv: {},
+            corp: {}
           }
+
+          // Use contributor name as a unique key to add up total donations for each contributor
+          var addDonorItem = function(type, row) {
+            var payee = row['contributor_payee'];
+            if (! _.has(donors[type], payee)){
+              donors[type][payee] = 0;
+            }
+            donors[type][payee] += row.amount;
+          };
 
           _(transactions).chain()
             .each(function (row) {
@@ -113,7 +122,7 @@
                   switch (bookType) {
                     case 'Business Entity':
                       contributionKey = self.CONTRIBUTION.BUSINESS;
-                      donors.corp.push(row);
+                      addDonorItem('corp', row);
                       break;
                     case 'Political Committee':
                       contributionKey = self.CONTRIBUTION.PAC;
@@ -129,7 +138,7 @@
                         contributionKey = self.CONTRIBUTION.GRASSROOTS;
                       } else {
                         contributionKey = self.CONTRIBUTION.INDIVIDUAL;
-                        donors.indiv.push(row);
+                        addDonorItem('indiv', row);
                       }
                       break;
                   }
@@ -151,8 +160,16 @@
               }
             });
 
+          donors.indiv = _.map(donors.indiv, function(amount, donor){
+            return {payee: donor, amount: amount};
+          });
           donors.indiv.sort(sortEntry);
+
+          donors.corp = _.map(donors.corp, function(amount, donor){
+            return {payee: donor, amount: amount};
+          });
           donors.corp.sort(sortEntry);
+
           deferred.resolve({contributions:contributions,expenditures:expenditures, donors: donors});
       });
 

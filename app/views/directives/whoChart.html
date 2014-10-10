@@ -8,10 +8,10 @@
   <div whos-giving="Party"></div>
 
   <div class="col-md-6">
-    <div ng-repeat="d in topDonors">
+    <div ng-repeat="donor in topDonors">
       <div class="col-md-7">
-        <span class="col-md-9"> {{ startAt + $index + 1 }} {{ d['contributor_payee'] }}</span>
-        <span class="col-md-3"> {{ d.amount | toMoney }}</span>
+        <span class="col-md-9"> {{ startAt + $index + 1 }} {{ donor.payee }}</span>
+        <span class="col-md-3"> {{ donor.amount | toMoney }}</span>
       </div>
       <div class="col-md-5">
         <div style="diplay: inline; height: 15px; border-radius: 3px;"
@@ -22,10 +22,10 @@
     <div class="col-md-12">{{ topDonors.length }} total donors </div>
   </div>
   <div class="col-md-6">
-    <div ng-repeat="d in topCorp">
+    <div ng-repeat="donor in topCorp">
       <div class="col-md-7">
-        <span class="col-md-9"> {{ startAt + $index + 1 }} {{ d['contributor_payee'] }}</span>
-        <span class="col-md-3"> {{ d.amount | toMoney }}</span>
+        <span class="col-md-9"> {{ startAt + $index + 1 }} {{ donor.payee }}</span>
+        <span class="col-md-3"> {{ donor.amount | toMoney }}</span>
       </div>
       <div class="col-md-5">
         <div style="diplay: inline; height: 15px; border-radius: 3px;"
