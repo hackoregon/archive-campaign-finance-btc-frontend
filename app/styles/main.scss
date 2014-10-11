@@ -175,7 +175,10 @@ input[type='text'].read-only {
   .icon-money {
     background-image: url('../images/icons/total_money_raised.svg');
   }
-  .icon-individuals {
+  .icon-grassroot {
+    background-image: url('../images/icons/whos_giving_grassroots.svg');
+  }
+  .icon-individual {
     background-image: url('../images/icons/whos_giving_indv.svg');
   }
   .icon-pac {
@@ -183,6 +186,12 @@ input[type='text'].read-only {
   }
   .icon-party {
     background-image: url('../images/icons/whos_giving_party.svg');
+  }
+  .icon-corporate {
+    background-image: url('../images/icons/whos_giving.svg');
+  }
+  .icon-union {
+    background-image: url('../images/icons/whos_giving_union_funding.svg');
   }
   .party {
     width: 75px;
@@ -194,6 +203,9 @@ input[type='text'].read-only {
   }
   .party-republican {
     background-image: url('../images/icons/party_rep_elphant.svg');
+  }
+  .funding-icon {
+    display: inline-block;
   }
 }
 
@@ -215,6 +227,54 @@ input[type='text'].read-only {
     margin-top: 5px;
     margin-bottom: 5px;
   }
+  .btn-toggle {
+    position: relative;
+    top: 2px;
+    padding: 0;
+    width: 51px;
+    height: 51px;
+    overflow: hidden;
+
+    &:hover {
+      img {
+        position: relative;
+        top: -49px;
+      }
+    }
+  }
+  .who-chart {
+    padding-top: 15px;
+
+    .source {
+      display: inline-block;
+      width:160px;
+      height: 280px;
+    }
+    .icon-container {
+      width:160px;
+      height:160px;
+    }
+    .donorList {
+      height: 100px;
+      overflow: hidden;
+    }
+    .donorList.fullList {
+      overflow: initial;
+    }
+  }
+  .d3spend {
+    text {
+      font-family: OpenSansRegular;
+      font-size: 24px;
+      fill: black;
+      text-anchor: middle;
+    }
+    .slice {
+      text {
+        pointer-events: none;
+      }
+    }
+  }
 }
 
 .candidate-name {
@@ -230,6 +290,26 @@ input[type='text'].read-only {
       margin: 2px 2px 0 0;
     }
   }
+
+.spending {
+  #d3tooltip {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #828282;
+    border-radius: 10px;
+    pointer-events: none;
+
+    p {
+      margin: 0;
+      font-family: OpenSansRegular;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
 
 $iconSize: 85px;
 
