@@ -13,7 +13,7 @@
     <div ng-repeat="donor in donors.indiv">
       <div class="col-md-7">
         <span class="col-md-9"> {{ $index + 1 }} {{ donor.payee }}</span>
-        <span class="col-md-3"> {{ donor.amount | toMoney }}</span>
+        <span class="col-md-3"> {{ donor.amount | currencyFormat }}</span>
       </div>
       <div class="col-md-5">
         <div style="diplay: inline; height: 15px; border-radius: 3px;"
@@ -29,7 +29,7 @@
     <div ng-repeat="donor in donors.corp">
       <div class="col-md-7">
         <span class="col-md-9"> {{ $index + 1 }} {{ donor.payee }}</span>
-        <span class="col-md-3"> {{ donor.amount | toMoney }}</span>
+        <span class="col-md-3"> {{ donor.amount | currencyFormat }}</span>
       </div>
       <div class="col-md-5">
         <div style="diplay: inline; height: 15px; border-radius: 3px;"

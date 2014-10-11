@@ -11,7 +11,7 @@
                   '</div>' +
                   '<div>' +
                     '<p class="h3 text-center"> {{ label() }} </p>' +
-                    '<p class="h4 text-center"> {{ getamount() | toMoney }} </p>' +
+                    '<p class="h4 text-center"> {{ getamount() | currencyFormat }} </p>' +
                   '</div>' +
                 '</div>',
       replace: true,
@@ -114,7 +114,7 @@
         $scope.donorPercent = function(i, donorName) {
           var donorList = $scope.donors[donorName];
           if (donorList && donorList.length > 0) {
-            var val = donorList[i].amount / donorList[0].amount; 
+            var val = donorList[i].amount / donorList[0].amount;
             return {
               size: 100 * val + '%',
               color: colorBlend(val)
@@ -142,18 +142,5 @@
       }
     };
   });
-  angular.module('frontendApp').filter('toMoney', function() {
-    return function(amt) {
-      var suffix = '';
-      if (amt > 49999) {
-        amt = Math.round(amt / 1000);
-        suffix = ' k';
-      } else if (amt > 999999) {
-        amt = Math.round(amt / 1000000);
-        suffix = ' m';
-      }
-      return '$' + Math.round(amt) + suffix;
-    }
-  })
 
 })();
