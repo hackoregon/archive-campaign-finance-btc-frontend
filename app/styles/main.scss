@@ -269,6 +269,11 @@ input[type='text'].read-only {
       fill: black;
       text-anchor: middle;
     }
+    .slice {
+      text {
+        pointer-events: none;
+      }
+    }
   }
 }
 
@@ -285,6 +290,26 @@ input[type='text'].read-only {
       margin: 2px 2px 0 0;
     }
   }
+
+.spending {
+  #d3tooltip {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #828282;
+    border-radius: 10px;
+    pointer-events: none;
+
+    p {
+      margin: 0;
+      font-family: OpenSansRegular;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
 
 $iconSize: 85px;
 
