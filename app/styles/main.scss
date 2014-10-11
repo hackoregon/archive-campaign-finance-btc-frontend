@@ -254,12 +254,28 @@ input[type='text'].read-only {
       width:160px;
       height:160px;
     }
+    .btn {
+      .badge {
+        top: 1px;
+      }
+    }
     .donorList {
-      height: 100px;
+      font-size: 1em;
+      line-height: 1.25em;
+      height: auto;
+      max-height: 6em;
       overflow: hidden;
+      margin-top: 5px;
+      -webkit-transition: max-height 1s;
+      transition: max-height 1s;
     }
     .donorList.fullList {
-      overflow: initial;
+      max-height: 200em;
+      overflow-y: scroll;
+    }
+    .wider {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   .d3spend {
