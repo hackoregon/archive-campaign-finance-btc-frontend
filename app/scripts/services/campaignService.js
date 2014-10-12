@@ -65,7 +65,7 @@
       var deferred = $q.defer();
       var promise = deferred.promise;
       if (campaignId === _cachedTransactions.campaignId) {
-        deferred.resolve(_cachedTransaction.transactions);
+        deferred.resolve(_cachedTransactions.transactions);
       } else {
         $http.get(urls.transactions(campaignId))
           .then(function (result) {
