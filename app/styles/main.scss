@@ -31,7 +31,28 @@ input[type='text'].read-only {
   height: 1px;
 }
 
-/** Home Page **/
+/** Nav Bar ================================================= **/
+
+.navbar-fixed-top {
+  left: clear;
+}
+
+.container {
+  .navbar-header {
+  float: right;
+  margin-right: 0px;
+  }
+}
+
+.nav > li {
+  padding-top: 5px;
+}
+
+#main-nav .navbar-nav li div{
+  padding-bottom: 3%;
+}
+
+/** Home Page ================================================= **/
 .home {
   .header {
     display: block;
@@ -49,6 +70,20 @@ input[type='text'].read-only {
   }
 
 }
+
+.search {
+  margin-top: 40px;
+
+  .icon-candidate {
+    margin-left: 0px;
+  }
+}
+
+
+.results .icon-candidate {
+  margin-left: 0px;
+}
+
 
 /** Browse My Ballot Search and Results Pages ============================ **/
 .browse {
@@ -313,7 +348,7 @@ input[type='text'].read-only {
 
 $iconSize: 85px;
 
-.search {
+.search, .results {
 
   .icon {
     display: inline-block;
@@ -339,11 +374,17 @@ $iconSize: 85px;
   }
 }
 
+.results {
+  .icon-candidate {
+    margin-left: 16.666667%;
+  }
+}
+
 .search-box {
   position: relative;
 
   .form-control {
-    font-size: 2.5em;
+    font-size: 1.5em;
     height: $iconSize * 7 / 10;
     margin-top: $iconSize / 3;
     border: 2px solid #777;
@@ -373,6 +414,10 @@ $iconSize: 85px;
 
 .footer {
   margin-top: 75px;
+
+  .social-container {
+    margin-left: -10px;
+  }
 }
 
 /* MEDIA QUERIES ================================================ */
@@ -380,6 +425,20 @@ $iconSize: 85px;
 @media (max-width: 1199px) {
   .footer {
     margin-top: 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .results {
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+
+  .search-box {
+    .form-control {
+      font-size: 1.25em;
+    }
   }
 }
 
@@ -394,6 +453,13 @@ $iconSize: 85px;
   }
 }
 
+@media (max-width: 489px) {
+  .search-box {
+    .form-control {
+      font-size: 13px;
+    }
+  }
+}
 @media (max-width: 485px) {
   .home {
     .header {
