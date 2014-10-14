@@ -233,7 +233,7 @@ input[type='text'].read-only {
 
 $iconSize: 85px;
 
-.search {
+.search, .results {
 
   .icon {
     display: inline-block;
@@ -256,6 +256,12 @@ $iconSize: 85px;
     margin-top: ($iconSize / 3) + 5px;
     margin-left: -20px;
     background-image: url('../images/icons/search_arrow.svg');
+  }
+}
+
+.results {
+  .icon-candidate {
+    margin-left: 16.666667%;
   }
 }
 
@@ -293,6 +299,10 @@ $iconSize: 85px;
 
 .footer {
   margin-top: 75px;
+
+  .social-container {
+    margin-left: -10px;
+  }
 }
 
 /* MEDIA QUERIES ================================================ */
