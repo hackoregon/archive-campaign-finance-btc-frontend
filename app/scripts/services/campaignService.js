@@ -65,7 +65,7 @@
       var deferred = $q.defer();
       var promise = deferred.promise;
       if (campaignId === _cachedTransactions.campaignId) {
-        deferred.resolve(_cachedTransaction.transactions);
+        deferred.resolve(_cachedTransactions.transactions);
       } else {
         $http.get(urls.transactions(campaignId))
           .then(function (result) {
@@ -85,7 +85,12 @@
       var deferred = $q.defer();
       var promise = deferred.promise;
 
+      var sortEntry = function(a, b) {
+        return Number(b.amount) - Number(a.amount);
+      }
+
       var self = this;
+
       this.getTransactions(campaignId)
         .then(function (transactions) {
           var contributions = {};
@@ -93,6 +98,20 @@
             contributions[type] = {amount:0,number:0};
           });
           var expenditures = {};
+          var donors = {
+            indiv: {},
+            corp: {}
+          }
+
+          // Use contributor name as a unique key to add up total donations for each contributor
+          var addDonorItem = function(type, row) {
+            var payee = row['contributor_payee'];
+            if (! _.has(donors[type], payee)){
+              donors[type][payee] = 0;
+            }
+            donors[type][payee] += row.amount;
+          };
+
           _(transactions).chain()
             .each(function (row) {
               var subType = row['sub_type'];
@@ -103,6 +122,7 @@
                   switch (bookType) {
                     case 'Business Entity':
                       contributionKey = self.CONTRIBUTION.BUSINESS;
+                      addDonorItem('corp', row);
                       break;
                     case 'Political Committee':
                       contributionKey = self.CONTRIBUTION.PAC;
@@ -118,6 +138,7 @@
                         contributionKey = self.CONTRIBUTION.GRASSROOTS;
                       } else {
                         contributionKey = self.CONTRIBUTION.INDIVIDUAL;
+                        addDonorItem('indiv', row);
                       }
                       break;
                   }
@@ -139,8 +160,18 @@
               }
             });
 
-          deferred.resolve({contributions:contributions,expenditures:expenditures});
-        });
+          donors.indiv = _.map(donors.indiv, function(amount, donor){
+            return {payee: donor, amount: amount};
+          });
+          donors.indiv.sort(sortEntry);
+
+          donors.corp = _.map(donors.corp, function(amount, donor){
+            return {payee: donor, amount: amount};
+          });
+          donors.corp.sort(sortEntry);
+
+          deferred.resolve({contributions:contributions,expenditures:expenditures, donors: donors});
+      });
 
       return promise;
     };

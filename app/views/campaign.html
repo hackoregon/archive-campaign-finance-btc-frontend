@@ -45,7 +45,8 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div who-chart financial-summary="viewModel.financialSummary"></div>
+      <div who-chart money="viewModel.financialSummary.contributions"
+                     donors="viewModel.financialSummary.donors"></div>
     </div>
   </div>
 
@@ -57,9 +58,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <!-- Spending column chart goes here -->
-
-      <!-- Spending/Raising History chart goes here -->
+      <div spending-chart money="viewModel.financialSummary.expenditures"></div>
     </div>
   </div>
 

@@ -1,3 +1,45 @@
 <div class="who-chart">
-  {{financialSummary}}
+  <div whos-giving="PAC"></div>
+  <div whos-giving="Business"></div>
+  <div whos-giving="Individual"></div>
+  <div whos-giving="Grassroots"></div>
+  <div whos-giving="Party"></div>
+
+<div ng-class="{ donorList: true, fullList: showAll }">
+  <div class="col-md-6">
+    <div ng-click="toggleSize()">Top Individual Donors
+      <span class="badge" ng-show="haveMoreDonors()"> {{ donors.indiv.length }} Total</span>
+    </div>
+    <div ng-repeat="donor in donors.indiv">
+      <div class="col-md-7">
+        <span class="col-md-9"> {{ $index + 1 }} {{ donor.payee }}</span>
+        <span class="col-md-3"> {{ donor.amount | currencyFormat }}</span>
+      </div>
+      <div class="col-md-5">
+        <div style="diplay: inline; height: 15px; border-radius: 3px;"
+             ng-style="{'width': donorPercent($index, 'indiv').size, 'background-color': donorPercent($index, 'indiv').color }">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div ng-click="toggleSize()">Top Corporate donors
+      <span class="badge" ng-show="haveMoreDonors()">{{ donors.corp.length }} Total</span>
+    </div>
+    <div ng-repeat="donor in donors.corp">
+      <div class="col-md-7">
+        <span class="col-md-9"> {{ $index + 1 }} {{ donor.payee }}</span>
+        <span class="col-md-3"> {{ donor.amount | currencyFormat }}</span>
+      </div>
+      <div class="col-md-5">
+        <div style="diplay: inline; height: 15px; border-radius: 3px;"
+            ng-style="{'width': donorPercent($index, 'corp').size, 'background-color': donorPercent($index, 'corp').color }">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn pull-right" ng-click="toggleSize()" ng-show="showAll">Show Less</a>
+<a class="btn pull-right" ng-click="toggleSize()" ng-show="haveMoreDonors() && !showAll">Show all</a>
+
 </div>

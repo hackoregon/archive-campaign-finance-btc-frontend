@@ -5,7 +5,7 @@
     <img src="images/icons/genderless.svg" />
   </div>
   <div ng-class="{'party-{{campaign.party}}': true }" class="party col-md-6"> {{campaign.party}} </div>
-  <div class="total">${{campaign.total}}</div>
+  <div class="total">{{campaign.total | currencyFormat}}</div>
   <div>Total Money Raised</div>
   <h5>Funding Sources</h5>
   <div simple-radial percent="campaign.grassroots" class="funding-icons" title="Grassroots Funding" icon="grassroots"></div>
