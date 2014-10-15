@@ -242,6 +242,9 @@ input[type='text'].read-only {
   .funding-icon {
     display: inline-block;
   }
+  .race {
+    height: 50px;
+  }
 }
 
 .funding-icons {
@@ -440,6 +443,10 @@ $iconSize: 85px;
 @media (max-width: 1199px) {
   .footer {
     margin-top: 15px;
+  }
+
+  .campaign-tile h2 {
+    font-size: 24px;
   }
 }
 

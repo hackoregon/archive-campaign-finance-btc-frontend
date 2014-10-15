@@ -1,10 +1,16 @@
 <div class="campaign-tile">
   {{JSON.stringify(campaign)}}
   <h2 class="text-center candidate-name"><a href="#campaign/{{campaign.filer_id}}">{{campaign.candidate_name | convertCase}}</a></h2>
-  <div class="portrait col-md-6">
+  <div class="text-center race"> {{campaign.race}} </div>
+  <div class="portrait col-xs-2 col-xs-offset-2 col-sm-offset-0">
     <img src="images/icons/genderless.svg" />
   </div>
-  <div ng-class="{'party-{{campaign.party}}': true }" class="party col-md-6"> {{campaign.party}} </div>
+
+  <div class="col-xs-2"> {{campaign.party}} </div>
+
+  <div class="row">
+    <div ng-class="{'party-{{campaign.party | lowercase}}': true }" class="party col-xs-2"></div>
+  </div>
   <div class="total">{{campaign.total | currencyFormat}}</div>
   <div>Total Money Raised</div>
   <h5>Funding Sources</h5>
