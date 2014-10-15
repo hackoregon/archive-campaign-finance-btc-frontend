@@ -125,9 +125,11 @@
         $scope.toggleSize = function() {
           $scope.showAll = !$scope.showAll;
         }
-        $scope.haveMoreDonors = function() {
-          if ($scope.donors && $scope.donors.indiv && $scope.donors.corp) {
-            return ($scope.donors.indiv.length > 4 || $scope.donors.corp.length > 4);
+        $scope.haveMoreDonors = function(listName) {
+          if (!$scope.donors) return false;
+          var donorList = $scope.donors[listName];
+          if (donorList) {
+            return (donorList.length > 4 || donorList.length > 4);
           }
           return false;
         }
