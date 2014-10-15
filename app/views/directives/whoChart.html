@@ -6,7 +6,7 @@
   <div whos-giving="Party"></div>
 
 <div>
-  <div class="col-sm-6 col-xs-12">
+  <div class="col-sm-6 col-xs-12" ng-show="donors.indiv.length">
     <div class="btn btn-default col-xs-12" ng-click="toggleSize()">Top Individual Donors
       <span class="badge pull-right" ng-show="haveMoreDonors('indiv')"> {{ donors.indiv.length }} Total</span>
     </div>
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6 col-xs-12">
+  <div class="col-sm-6 col-xs-12" ng-show="donors.corp.length">
     <div class="btn btn-default col-xs-12" ng-click="toggleSize()">Top Corporate donors
       <span class="badge pull-right" ng-show="haveMoreDonors('corp')">{{ donors.corp.length }} Total</span>
     </div>

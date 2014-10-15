@@ -2,14 +2,16 @@
   'use strict';
 
   angular.module('frontendApp').service('CampaignService', function ($q, $http, urls) {
-    this.CONTRIBUTION = {
+    var CONTRIBUTION = {
       PAC: 'PAC',
       BUSINESS: 'Business',
       GRASSROOTS: 'Grassroots',
       INDIVIDUAL: 'Individual',
       PARTY: 'Party',
+      UNION: 'Union',
       NA: 'NA'
     };
+    this.CONTRIBUTION = CONTRIBUTION;
 
     var _cachedTransactions = {campaignId: null, transactions: null};
 
@@ -28,6 +30,71 @@
 
       return promise;
     };
+
+    this.getOregon = function() {
+
+      var deferred = $q.defer();
+      $http.get(urls.oregonSummary())
+        .then(function(result) {
+          var campaign = new Campaign();
+          campaign.fromOregonSummary(result.data[0]);
+          deferred.resolve(campaign);
+        });
+
+      return deferred.promise;
+    };
+
+    function mungeContributions(data) {
+      var keyMap = {
+        'Political Committee': CONTRIBUTION.PAC,
+        'Large Donor': CONTRIBUTION.INDIVIDUAL,
+        'Grassroot': CONTRIBUTION.GRASSROOTS,
+        'Political Party Committee': CONTRIBUTION.PARTY,
+        'Business Entity': CONTRIBUTION.BUSINESS,
+        'Labor Organization': CONTRIBUTION.UNION,
+        'Other': CONTRIBUTION.NA
+      }
+      var result = {};
+      angular.forEach(data, function(val) {
+        var key = keyMap[val['contribution_type']];
+        if(key) {
+          if (!_(result).has(key)) {
+            result[key] = { amount: 0 };
+          }
+          result[key].amount += val.total;
+        }
+      });
+      return result;
+    }
+    this.getOregonContributions = function() {
+
+      var deferred = $q.defer();
+      $http.get(urls.oregonContributions()).then(function(result) {
+        deferred.resolve(mungeContributions(result.data));
+      })
+      return deferred.promise;
+    }
+
+    function mungeExpenditures(data) {
+      var expenditures = {};
+      angular.forEach(data, function(val) {
+        var key = val['purpose_code'];
+        if (!_(expenditures).has(key)) {
+          expenditures[key] = 0;
+        }
+        expenditures[key] += val.total;
+      });
+
+      return expenditures;
+    }
+    this.getOreganExpenditures = function() {
+
+      var deferred = $q.defer();
+      $http.get(urls.oregonExpenditures()).then(function(result) {
+        deferred.resolve(mungeExpenditures(result.data));
+      })
+      return deferred.promise;
+    }
 
     this.getCampaign = function (campaignId) {
 
@@ -54,6 +121,7 @@
 
       return promise;
     };
+
     /**
      * These results will get cached.  Each result could be many rows of data, so we'll only cache one
      * candidateId of results at a time.  Other service calls like getFinancialSummary will use the cached results.
@@ -153,7 +221,7 @@
                     if (!_(expenditures).has(purposeCode)) {
                       expenditures[purposeCode] = 0;
                     }
-                    expenditures[purposeCode] += Number(row['amount']);
+                    expenditures[purposeCode] += (Number(row['amount']) / purposeCodes.length);
                   });
                   break;
 

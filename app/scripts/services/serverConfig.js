@@ -9,18 +9,41 @@
       var campaignDetailUrl = _.template(BASE_URL + 'committee_data_by_id/<%= campaignId %>/');
       var moneyByStateUrl = _.template(BASE_URL + 'candidate_in_by_state_by_id/<%= campaignId %>/');
       var campaignCompetitors = _.template(BASE_URL + 'competitors_from_name/<%= campaignId %>/');
+      var allOregonSummary = (BASE_URL + 'all_oregon_sum/_/');
+      var allOregonContributionsSummary = (BASE_URL + 'oregon_by_contributions/_/');
+      var allOregonExpendituresSummary = (BASE_URL + 'oregon_by_purpose_codes/_/');
+      var allOregonActivityOverTime = (BASE_URL + 'state_sum_by_date/_/');
+      var allOregonStateByState = (BASE_URL + 'oregon_in_by_state/_/');
       return {
         campaignSearch: function(searchTerm) {
           return campaignSearchUrl({searchTerm:searchTerm});
         },
         transactions:  function(campaignId) {
+          if (campaignId === 'oregon') {
+            return allOregonTransactions;
+          }
           return transactionsUrl({campaignId: campaignId});
         },
         campaignDetail: function(campaignId) {
           return campaignDetailUrl({campaignId: campaignId});
         },
         campaignMoneyByState: function(campaignId) {
+          if (campaignId === 'oregon') {
+            return allOregonStateByState;
+          }
           return moneyByStateUrl({campaignId: campaignId});
+        },
+        oregonSummary: function() {
+          return allOregonSummary;
+        },
+        oregonContributions: function() {
+          return allOregonContributionsSummary;
+        },
+        oregonExpenditures: function() {
+          return allOregonExpendituresSummary;
+        },
+        oregonTransactions: function() {
+          return allOregonTransactions;
         }
       };
     });
