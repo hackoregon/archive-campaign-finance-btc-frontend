@@ -259,6 +259,9 @@ input[type='text'].read-only {
   .detail-header {
     border-bottom: 5px solid black;
   }
+  .total-lable {
+
+  }
   h3 {
     font-family: OpenSansBold;
     letter-spacing: 0.5px;
@@ -328,6 +331,10 @@ input[type='text'].read-only {
       }
     }
   }
+}
+
+.spent-row {
+  margin-bottom: 30px;
 }
 
 .candidate-name {
@@ -485,9 +492,9 @@ $iconSize: 85px;
 @media (max-width: 485px) {
   .home {
     .header {
-      margin-top: 0px; 
+      margin-top: 0px;
     }
-  }  
+  }
 }
 
 

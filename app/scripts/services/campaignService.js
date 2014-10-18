@@ -184,6 +184,7 @@
             .each(function (row) {
               var subType = row['sub_type'];
               switch (subType) {
+                case 'In-Kind Contribution':
                 case 'Cash Contribution':
                   var bookType = row['book_type'];
                   var contributionKey = '';
@@ -202,9 +203,7 @@
                       contributionKey = self.CONTRIBUTION.NA;
                       break;
                     case 'Individual':
-                      if (Number(row['amount']) <= 200) {
-                        contributionKey = self.CONTRIBUTION.GRASSROOTS;
-                      } else {
+                      if (row['contributor_payee_class'] !== 'grassroots_contributor') {
                         contributionKey = self.CONTRIBUTION.INDIVIDUAL;
                         addDonorItem('indiv', row);
                       }
@@ -213,6 +212,10 @@
                   if (contributionKey) {
                     contributions[contributionKey].amount += Number(row['amount']);
                     contributions[contributionKey].number += 1;
+                  }
+                  if (row['contributor_payee_class'] === 'grassroots_contributor') {
+                    contributions[self.CONTRIBUTION.GRASSROOTS].amount += Number(row['amount']);
+                    contributions[self.CONTRIBUTION.GRASSROOTS].number += 1;
                   }
                   break;
                 case 'Cash Expenditure':
