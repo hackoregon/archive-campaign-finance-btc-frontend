@@ -17,15 +17,31 @@
     </div>
     <div class="col-md-6 campaign-details">
       <div class="row">
+        <div class="col-sm-4 total">
+          <b>Raised</b>
+        </div>
+        <div class="col-sm-8">
+          <div class="total">{{viewModel.campaign.total | currencyFormat}}</div>
+        </div>
+      </div>
+      <div class="row spent-row">
+        <div class="col-sm-4 total">
+          <b>Spent</b>
+        </div>
+        <div class="col-sm-8">
+          <div class="total">{{viewModel.campaign.total_spent | currencyFormat}}</div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-sm-4">
           <div simple-radial percent="viewModel.campaign.grassroots" title="Grassroots Funding" icon="grassroots"></div>
         </div>
         <div class="col-sm-4">
           <div simple-radial percent="viewModel.campaign.instate" title="In-District Funding" icon="district"></div>
         </div>
-        <div class="col-sm-4">
+        <!--div class="col-sm-4">
           <div simple-radial percent="viewModel.campaign.spent_percent" title="Spent" icon="money" color="#48a04b"></div>
-        </div>
+        </div-->
       </div>
     </div>
   </div>
