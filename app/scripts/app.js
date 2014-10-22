@@ -37,6 +37,9 @@
     }).when('/about', {
       templateUrl: 'views/about.html',
       controller: 'AboutCtrl'
+    }).when('/faq', {
+      templateUrl: 'views/faq.html',
+      controller: 'FaqCtrl'
     }).when('/sandbox', {
       templateUrl: 'views/sandbox.html',
       controller: 'SandboxCtrl'
