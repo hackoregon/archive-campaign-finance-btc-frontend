@@ -14,6 +14,9 @@
       var allOregonExpendituresSummary = (BASE_URL + 'oregon_by_purpose_codes/_/');
       var allOregonActivityOverTime = (BASE_URL + 'state_sum_by_date/_/');
       var allOregonStateByState = (BASE_URL + 'oregon_in_by_state/_/');
+      var allOregonTopIndividualDonors = (BASE_URL + 'oregon_individual_contributors/_/');
+      var allOregonTopBusinessDonors = (BASE_URL + 'oregon_business_contributors/_/');
+      var allOregonTopPACDonors = (BASE_URL + 'oregon_committee_contributors/_/');
       return {
         campaignSearch: function(searchTerm) {
           return campaignSearchUrl({searchTerm:searchTerm});
@@ -44,6 +47,15 @@
         },
         oregonTransactions: function() {
           return allOregonTransactions;
+        },
+        oregonTopIndividualDonors: function() {
+          return allOregonTopIndividualDonors;
+        },
+        oregonTopBusinessDonors: function() {
+          return allOregonTopBusinessDonors;
+        },
+        oregonTopPACDonors: function() {
+          return allOregonTopPACDonors;
         }
       };
     });

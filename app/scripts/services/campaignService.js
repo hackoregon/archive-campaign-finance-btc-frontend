@@ -96,6 +96,40 @@
       return deferred.promise;
     }
 
+    var mungeTopDonors = function(results){
+      /**
+       * FROM
+       * [
+       *  {"contributor_payee":"Loren Parks","sum":874300},
+       *  {"contributor_payee":"John Arnold","sum":500000}
+       * ]
+       * TO
+       * [
+       *  {"payee":"William Hull","amount":1000},
+       *  {"payee":"James W. Ratzlaff","amount":1000}
+       * ]
+       */
+      return _.map(results, function(payee){
+        return {payee: payee.contributor_payee, amount: payee.sum};
+      });
+    }
+
+    this.getTopIndividualDonors = function(){
+      var deferred = $q.defer();
+      $http.get(urls.oregonTopIndividualDonors()).then(function(result) {
+        deferred.resolve(mungeTopDonors(result.data));
+      })
+      return deferred.promise;
+    }
+
+    this.getTopBusinessDonors = function(){
+      var deferred = $q.defer();
+      $http.get(urls.oregonTopBusinessDonors()).then(function(result) {
+        deferred.resolve(mungeTopDonors(result.data));
+      })
+      return deferred.promise;
+    }
+
     this.getCampaign = function (campaignId) {
 
       var deferred = $q.defer();

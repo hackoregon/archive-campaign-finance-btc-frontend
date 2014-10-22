@@ -7,7 +7,7 @@ angular.module('frontendApp')
         if (number > 999999) {
           number = (number / 1000000);
           suffix = ' m';
-        } else if (number > 49999) {
+        } else if (number > 9999) {
           number = (number / 1000);
           suffix = ' k';
         }
@@ -20,4 +20,14 @@ angular.module('frontendApp')
         return '';
       }
     }
+  })
+  .filter('range', function() {
+    return function(input, start, total) {
+      if (!input) return;
+      var clone = _.clone(input);
+      if (!total || start + total > clone.length) {
+        total = clone.length - 1 - start;
+      }
+      return clone.splice(start, total);
+    };
   });

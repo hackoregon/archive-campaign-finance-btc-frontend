@@ -5,45 +5,9 @@
   <div whos-giving="Grassroots"></div>
   <div whos-giving="Party"></div>
 
-<div>
-  <div class="col-sm-6 col-xs-12" ng-show="donors.indiv.length">
-    <div class="btn btn-default col-xs-12" ng-click="toggleSize()">Top Individual Donors
-      <span class="badge pull-right" ng-show="haveMoreDonors('indiv')"> {{ donors.indiv.length }} Total</span>
-    </div>
-    <div ng-class="{ fullList: showAll }" class="col-sm-12 donorList">
-      <div ng-repeat="donor in donors.indiv">
-        <div class="wider col-sm-8 col-xs-12">
-          <span class="wider col-xs-9"> {{ $index + 1 }} {{ donor.payee }}</span>
-          <span class="wider col-xs-3"> {{ donor.amount | currencyFormat }}</span>
-        </div>
-        <div class="col-sm-4 hidden-xs">
-          <div style="diplay: inline; height: 15px; border-radius: 3px;"
-               ng-style="{'width': donorPercent($index, 'indiv').size, 'background-color': donorPercent($index, 'indiv').color }">
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <div donor-list donors="donors.indiv"></div>
+    <div donor-list donors="donors.corp"></div>
   </div>
-  <div class="col-sm-6 col-xs-12" ng-show="donors.corp.length">
-    <div class="btn btn-default col-xs-12" ng-click="toggleSize()">Top Corporate donors
-      <span class="badge pull-right" ng-show="haveMoreDonors('corp')">{{ donors.corp.length }} Total</span>
-    </div>
-    <div ng-class="{ fullList: showAll }" class="col-sm-12 donorList">
-      <div ng-repeat="donor in donors.corp">
-        <div class="wider col-sm-8 col-xs-12">
-          <span class="wider col-xs-9"> {{ $index + 1 }} {{ donor.payee }}</span>
-          <span class="wider col-xs-3"> {{ donor.amount | currencyFormat }}</span>
-        </div>
-        <div class="col-sm-4 hidden-xs">
-          <div style="diplay: inline; height: 15px; border-radius: 3px;"
-              ng-style="{'width': donorPercent($index, 'corp').size, 'background-color': donorPercent($index, 'corp').color }">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<a class="btn pull-right" ng-click="toggleSize()" ng-show="showAll">Show Less</a>
-<a class="btn pull-right" ng-click="toggleSize()" ng-show="haveMoreDonors() && !showAll">Show all</a>
 
 </div>

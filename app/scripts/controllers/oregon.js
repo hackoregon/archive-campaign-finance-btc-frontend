@@ -12,7 +12,7 @@
 
     $scope.viewModel = {
       campaign: {},
-      financialSummary: { contributions: [], expenditures: [] },
+      financialSummary: { contributions: [], expenditures: [], donors: {} },
       moneyByState: null
     };
 
@@ -28,6 +28,12 @@
       })
       CampaignService.getCampaignMoneyByState('oregon').then(function(result) {
         $scope.viewModel.moneyByState = result;
+      });
+      CampaignService.getTopIndividualDonors().then(function(results){
+        $scope.viewModel.financialSummary.donors.indiv = results;
+      });
+      CampaignService.getTopBusinessDonors().then(function(results){
+        $scope.viewModel.financialSummary.donors.corp = results;
       });
     });
   });

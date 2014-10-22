@@ -1,0 +1,27 @@
+<div class="col-sm-6 col-xs-12" ng-show="donors.length">
+  <div class="btn btn-default col-xs-12" ng-click="toggleSize()">Top Corporate donors
+    <span class="badge pull-right" ng-show="haveMoreDonors()">{{ donors.length }} Total</span>
+  </div>
+  <div class="col-sm-12 donorList">
+    <div ng-repeat="donor in donors | range:0:5" class="donor row">
+      <div class="wider col-sm-7 payee"> {{ donor.payee }}</div>
+      <div class="wider col-sm-2"> {{ donor.amount | currencyFormat }}</div>
+      <div class="col-sm-3 hidden-xs">
+        <div style="diplay: inline; height: 15px; border-radius: 3px;"
+            ng-style="{'width': donorPercent(donor.amount).size, 'background-color': donorPercent(donor.amount).color }">
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="donor in donors | range:5" ng-class="{ fullList: showAll }" class="extended donor row">
+      <div class="wider col-sm-7 payee"> {{ donor.payee }}</div>
+      <div class="wider col-sm-2"> {{ donor.amount | currencyFormat }}</div>
+      <div class="col-sm-3 hidden-xs">
+        <div style="diplay: inline; height: 15px; border-radius: 3px;"
+            ng-style="{'width': donorPercent(donor.amount).size, 'background-color': donorPercent(donor.amount).color }">
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="btn pull-right" ng-click="toggleSize()" ng-show="showAll">Show Less</a>
+  <a class="btn pull-right" ng-click="toggleSize()" ng-show="haveMoreDonors() && !showAll">Show all</a>
+</div>
