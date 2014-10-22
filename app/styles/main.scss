@@ -304,16 +304,26 @@ input[type='text'].read-only {
       font-size: 1em;
       line-height: 1.25em;
       height: auto;
-      max-height: 6em;
-      overflow: hidden;
       margin-top: 5px;
       -webkit-transition: max-height 1s;
       transition: max-height 1s;
+      //padding: 0;
+
+      .payee {
+        text-overflow: ellipsis;
+      }
+
+      .donor {
+        //height: 17px;
+      }
     }
-    .donorList.fullList {
-      max-height: 200em;
-      overflow-y: scroll;
+    .extended.donor {
+      display: none;
     }
+    .extended.donor.fullList {
+      display: block;
+    }
+
     .wider {
       padding-left: 0;
       padding-right: 0;
@@ -433,6 +443,11 @@ $iconSize: 85px;
     font-size: 3.5em;
     letter-spacing: 2px;
   }
+}
+
+/* MONEY BY STATE =============================================== */
+.money-by-state {
+  margin-top: 20px;
 }
 
 /* FOOTER ======================================================= */

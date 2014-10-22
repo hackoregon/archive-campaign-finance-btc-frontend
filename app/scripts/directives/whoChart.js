@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   angular.module('frontendApp')
-  .directive('whosGiving', function(CampaignService, $window) {
+  .directive('whosGiving', function(CampaignService, $window, rangeFilter) {
     return {
       restrict: 'EA',
       template: '<div class="source">' +
@@ -81,7 +81,6 @@
 
         $scope.startAt = 0;
         $scope.selectLength = 3;
-        $scope.showAll = false;
 
         $scope.formatData = function(dataSrc) {
           $scope.dataSet.length = 0;
@@ -110,29 +109,7 @@
           }
           return (0.7 * $scope.h) * Math.sqrt(1.0 * val / $scope.maxVal);
         }
-        var colorBlend = d3.interpolateRgb('#A3D3D2', '#10716F');
-        $scope.donorPercent = function(i, donorName) {
-          var donorList = $scope.donors[donorName];
-          if (donorList && donorList.length > 0) {
-            var val = donorList[i].amount / donorList[0].amount;
-            return {
-              size: 100 * val + '%',
-              color: colorBlend(val)
-            };
-          }
-          else return { size: '0%', color: '#FFF'};
-        }
-        $scope.toggleSize = function() {
-          $scope.showAll = !$scope.showAll;
-        }
-        $scope.haveMoreDonors = function(listName) {
-          if (!$scope.donors) return false;
-          var donorList = $scope.donors[listName];
-          if (donorList) {
-            return (donorList.length > 4 || donorList.length > 4);
-          }
-          return false;
-        }
+
       },
       link: function(scope) {
 
