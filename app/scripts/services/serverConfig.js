@@ -10,6 +10,7 @@
       var campaignDetailUrl = _.template(BASE_URL + 'committee_data_by_id/<%= campaignId %>/');
       var moneyByStateUrl = _.template(BASE_URL + 'candidate_in_by_state_by_id/<%= campaignId %>/');
       var campaignCompetitors = _.template(BASE_URL + 'competitors_from_name/<%= campaignId %>/');
+      var candidateSumByDateUrl = _.template(BASE_URL + 'candidate_sum_by_date/<%= campaignId %>/');
       return {
         campaignSearch: function(searchTerm) {
           return campaignSearchUrl({searchTerm:searchTerm});
@@ -22,6 +23,9 @@
         },
         campaignMoneyByState: function(campaignId) {
           return moneyByStateUrl({campaignId: campaignId});
+        },
+        candidateSumByDate: function(campaignId) {
+          return candidateSumByDateUrl({campaignId: campaignId});
         }
       };
     });

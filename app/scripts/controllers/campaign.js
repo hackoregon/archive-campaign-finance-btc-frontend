@@ -16,15 +16,16 @@
     $scope.viewModel = {
       campaign: {},
       financialSummary: null,
-      moneyByState: null
+      moneyByState: null,
+      fundingExpenditures: null
     };
 
-//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PAC] = '#fbb4ae';
-//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.BUSINESS] = '#b3cde3';
-//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.GRASSROOTS] = '#ccebc5';
-//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.INDIVIDUAL] = '#decbe4';
-//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PARTY] = '#fed9a6';
-//    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.NA] = '#ffffcc';
+    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PAC] = '#fbb4ae';
+    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.BUSINESS] = '#b3cde3';
+    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.GRASSROOTS] = '#ccebc5';
+    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.INDIVIDUAL] = '#decbe4';
+    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PARTY] = '#fed9a6';
+    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.NA] = '#ffffcc';
 
     CampaignService.getCampaign($routeParams.campaignId).then(function(result) {
       $scope.viewModel.campaign = result;
@@ -37,6 +38,14 @@
       CampaignService.getCampaignMoneyByState($scope.viewModel.campaign.filer_id).then(function(result) {
         $scope.viewModel.moneyByState = result;
       });
+
+      var theFunction = CampaignService.getFundingExpenditures;
+      console.log("theFunction",theFunction);
+      CampaignService.getFundingExpenditures($scope.viewModel.campaign.filer_id).then(
+	function(result) {
+          $scope.viewModel.fundingExpenditures = result;
+	});
+      
     });
 
 

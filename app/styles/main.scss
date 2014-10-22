@@ -50,6 +50,32 @@ input[type='text'].read-only {
 
 }
 
+/** slider css*/
+
+.area {
+  fill: steelblue;
+  clip-path: url(#clip);
+}
+
+ .area1 {
+  fill: red;
+  clip-path: url(#clip);
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+
 /** Browse My Ballot Search and Results Pages ============================ **/
 .browse {
 
@@ -401,5 +427,4 @@ $iconSize: 85px;
     }
   }  
 }
-
 
