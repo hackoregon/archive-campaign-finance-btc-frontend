@@ -17,12 +17,13 @@
         var svg = d3.select(element[0]).append("svg")
           .attr("width", width)
           .attr("height", height);
+        var group = svg.append("g").attr('transform', 'scale(.75)');
 
         var path = d3.geo.path();
 
         var color = d3.scale.linear()
-          .domain([100, 1000, 10000, 100000, 1000000, 10000000])
-          .range(["rgb(204,236,230)", "rgb(153,216,201)", "rgb(102,194,164)", "rgb(65,174,118)","rgb(35,139,69)","rgb(0,109,44)"]);
+          .domain([100, 1000, 10000, 100000, 1000000, 10000000, 100000000])
+          .range(["rgb(204,236,230)", "rgb(153,216,201)", "rgb(102,194,164)", "rgb(65,174,118)","rgb(35,139,69)","rgb(0,109,44)", "rgb(0, 55, 22)"]);
 
         var usStates = null;
 
@@ -40,7 +41,7 @@
             return;
           }
 
-          svg.empty();
+          group.empty();
           for (var i = 0; i < scope.money.length; i++) {
             var dataState = scope.money[i].state;
             var dataValue = parseFloat(scope.money[i].value);
@@ -54,7 +55,30 @@
             }
           }
 
-          svg.selectAll("path")
+          var legend = group.selectAll(".legend")
+            .data(color.domain().slice().reverse())
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function (d, i) {
+            return "translate(150," + i * 30 + ")";
+            });
+
+            legend.append("rect")
+                .attr("x", width - 100)
+                .attr("width", 100)
+                .attr("height", 18)
+                .style("fill", color);
+
+            legend.append("text")
+                .attr("x", width - 120)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .style("text-anchor", "end")
+                .text(function (d) {
+                return numeral(d).format('$0,0.00');
+            });
+
+          group.selectAll("path")
             .data(usStates.features)
             .enter()
             .append("path")

@@ -33,3 +33,15 @@ Campaign.prototype.fromObject = function(obj) {
   this.filer_id = obj.filer_id;
   this.party = obj.party;
 };
+
+Campaign.prototype.fromOregonSummary = function(obj) {
+  this.filer_id = "oregon";
+  this.campaign_name = "Oregon Summary";
+  this.committee_name = 'Oregon Summary';
+  this.candidate_name = "Oregon Summary";
+  this.race = '';
+  this.total = obj.in;
+  this.total_spent = obj.out;
+  this.grassroots = obj.total_grass_roots / obj.in;
+  this.instate = obj.from_within / obj.in;
+}

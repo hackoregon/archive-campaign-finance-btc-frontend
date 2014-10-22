@@ -2,14 +2,16 @@
   'use strict';
 
   angular.module('frontendApp').service('CampaignService', function ($q, $http, urls) {
-    this.CONTRIBUTION = {
+    var CONTRIBUTION = {
       PAC: 'PAC',
       BUSINESS: 'Business',
       GRASSROOTS: 'Grassroots',
       INDIVIDUAL: 'Individual',
       PARTY: 'Party',
+      UNION: 'Union',
       NA: 'NA'
     };
+    this.CONTRIBUTION = CONTRIBUTION;
 
     var _cachedTransactions = {campaignId: null, transactions: null};
 
@@ -42,6 +44,104 @@
       return promise;
     };
 
+    this.getOregon = function() {
+
+      var deferred = $q.defer();
+      $http.get(urls.oregonSummary())
+        .then(function(result) {
+          var campaign = new Campaign();
+          campaign.fromOregonSummary(result.data[0]);
+          deferred.resolve(campaign);
+        });
+
+      return deferred.promise;
+    };
+
+    function mungeContributions(data) {
+      var keyMap = {
+        'Political Committee': CONTRIBUTION.PAC,
+        'Large Donor': CONTRIBUTION.INDIVIDUAL,
+        'Grassroot': CONTRIBUTION.GRASSROOTS,
+        'Political Party Committee': CONTRIBUTION.PARTY,
+        'Business Entity': CONTRIBUTION.BUSINESS,
+        'Labor Organization': CONTRIBUTION.UNION,
+        'Other': CONTRIBUTION.NA
+      }
+      var result = {};
+      angular.forEach(data, function(val) {
+        var key = keyMap[val['contribution_type']];
+        if(key) {
+          if (!_(result).has(key)) {
+            result[key] = { amount: 0 };
+          }
+          result[key].amount += val.total;
+        }
+      });
+      return result;
+    }
+    this.getOregonContributions = function() {
+
+      var deferred = $q.defer();
+      $http.get(urls.oregonContributions()).then(function(result) {
+        deferred.resolve(mungeContributions(result.data));
+      })
+      return deferred.promise;
+    }
+
+    function mungeExpenditures(data) {
+      var expenditures = {};
+      angular.forEach(data, function(val) {
+        var key = val['purpose_code'];
+        if (!_(expenditures).has(key)) {
+          expenditures[key] = 0;
+        }
+        expenditures[key] += val.total;
+      });
+
+      return expenditures;
+    }
+    this.getOreganExpenditures = function() {
+
+      var deferred = $q.defer();
+      $http.get(urls.oregonExpenditures()).then(function(result) {
+        deferred.resolve(mungeExpenditures(result.data));
+      })
+      return deferred.promise;
+    }
+
+    var mungeTopDonors = function(results){
+      /**
+       * FROM
+       * [
+       *  {"contributor_payee":"Loren Parks","sum":874300},
+       *  {"contributor_payee":"John Arnold","sum":500000}
+       * ]
+       * TO
+       * [
+       *  {"payee":"William Hull","amount":1000},
+       *  {"payee":"James W. Ratzlaff","amount":1000}
+       * ]
+       */
+      return _.map(results, function(payee){
+        return {payee: payee.contributor_payee, amount: payee.sum};
+      });
+    }
+
+    this.getTopIndividualDonors = function(){
+      var deferred = $q.defer();
+      $http.get(urls.oregonTopIndividualDonors()).then(function(result) {
+        deferred.resolve(mungeTopDonors(result.data));
+      })
+      return deferred.promise;
+    }
+
+    this.getTopBusinessDonors = function(){
+      var deferred = $q.defer();
+      $http.get(urls.oregonTopBusinessDonors()).then(function(result) {
+        deferred.resolve(mungeTopDonors(result.data));
+      })
+      return deferred.promise;
+    }
 
     this.getCampaign = function (campaignId) {
 
@@ -68,6 +168,7 @@
 
       return promise;
     };
+
     /**
      * These results will get cached.  Each result could be many rows of data, so we'll only cache one
      * candidateId of results at a time.  Other service calls like getFinancialSummary will use the cached results.
@@ -79,7 +180,7 @@
       var deferred = $q.defer();
       var promise = deferred.promise;
       if (campaignId === _cachedTransactions.campaignId) {
-        deferred.resolve(_cachedTransaction.transactions);
+        deferred.resolve(_cachedTransactions.transactions);
       } else {
         $http.get(urls.transactions(campaignId))
           .then(function (result) {
@@ -130,6 +231,7 @@
             .each(function (row) {
               var subType = row['sub_type'];
               switch (subType) {
+                case 'In-Kind Contribution':
                 case 'Cash Contribution':
                   var bookType = row['book_type'];
                   var contributionKey = '';
@@ -148,9 +250,7 @@
                       contributionKey = self.CONTRIBUTION.NA;
                       break;
                     case 'Individual':
-                      if (Number(row['amount']) <= 200) {
-                        contributionKey = self.CONTRIBUTION.GRASSROOTS;
-                      } else {
+                      if (row['contributor_payee_class'] !== 'grassroots_contributor') {
                         contributionKey = self.CONTRIBUTION.INDIVIDUAL;
                         addDonorItem('indiv', row);
                       }
@@ -160,6 +260,10 @@
                     contributions[contributionKey].amount += Number(row['amount']);
                     contributions[contributionKey].number += 1;
                   }
+                  if (row['contributor_payee_class'] === 'grassroots_contributor') {
+                    contributions[self.CONTRIBUTION.GRASSROOTS].amount += Number(row['amount']);
+                    contributions[self.CONTRIBUTION.GRASSROOTS].number += 1;
+                  }
                   break;
                 case 'Cash Expenditure':
                   var purposeCodes = (row['purpose_codes'] || '').split('; ');
@@ -167,7 +271,7 @@
                     if (!_(expenditures).has(purposeCode)) {
                       expenditures[purposeCode] = 0;
                     }
-                    expenditures[purposeCode] += Number(row['amount']);
+                    expenditures[purposeCode] += (Number(row['amount']) / purposeCodes.length);
                   });
                   break;
 

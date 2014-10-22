@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('frontendApp').directive('spendingChart', function () {
+  angular.module('frontendApp').directive('spendingChart', ['currencyFormatFilter', function (currencyFormat) {
     return {
       restrict: 'EA',
       templateUrl: '/views/directives/spending.html',
@@ -18,9 +18,16 @@
         function formatPercent(val) {
           return Math.round(100.0 * val) + '%';
         }
+        // this expression is part of the 'book_type' and is meant as an instruction
+        // to the campaign/filer. It is just confusing for anyone else.
+        var unwanted = /\(need description\)/;
+        function sanitizeDescription(desc) {
+          return desc.replace(unwanted, '');
+        }
 
-        var padding = { top: 35, left: 10, bottom: 85, right: 10 };
+        var padding = { top: 35, left: 10, bottom: 15, right: 10 };
         var interpColor = d3.interpolateRgb('#D8E4D1', '#49A14C');
+        var barColors = [ '#72AE69', '#A3D3D2'];
         var themeColors = [
           '#64BCBB', '#A3D3D2', '#DEEEED', '#E8F5F5',
           '#49A14C', '#72AE69', '#B5D0AB', '#D8E4D1',
@@ -29,6 +36,9 @@
           '#67576A', '#98869A', '#B4A7B5', '#D4CCD4',
           '#666666', '#828282', '#BFBFBF', '#D9D9D9'
         ]
+        function barColor(i) {
+          return barColors[i % barColors.length ];
+        }
         function pieColor(i) {
           return themeColors[ i % themeColors.length ];
         }
@@ -47,15 +57,20 @@
           var total = d3.sum(dataSet, function(d) { return d.amount} );
           var maxVal = d3.max(dataSet, function(d) { return d.amount} );
 
-          var xScale = d3.scale.ordinal()
-            .domain(d3.range(dataSet.length))
-            .rangeRoundBands([0, 100], 0.2);
-
-          var colWidth = Math.min(xScale.rangeBand(), 20);
-
-          var yScale = d3.scale.linear()
+          var xScale = d3.scale.linear()
             .domain([0, maxVal])
-            .range([0, scope.h - padding.bottom - padding.top]);
+            .range([0, 40]);
+
+          var chartOffset = 15; // in %
+          var colHeight = 25; // in px
+          var barVOffset = -0.6 * colHeight;
+          var dollarVOffset = 0.45 * colHeight;
+
+          var yScale = d3.scale.ordinal()
+            .domain(d3.range(dataSet.length))
+            .rangeRoundBands([0, scope.h], 0.2);
+
+          var colWidth = Math.min(yScale.rangeBand(), 20);
 
           function fillTooltip(d, element) {
             var xPosition = parseFloat(d3.select(element).attr('x')) + xScale.rangeBand() / 2;
@@ -69,50 +84,39 @@
           }
 
           clearSvg();
-          svg.attr('height', scope.h)
+          svg.attr('height', colHeight * dataSet.length + padding.top + padding.bottom)
             .selectAll('rect')
             .data(dataSet)
             .enter()
               .append('rect')
-              .attr('x', function(d,i) { return xScale(i)+'%' })
-              .attr('y', function(d) { return scope.h - yScale(d.amount) - padding.bottom })
-              .attr("width", colWidth + '%')
-              .attr('height', function(d) { return yScale(d.amount) })
-              .attr('fill', function(d, i) { return interpColor( d.amount / maxVal )})
-              .on('mouseover', function(d) {
-                d3.select(this).attr('fill', '#10716F')
-                fillTooltip(d, this);
-                scope.$apply( function() {
-                  scope.showTooltip = true;
-                })
+              .attr('x', '50%')
+              .attr('y', function(d,i) { return padding.top + (i * colHeight) + barVOffset })
+              .attr("width", function(d,i) {
+                return xScale(d.amount) + '%';
               })
-              .on('mouseout', function(d) {
-                d3.select(this)
-                  .attr('fill', function(d, i) { return interpColor( d.amount / maxVal )})
+              .attr('height', colHeight * 0.8)
+              .attr('fill', function(d, i) { return barColor(i) })
 
-                scope.$apply( function() {
-                  scope.showTooltip = false;
-                })
-              });
-
-          svg.selectAll('text')
+          svg.selectAll('text.categoryLabel')
             .data(dataSet)
             .enter()
               .append('text')
-              .text(function(d) { return formatPercent(d.amount / total) })
-              .attr('x', function(d,i) { return xScale(i) + (colWidth/2)+'%' })
-              .attr('y', function(d) { return scope.h - yScale(d.amount) - padding.bottom - 10})
-              .on('mouseover', function(d) {
-                fillTooltip(d, this);
-                scope.$apply( function() {
-                  scope.showTooltip = true;
-                })
+              .attr('class', 'categoryLabel')
+              .attr('text-anchor', 'end')
+              .text(function(d) {
+                return sanitizeDescription(d.name);
               })
-              .on('mouseout', function(d) {
-                scope.$apply( function() {
-                  scope.showTooltip = false;
-                })
-              });
+              .attr('x', '48%')
+              .attr('y', function(d,i) { return padding.top + (i * colHeight) })
+
+          svg.selectAll('text.dollars')
+            .data(dataSet)
+            .enter()
+              .append('text')
+              .attr('class', 'dollars')
+              .text(function(d) { return currencyFormat(d.amount) })
+              .attr('x', function(d,i) { return (xScale(d.amount) + 50.5)+'%' })
+              .attr('y', function(d,i) { return padding.top + (i * colHeight) })
         }
         function renderPie() {
           var dataSet = scope.dataSet;
@@ -215,6 +219,6 @@
         });
       }
     };
-  });
+  }]);
 
 })();

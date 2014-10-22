@@ -31,7 +31,28 @@ input[type='text'].read-only {
   height: 1px;
 }
 
-/** Home Page **/
+/** Nav Bar ================================================= **/
+
+.navbar-fixed-top {
+  left: clear;
+}
+
+.container {
+  .navbar-header {
+  float: right;
+  margin-right: 0px;
+  }
+}
+
+.nav > li {
+  padding-top: 5px;
+}
+
+#main-nav .navbar-nav li div{
+  padding-bottom: 3%;
+}
+
+/** Home Page ================================================= **/
 .home {
   .header {
     display: block;
@@ -73,6 +94,19 @@ input[type='text'].read-only {
   stroke: #fff;
   fill-opacity: .125;
   shape-rendering: crispEdges;
+}
+
+.search {
+  margin-top: 40px;
+
+  .icon-candidate {
+    margin-left: 0px;
+  }
+}
+
+
+.results .icon-candidate {
+  margin-left: 0px;
 }
 
 
@@ -233,6 +267,9 @@ input[type='text'].read-only {
   .funding-icon {
     display: inline-block;
   }
+  .race {
+    height: 50px;
+  }
 }
 
 .funding-icons {
@@ -246,6 +283,9 @@ input[type='text'].read-only {
 .campaign-detail {
   .detail-header {
     border-bottom: 5px solid black;
+  }
+  .total-lable {
+
   }
   h3 {
     font-family: OpenSansBold;
@@ -280,20 +320,45 @@ input[type='text'].read-only {
       width:160px;
       height:160px;
     }
-    .donorList {
-      height: 100px;
-      overflow: hidden;
+    .btn {
+      .badge {
+        top: 1px;
+      }
     }
-    .donorList.fullList {
-      overflow: initial;
+    .donorList {
+      font-size: 1em;
+      line-height: 1.25em;
+      height: auto;
+      margin-top: 5px;
+      -webkit-transition: max-height 1s;
+      transition: max-height 1s;
+      //padding: 0;
+
+      .payee {
+        text-overflow: ellipsis;
+      }
+
+      .donor {
+        //height: 17px;
+      }
+    }
+    .extended.donor {
+      display: none;
+    }
+    .extended.donor.fullList {
+      display: block;
+    }
+
+    .wider {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   .d3spend {
     text {
       font-family: OpenSansRegular;
-      font-size: 24px;
+      font-size: 15px;
       fill: black;
-      text-anchor: middle;
     }
     .slice {
       text {
@@ -301,6 +366,10 @@ input[type='text'].read-only {
       }
     }
   }
+}
+
+.spent-row {
+  margin-bottom: 30px;
 }
 
 .candidate-name {
@@ -339,7 +408,7 @@ input[type='text'].read-only {
 
 $iconSize: 85px;
 
-.search {
+.search, .results {
 
   .icon {
     display: inline-block;
@@ -365,11 +434,17 @@ $iconSize: 85px;
   }
 }
 
+.results {
+  .icon-candidate {
+    margin-left: 16.666667%;
+  }
+}
+
 .search-box {
   position: relative;
 
   .form-control {
-    font-size: 2.5em;
+    font-size: 1.5em;
     height: $iconSize * 7 / 10;
     margin-top: $iconSize / 3;
     border: 2px solid #777;
@@ -395,10 +470,19 @@ $iconSize: 85px;
   }
 }
 
+/* MONEY BY STATE =============================================== */
+.money-by-state {
+  margin-top: 20px;
+}
+
 /* FOOTER ======================================================= */
 
 .footer {
   margin-top: 75px;
+
+  .social-container {
+    margin-left: -10px;
+  }
 }
 
 /* MEDIA QUERIES ================================================ */
@@ -406,6 +490,24 @@ $iconSize: 85px;
 @media (max-width: 1199px) {
   .footer {
     margin-top: 15px;
+  }
+
+  .campaign-tile h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .results {
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+
+  .search-box {
+    .form-control {
+      font-size: 1.25em;
+    }
   }
 }
 
@@ -420,11 +522,18 @@ $iconSize: 85px;
   }
 }
 
+@media (max-width: 489px) {
+  .search-box {
+    .form-control {
+      font-size: 13px;
+    }
+  }
+}
 @media (max-width: 485px) {
   .home {
     .header {
-      margin-top: 0px; 
+      margin-top: 0px;
     }
-  }  
+  }
 }
 

@@ -20,13 +20,6 @@
       fundingExpenditures: null
     };
 
-    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PAC] = '#fbb4ae';
-    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.BUSINESS] = '#b3cde3';
-    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.GRASSROOTS] = '#ccebc5';
-    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.INDIVIDUAL] = '#decbe4';
-    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.PARTY] = '#fed9a6';
-    //    $scope.viewModel.donationsColorMap[CampaignService.CONTRIBUTION.NA] = '#ffffcc';
-
     CampaignService.getCampaign($routeParams.campaignId).then(function(result) {
       $scope.viewModel.campaign = result;
       $scope.photo = ($scope.viewModel.campaign.photo || $scope.defaults.photo);
@@ -47,8 +40,6 @@
 	});
       
     });
-
-
 
   });
 

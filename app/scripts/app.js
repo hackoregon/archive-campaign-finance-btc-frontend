@@ -19,6 +19,9 @@
     }).when('/campaign/:campaignId', {
       templateUrl: 'views/campaign.html',
       controller: 'CampaignCtrl'
+    }).when('/oregon', {
+      templateUrl: 'views/campaign.html',
+      controller: 'OregonCtrl'
     }).when('/spend/:campaignId/:contributorId?', {
       templateUrl: 'views/spend.html',
       controller: 'SpendCtrl'
