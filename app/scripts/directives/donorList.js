@@ -5,7 +5,8 @@
       restrict: 'EA',
       templateUrl: '/views/directives/donorList.html',
       scope: {
-        donors: '='
+        donors: '=',
+        title: '@'
       },
       controller: function ($scope) {
         var donorMin, donorMax, donorSize;
