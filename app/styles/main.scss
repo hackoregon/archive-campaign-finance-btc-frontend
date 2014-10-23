@@ -90,6 +90,9 @@ input[type='text'].read-only {
   h2 {
     margin-top: 40px;
   }
+  p {
+    font-size: 18px;
+  }
 }
 
 /** FAQ Page =========================================================== **/
@@ -517,6 +520,9 @@ $iconSize: 85px;
 }
 
 @media (max-width: 767px) {
+  .navbar-nav {
+    font-size: 20px;
+  }
   .footer {
     h4 {
       margin-right: 0px;
