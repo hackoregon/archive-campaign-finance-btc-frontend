@@ -15,6 +15,17 @@
 
     var _cachedTransactions = {campaignId: null, transactions: null};
 
+    this.getEndpointDocs = function () {
+      var deferred = $q.defer();
+      var promise = deferred.promise;
+      $http.get(urls.endpointDocs())
+        .then(function (result) {
+          deferred.resolve(result.data);
+        });
+
+      return promise;
+    };
+
     this.searchCampaigns = function (searchTerm) {
       var deferred = $q.defer();
       var promise = deferred.promise;

@@ -17,6 +17,7 @@
       var allOregonTopIndividualDonors = (BASE_URL + 'oregon_individual_contributors/_/');
       var allOregonTopBusinessDonors = (BASE_URL + 'oregon_business_contributors/_/');
       var allOregonTopPACDonors = (BASE_URL + 'oregon_committee_contributors/_/');
+      var endpointDocs = (BASE_URL + 'all_documentation/_/');
       return {
         campaignSearch: function(searchTerm) {
           return campaignSearchUrl({searchTerm:searchTerm});
@@ -56,6 +57,9 @@
         },
         oregonTopPACDonors: function() {
           return allOregonTopPACDonors;
+        },
+        endpointDocs: function() {
+          return endpointDocs;
         }
       };
     });

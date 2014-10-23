@@ -16,7 +16,7 @@
 			      </div>
 			    </div>
 			  </div>
-		  
+
 			  <div class="panel panel-default">
 			    <div class="panel-heading">
 			      <h4 class="panel-title">
@@ -41,7 +41,7 @@
 			    </div>
 			    <div id="collapseThree" class="panel-collapse collapse">
 			      <div class="panel-body">
-			        We calculate our "money raised" category based on how much money a campaign has raised during the current election cycle - so starting November 2012.  It is not uncommon for candidates to have money remaining from previous campaigns that they can carry forward for future campaigns. Currently this amount is not accounted for in our totals.  Therefore, campaigns may appear to have spent more than they have raised. 
+			        We calculate our "money raised" category based on how much money a campaign has raised during the current election cycle - so starting November 2012.  It is not uncommon for candidates to have money remaining from previous campaigns that they can carry forward for future campaigns. Currently this amount is not accounted for in our totals.  Therefore, campaigns may appear to have spent more than they have raised.
 			      </div>
 			    </div>
 			  </div>
@@ -59,6 +59,22 @@
 			      </div>
 			    </div>
 		  	</div>
+
+        <h2>How did we compute our results?</h2>
+
+        <div class="panel panel-default" ng-repeat="endpoint in endpointDocs">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" data-target="#{{endpoint.endpoint_name}}">
+                {{endpoint.title}}</a>
+            </h4>
+          </div>
+          <div id="{{endpoint.endpoint_name}}" class="panel-collapse collapse">
+            <div class="panel-body">
+              {{endpoint.txt}}
+            </div>
+          </div>
+        </div>
 		  </div>
 		</div>
 	</div>
