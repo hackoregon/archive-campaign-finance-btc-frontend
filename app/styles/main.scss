@@ -258,6 +258,17 @@ input[type='text'].read-only {
   .funding-icon {
     display: inline-block;
   }
+  .arrow {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+  }
+  .arrow-left {
+    right: 100%;
+  }
+  .arrow-right {
+    left: 100%;
+  }
   .race {
     height: 50px;
   }
@@ -323,14 +334,17 @@ input[type='text'].read-only {
       margin-top: 5px;
       -webkit-transition: max-height 1s;
       transition: max-height 1s;
-      //padding: 0;
+
+      a {
+          color: black;
+          text-decoration: none;
+          &:active, &:hover {
+              text-decoration: underline;
+          }
+        }
 
       .payee {
         text-overflow: ellipsis;
-      }
-
-      .donor {
-        //height: 17px;
       }
     }
     .extended.donor {

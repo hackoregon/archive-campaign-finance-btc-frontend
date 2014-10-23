@@ -4,7 +4,10 @@
   </div>
   <div class="col-sm-12 donorList">
     <div ng-repeat="donor in donors | range:0:5" class="donor row">
-      <div class="wider col-sm-7 payee"> {{ donor.payee }}</div>
+      <div class="wider col-sm-7 payee" ng-if="donor.filer_id">
+        <a href="#/campaign/{{ donor.filer_id }}">{{ donor.payee }}</a>
+      </div>
+      <div class="wider col-sm-7 payee" ng-if="!donor.filer_id"> {{ donor.payee }}</div>
       <div class="wider col-sm-2"> {{ donor.amount | currencyFormat }}</div>
       <div class="col-sm-3 hidden-xs">
         <div style="diplay: inline; height: 15px; border-radius: 3px;"
@@ -13,7 +16,10 @@
       </div>
     </div>
     <div ng-repeat="donor in donors | range:5" ng-class="{ fullList: showAll }" class="extended donor row">
-      <div class="wider col-sm-7 payee"> {{ donor.payee }}</div>
+      <div class="wider col-sm-7 payee" ng-if="donor.filer_id">
+        <a href="#/campaign/{{ donor.filer_id }}">{{ donor.payee }}</a>
+      </div>
+      <div class="wider col-sm-7 payee" ng-if="!donor.filer_id"> {{ donor.payee }}</div>
       <div class="wider col-sm-2"> {{ donor.amount | currencyFormat }}</div>
       <div class="col-sm-3 hidden-xs">
         <div style="diplay: inline; height: 15px; border-radius: 3px;"
@@ -22,6 +28,6 @@
       </div>
     </div>
   </div>
-  <a class="btn pull-right" ng-click="toggleSize()" ng-show="showAll">Show Less</a>
+  <a class="btn pull-right" ng-click="toggleSize()" ng-show="haveMoreDonors() && showAll">Show Less</a>
   <a class="btn pull-right" ng-click="toggleSize()" ng-show="haveMoreDonors() && !showAll">Show all</a>
 </div>
