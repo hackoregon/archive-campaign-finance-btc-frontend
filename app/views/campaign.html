@@ -10,26 +10,30 @@
   <div class="row">
     <div class="col-md-4">
       <img ng-src="{{ photo }}" class="campaign-photo" width="100%"/>
+      <p>Submit your campaign photo <a href="mailto:hello@hackoregon.com?Subject=Campaign%20photo" target="_top">here</a>.</p>
     </div>
+
+      
+
     <div class="col-md-2">
       <div class="party party-{{viewModel.campaign.party}}"></div>
       {{ viewModel.campaign.party }}
     </div>
     <div class="col-md-6 campaign-details">
       <div class="row">
-        <div class="col-sm-4 total">
+        <div class="col-sm-4 total total-raised">
           <b>Raised</b>
         </div>
         <div class="col-sm-8">
-          <div class="total">{{viewModel.campaign.total | currencyFormat}}</div>
+          <div class="total total-raised">{{viewModel.campaign.total | currencyFormat}}</div>
         </div>
       </div>
       <div class="row spent-row">
-        <div class="col-sm-4 total">
+        <div class="col-sm-4 total total-spent">
           <b>Spent</b>
         </div>
         <div class="col-sm-8">
-          <div class="total">{{viewModel.campaign.total_spent | currencyFormat}}</div>
+          <div class="total total-spent">{{viewModel.campaign.total_spent | currencyFormat}}</div>
         </div>
       </div>
       <div class="row">
@@ -45,18 +49,27 @@
       </div>
     </div>
   </div>
+  <!--REMOVED THIS FOR BETA.  WILL ADD A BOOTSTRAP MODAL WITH CANDIDATE INFO FOR FUTURE VERSIONS 
   <div class="row">
     <div class="col-md-6">
       <h3>Official Campaign Contact</h3>
       <h3><a href="http://{{viewModel.campaign.website}}">{{viewModel.campaign.website}}</a></h3>
       <h3>{{viewModel.campaign.phone}}</h3>
-      <!--social-tags size="65" overlap="false"/-->
+      =======social-tags size="65" overlap="false"/ ================
     </div>
   </div>
+-->
+
+<div class="row">
+  <div class="col-xs-5 col-xs-offset-6 grassroots-fact">
+    <h4>Did you know the statewide average for grassroots funding is 13%?</h4>
+  </div>
+</div>
 
 
   <div class="row detail-header">
     <h2>Who's Giving?</h2>
+    <h4>This visualization is calculated by total dollars, not total people.</h4>
     <!--social-tags class="pull-right">Share</social-tags-->
   </div>
   <div class="row">
@@ -69,6 +82,7 @@
   <div class="row">
     <div class="detail-header">
       <h2>What Are They Spending Money On?</h2>
+      <h4>Did you know campaigns self select these categories?</h4>
     </div>
     <!--social-tags class="pull-right">Share</social-tags-->
   </div>
@@ -81,6 +95,7 @@
   <div class="row">
     <div class="detail-header">
       <h2>Is the Money Local?</h2>
+      <h4>This election year, Oregon has received contributions from all 50 states.</h4>
     </div>
     <!--social-tags class="pull-right">Share</social-tags-->
   </div>
