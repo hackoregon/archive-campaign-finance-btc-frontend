@@ -27,7 +27,7 @@ Once everything is installed run:
 `grunt serve`
 to get your development server fired up.
 
-## Getting aquainted with things
+## Getting acquainted with things
 Hack Oregon's front end is contained in an [Angular JS app](http://angularjs.org).
 
 Additionally, we are using [SASS](http://sass-lang.com/) which compiles into css and [coffeescript](http://coffeescript.org).
@@ -36,7 +36,7 @@ Additionally, we are using [SASS](http://sass-lang.com/) which compiles into css
 
 **Adding scripts:**  Read about how to add to the angular application with the yeoman angular-generator [here](https://github.com/yeoman/generator-angular).  Using angular generator you can add new routes, controllers, views, etc. with the simple commands listed in their [documentation](https://github.com/yeoman/generator-angular).  For example,
 `yo angular:route myAwesomeRoute`
-This will create a new route, a new controller for that route, as well as an html view that will be rendered at that route.  If you are a javascript purist, you can run the same command with a flag that tells the generator to use javasript.  For example,
+This will create a new route, a new controller for that route, as well as an html view that will be rendered at that route.  If you are a javascript purist, you can run the same command with a flag that tells the generator to use javascript.  For example,
 `yo angular:controller myAwesomeCtrl --coffee=false`
 
 
@@ -52,7 +52,7 @@ git branch -D master
 ## Wireframes
 https://gomockingbird.com/mockingbird/#44apvbt/sCsPR
 
-When you feel like you are ready for your visualization or enhancement to be included submit a pull request.  There may be some things to change (especially if you are working on the core application) and we'll work together to get things running nicely.
+When you feel like you are ready for your visualization or enhancement to be included, submit a pull request.  There may be some things to change (especially if you are working on the core application) and we'll work together to get things running nicely.
 
 <!-- If you are working on a visualization that is not one of the 'who', 'what', etc. parts of the application, pick a unique name for your visualization and then you can include everything you need under the `community` folder.  Convention is to use the name of your viz as the prefix for any components you add to the app.  E.g. if you are creating a new directive for your feature, it should live in the `app/scripts/directives/community` folder and if the route is `mynewfeature` you should call the file `myNewFeatureDir.{js/coffee}` with a directive of the same name `myNewFeatureDir`.  This can then be used as `<my-new-feature-dir></my-new-feature-div>` within your template. -->
 
