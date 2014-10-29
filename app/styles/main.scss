@@ -339,7 +339,6 @@ input[type='text'].read-only {
       transition: max-height 1s;
 
       a {
-          color: black;
           text-decoration: none;
           &:active, &:hover {
               text-decoration: underline;

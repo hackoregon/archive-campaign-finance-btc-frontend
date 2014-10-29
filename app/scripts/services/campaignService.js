@@ -113,6 +113,18 @@
         return {payee: payee.contributor_payee, amount: payee.sum};
       });
     }
+    var mungeTopPACDonors = function(results) {
+      return _.map(results, function(payee){
+        var result = {
+          payee: payee.contributor_payee,
+          amount: payee.sum,
+        };
+        if (_.has(payee, 'contributor_payee_committee_id')) {
+          result.filer_id = payee['contributor_payee_committee_id'];
+        }
+        return result;
+      })
+    }
 
     this.getTopIndividualDonors = function(){
       var deferred = $q.defer();
@@ -126,6 +138,14 @@
       var deferred = $q.defer();
       $http.get(urls.oregonTopBusinessDonors()).then(function(result) {
         deferred.resolve(mungeTopDonors(result.data));
+      })
+      return deferred.promise;
+    }
+
+    this.getTopCommitteeDonors = function(){
+      var deferred = $q.defer();
+      $http.get(urls.oregonTopPACDonors()).then(function(result) {
+        deferred.resolve(mungeTopPACDonors(result.data));
       })
       return deferred.promise;
     }
