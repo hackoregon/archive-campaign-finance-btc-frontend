@@ -310,14 +310,18 @@ input[type='text'].read-only {
 
   }
 
-  
-
   h3 {
     font-family: OpenSansBold;
     letter-spacing: 0.5px;
     margin-top: 5px;
     margin-bottom: 5px;
   }
+
+  h4 {
+    font-size: 22px;
+    color: gray;
+  }
+
   .btn-toggle {
     position: relative;
     top: 2px;
