@@ -1,0 +1,13 @@
+{
+  "name": "ui-slider",
+  "_cacheHeaders": {
+    "ETag": "\"8b5c807349881a1b2645b1e7aa779f4b5edf711e\"",
+    "Content-Length": "6089",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:8b5c80734",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/angular-ui/ui-slider/master/src/slider.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/angular-ui/ui-slider/master/src/slider.js"
+}
