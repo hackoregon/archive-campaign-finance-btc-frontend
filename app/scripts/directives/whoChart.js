@@ -19,7 +19,7 @@
       controller: function($scope, $attrs) {
         $scope.ui = {
           PAC:        {label: 'PAC', icon: 'pac'},
-          Business:   {label: 'Corporate', icon: 'corporate'},
+          Business:   {label: 'Business', icon: 'corporate'},
           Grassroots: {label: 'Grass Roots', icon: 'grassroot'},
           Individual: {label: 'Large Donors', icon: 'individual'},
           Party:      {label: 'Party', icon: 'party'},
@@ -133,7 +133,7 @@
               scope.donorLists.push({data: newVal.indiv, label: "Top Individual Donors"});
             }
             if (newVal.corp && newVal.corp.length > 0) {
-              scope.donorLists.push({data: newVal.corp, label: "Top Corporate Donors"});
+              scope.donorLists.push({data: newVal.corp, label: "Top Business Donors"});
             }
             if (newVal.pac && newVal.pac.length > 0) {
               scope.donorLists.push({data: newVal.pac, label: "Top Committee Donors"});
