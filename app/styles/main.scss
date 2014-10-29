@@ -290,6 +290,18 @@ input[type='text'].read-only {
 
 /*** Campaign Detail Page ============================================= ***/
 
+.grassroots-fact {
+  margin-top: 25px;
+}
+
+.total-raised {
+  color: green;
+}
+
+.total-spent {
+  color: red;
+}
+
 .campaign-detail {
   .detail-header {
     border-bottom: 5px solid black;
@@ -297,6 +309,9 @@ input[type='text'].read-only {
   .total-lable {
 
   }
+
+  
+
   h3 {
     font-family: OpenSansBold;
     letter-spacing: 0.5px;
