@@ -5,19 +5,15 @@
       restrict: 'EA',
       templateUrl: '/views/directives/donorList.html',
       scope: {
-        donors: '='
+        donors: '=',
+        title: '@'
       },
       controller: function ($scope) {
-        var donorMin, donorMax, donorSize;
+        var donorMax, donorSize;
 
         var lazySetup = function(){
           if (!_.isArray($scope.donors)) {
             return;
-          }
-          if (!donorMin) {
-            donorMin = d3.min($scope.donors, function(donor){
-              return donor.amount;
-            });
           }
           if (!donorMax) {
             donorMax = d3.max($scope.donors, function(donor){
@@ -26,7 +22,7 @@
           }
           if (!donorSize) {
             donorSize  = d3.scale.linear()
-              .domain([donorMin, donorMax])
+              .domain([0, donorMax])
               .range([0,1]);
           }
         }

@@ -26,7 +26,7 @@ angular.module('frontendApp')
       if (!input) return;
       var clone = _.clone(input);
       if (!total || start + total > clone.length) {
-        total = clone.length - 1 - start;
+        total = clone.length - start;
       }
       return clone.splice(start, total);
     };

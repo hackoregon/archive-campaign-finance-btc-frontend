@@ -109,6 +109,24 @@ input[type='text'].read-only {
   margin-left: 0px;
 }
 
+/** About Page =========================================================== **/
+
+.about {
+  h2 {
+    margin-top: 40px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+
+/** FAQ Page =========================================================== **/
+
+.faq {
+  h2 {
+    margin-top: 40px;
+  }
+}
 
 /** Browse My Ballot Search and Results Pages ============================ **/
 .browse {
@@ -192,7 +210,8 @@ input[type='text'].read-only {
   border-radius: 5px;
   margin: 10px 10px 0 0;
   padding: 5px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .campaign-tile, .campaign-detail {
   h2 {
@@ -267,6 +286,17 @@ input[type='text'].read-only {
   .funding-icon {
     display: inline-block;
   }
+  .arrow {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+  }
+  .arrow-left {
+    right: 100%;
+  }
+  .arrow-right {
+    left: 100%;
+  }
   .race {
     height: 50px;
   }
@@ -332,14 +362,16 @@ input[type='text'].read-only {
       margin-top: 5px;
       -webkit-transition: max-height 1s;
       transition: max-height 1s;
-      //padding: 0;
+
+      a {
+          text-decoration: none;
+          &:active, &:hover {
+              text-decoration: underline;
+          }
+        }
 
       .payee {
         text-overflow: ellipsis;
-      }
-
-      .donor {
-        //height: 17px;
       }
     }
     .extended.donor {
@@ -512,6 +544,9 @@ $iconSize: 85px;
 }
 
 @media (max-width: 767px) {
+  .navbar-nav {
+    font-size: 20px;
+  }
   .footer {
     h4 {
       margin-right: 0px;

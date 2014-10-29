@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('frontendApp').controller('OregonCtrl', function($scope, CampaignService) {
+  angular.module('frontendApp').controller('OregonCtrl', function($scope, $q, CampaignService) {
 
     var startDate = new Date(2010, 1, 1).getTime();
     var endDate = new Date(2014, 9, 1).getTime();
@@ -29,12 +29,15 @@
       CampaignService.getCampaignMoneyByState('oregon').then(function(result) {
         $scope.viewModel.moneyByState = result;
       });
-      CampaignService.getTopIndividualDonors().then(function(results){
-        $scope.viewModel.financialSummary.donors.indiv = results;
-      });
-      CampaignService.getTopBusinessDonors().then(function(results){
-        $scope.viewModel.financialSummary.donors.corp = results;
-      });
+      $q.all([CampaignService.getTopIndividualDonors(),
+              CampaignService.getTopBusinessDonors(),
+              CampaignService.getTopCommitteeDonors()]).then(function(results) {
+                $scope.viewModel.financialSummary.donors = {
+                  indiv: results[0],
+                  corp: results[1],
+                  pac: results[2]
+                }
+             })
     });
   });
 

@@ -19,7 +19,7 @@ angular.module('frontendApp').controller('NavCtrl', function($scope, $location, 
         if (next.search( /\/browse/ ) != -1 || next.search( /\/myballot/ ) != -1) {
             $scope.site.area = SITE.BALLOT;
         }
-        else if(next.search( /\/view_all/ ) != -1) {
+        else if(next.search( /\/oregon/ ) != -1) {
             $scope.site.area = SITE.OREGON;
         }
         else {

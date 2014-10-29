@@ -5,9 +5,16 @@
   <div whos-giving="Grassroots"></div>
   <div whos-giving="Party"></div>
 
-  <div>
-    <div donor-list donors="donors.indiv"></div>
-    <div donor-list donors="donors.corp"></div>
+  <div class="row" style="overflow: hidden">
+    <img class="btn arrow arrow-left hidden-xs" src="images/icons/arrow_left.svg"
+         ng-click="shift('LEFT')" ng-if="donorLists.length > 2" />
+    <img class="btn arrow arrow-right hidden-xs" src="images/icons/arrow_right.svg"
+         ng-click="shift('RIGHT')"  ng-if="donorLists.length > 2" />
+    <div ng-repeat="donors in donorLists">
+        <div donor-list donors="donors.data"
+             data-title="{{ donors.label }}"
+             ng-show="$index < 2"></div>
+    </div>
   </div>
 
 </div>

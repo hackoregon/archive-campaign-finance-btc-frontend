@@ -78,9 +78,7 @@
 
         $scope.maxVal = 1.0;
         $scope.dataSet = [];
-
-        $scope.startAt = 0;
-        $scope.selectLength = 3;
+        $scope.donorLists = [];
 
         $scope.formatData = function(dataSrc) {
           $scope.dataSet.length = 0;
@@ -109,7 +107,17 @@
           }
           return (0.7 * $scope.h) * Math.sqrt(1.0 * val / $scope.maxVal);
         }
-
+        $scope.shift = function(direction) {
+          if ($scope.donorLists.length > 1) {
+            if (direction === 'RIGHT') {
+              var item = $scope.donorLists.shift();
+              $scope.donorLists.push(item);
+            } else if (direction === 'LEFT') {
+              var item = $scope.donorLists.pop();
+              $scope.donorLists.unshift(item);
+            }
+          }
+        }
       },
       link: function(scope) {
 
@@ -118,6 +126,20 @@
           scope.formatData(data);
           scope.computeMax(data);
         });
+        scope.$watch('donors', function(newVal) {
+          if (newVal) {
+            scope.donorLists.length = 0;
+            if (newVal.indiv && newVal.indiv.length > 0) {
+              scope.donorLists.push({data: newVal.indiv, label: "Top Individual Donors"});
+            }
+            if (newVal.corp && newVal.corp.length > 0) {
+              scope.donorLists.push({data: newVal.corp, label: "Top Corporate Donors"});
+            }
+            if (newVal.pac && newVal.pac.length > 0) {
+              scope.donorLists.push({data: newVal.pac, label: "Top Committee Donors"});
+            }
+          }
+        })
       }
     };
   });

@@ -126,6 +126,18 @@
         return {payee: payee.contributor_payee, amount: payee.sum};
       });
     }
+    var mungeTopPACDonors = function(results) {
+      return _.map(results, function(payee){
+        var result = {
+          payee: payee.contributor_payee,
+          amount: payee.sum,
+        };
+        if (_.has(payee, 'contributor_payee_committee_id')) {
+          result.filer_id = payee['contributor_payee_committee_id'];
+        }
+        return result;
+      })
+    }
 
     this.getTopIndividualDonors = function(){
       var deferred = $q.defer();
@@ -139,6 +151,14 @@
       var deferred = $q.defer();
       $http.get(urls.oregonTopBusinessDonors()).then(function(result) {
         deferred.resolve(mungeTopDonors(result.data));
+      })
+      return deferred.promise;
+    }
+
+    this.getTopCommitteeDonors = function(){
+      var deferred = $q.defer();
+      $http.get(urls.oregonTopPACDonors()).then(function(result) {
+        deferred.resolve(mungeTopPACDonors(result.data));
       })
       return deferred.promise;
     }
@@ -215,8 +235,10 @@
           var expenditures = {};
           var donors = {
             indiv: {},
-            corp: {}
-          }
+            corp: {},
+            pac: {}
+          };
+          var committee_codes = {};
 
           // Use contributor name as a unique key to add up total donations for each contributor
           var addDonorItem = function(type, row) {
@@ -225,6 +247,10 @@
               donors[type][payee] = 0;
             }
             donors[type][payee] += row.amount;
+
+            if (type === 'pac' && _.has(row, 'contributor_payee_committee_id')) {
+              committee_codes[payee] = row['contributor_payee_committee_id'];
+            }
           };
 
           _(transactions).chain()
@@ -242,9 +268,11 @@
                       break;
                     case 'Political Committee':
                       contributionKey = self.CONTRIBUTION.PAC;
+                      addDonorItem('pac', row);
                       break;
                     case 'Political Party Committee':
                       contributionKey = self.CONTRIBUTION.PARTY;
+                      addDonorItem('pac', row);
                       break;
                     case 'NA':
                       contributionKey = self.CONTRIBUTION.NA;
@@ -287,6 +315,17 @@
             return {payee: donor, amount: amount};
           });
           donors.corp.sort(sortEntry);
+
+          donors.pac = _.map(donors.pac, function(amount, donor) {
+            return {payee: donor, amount: amount};
+          })
+          donors.pac.sort(sortEntry);
+
+          _.each(donors.pac, function(val) {
+            if (_.has(committee_codes, val.payee)) {
+              val['filer_id'] = committee_codes[val.payee];
+            }
+          })
 
           deferred.resolve({contributions:contributions,expenditures:expenditures, donors: donors});
       });
