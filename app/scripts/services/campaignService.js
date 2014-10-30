@@ -31,6 +31,19 @@
       return promise;
     };
 
+    this.getFundingExpenditures = function (campaignId) {
+      var deferred = $q.defer();
+      var promise = deferred.promise;
+      $http.get(urls.candidateSumByDate(campaignId))
+        .then(function (result) {
+          // var campaign = new Campaign();
+          // campaign.fromObject(result.data);
+          deferred.resolve(result);
+        });
+
+      return promise;
+    };
+
     this.getOregon = function() {
 
       var deferred = $q.defer();

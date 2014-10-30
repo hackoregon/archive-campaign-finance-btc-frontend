@@ -17,7 +17,8 @@
     $scope.viewModel = {
       campaign: {},
       financialSummary: null,
-      moneyByState: null
+      moneyByState: null,
+      fundingExpenditures: null
     };
 
     CampaignService.getCampaign($routeParams.campaignId).then(function(result) {
@@ -33,6 +34,13 @@
       CampaignService.getCampaignMoneyByState($scope.viewModel.campaign.filer_id).then(function(result) {
         $scope.viewModel.moneyByState = result;
       });
+
+      var theFunction = CampaignService.getFundingExpenditures;
+      CampaignService.getFundingExpenditures($scope.viewModel.campaign.filer_id).then(
+	function(result) {
+          $scope.viewModel.fundingExpenditures = result;
+	});
+      
     });
 
   });

@@ -76,6 +76,50 @@ input[type='text'].read-only {
 
 }
 
+/** slider css*/
+
+.areaFundsRaised {
+  fill: #46B4E4;
+  stroke: #077FD5;
+  clip-path: url(#clip);
+}
+
+.areaFundsSpent {
+  fill: rgba(255, 129, 63, 0.74);
+  stroke: #FC530A;
+  clip-path: url(#clip);
+}
+text.tip-text {
+  color: #666;
+  font-size: 13px;
+}
+
+text.slider-title {
+  font-size: 20px;
+}
+  .legend rect {
+  fill:white;
+  stroke:#ccc;
+  opacity:0.8;
+}
+
+g.tick{
+font-size:11px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
 .search {
   margin-top: 40px;
 
@@ -570,5 +614,4 @@ $iconSize: 85px;
     }
   }
 }
-
 
