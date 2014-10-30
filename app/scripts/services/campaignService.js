@@ -44,6 +44,18 @@
       return promise;
     };
 
+
+    this.getOregonFundingExpenditures = function () {
+      var deferred = $q.defer();
+      var promise = deferred.promise;
+      $http.get(urls.oregonSumByDate())
+        .then(function (result) {
+          deferred.resolve(result);
+        });
+
+      return promise;
+    };
+
     this.getOregon = function() {
 
       var deferred = $q.defer();

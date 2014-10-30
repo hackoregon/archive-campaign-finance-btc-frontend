@@ -31,6 +31,9 @@
       CampaignService.getCampaignMoneyByState('oregon').then(function(result) {
         $scope.viewModel.moneyByState = result;
       });
+      CampaignService.getOregonFundingExpenditures().then(function(result) {
+        $scope.viewModel.fundingExpenditures = result;
+      });
       $q.all([CampaignService.getTopIndividualDonors(),
               CampaignService.getTopBusinessDonors(),
               CampaignService.getTopCommitteeDonors()]).then(function(results) {

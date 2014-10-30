@@ -36,11 +36,10 @@
       });
 
       var theFunction = CampaignService.getFundingExpenditures;
-      CampaignService.getFundingExpenditures($scope.viewModel.campaign.filer_id).then(
-	function(result) {
-          $scope.viewModel.fundingExpenditures = result;
-	});
-      
+      CampaignService.getFundingExpenditures($scope.viewModel.campaign.filer_id).then(function(result) {
+        $scope.viewModel.fundingExpenditures = result;
+    	});
+
     });
 
   });
