@@ -6,26 +6,17 @@
       scope: {
 	fundingExpenditures: '='
       },
-      controller: function($scope) {
-	console.log("slider");
-      },
       link: function (scope, element, attrs) {
-	console.log("scope.fundingExpenditures", scope.fundingExpenditures);
-	console.log("scope.viewModel", scope.viewModel);
         scope.$watch('fundingExpenditures', function(){
           render();
         });
 
         
         function render(){
-	  console.log("render");
           if (!scope.fundingExpenditures) {
             return;
           }
-	  console.log("scope.fundingExpenditures", scope.fundingExpenditures);
-
 	  var inData = scope.fundingExpenditures.data;
-	  console.log("inData", inData);
 
 	  var margin = {top: 10, right: 10, bottom: 100, left: 100},
 	  margin2 = {top: 430, right: 10, bottom: 20, left: 100},
@@ -95,12 +86,8 @@
 
 	  var parsedDates = inData.map(function(d) { return type(d); })
 
-	  //  //parse js object
-	  console.log("extent", d3.extent(parsedDates.map(function(d) { return d.tran_date; })));
 	  x.domain(d3.extent(parsedDates.map(function(d) { return d.tran_date; })));
 	  y.domain([0, d3.max(parsedDates.map(function(d) { return d.total_in; }))]);
-	  console.log("x",x);
-	  console.log("y",y);
 	  x2.domain(x.domain());
 	  y2.domain(y.domain());
 
@@ -109,8 +96,6 @@
 	    .attr("class", "areaFundsRaised")
 	    .attr("data-legend", function () { return "Funds Raised";})
 	    .attr("d", areaFundsRaised);
-
-	  console.log("parsedDates",parsedDates);
 
 	  /*For later use: appending text
 	    focus.selectAll("g")

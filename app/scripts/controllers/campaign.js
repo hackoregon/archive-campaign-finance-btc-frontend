@@ -36,7 +36,6 @@
       });
 
       var theFunction = CampaignService.getFundingExpenditures;
-      console.log("theFunction",theFunction);
       CampaignService.getFundingExpenditures($scope.viewModel.campaign.filer_id).then(
 	function(result) {
           $scope.viewModel.fundingExpenditures = result;
