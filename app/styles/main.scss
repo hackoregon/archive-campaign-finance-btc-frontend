@@ -73,14 +73,33 @@ input[type='text'].read-only {
 
 /** slider css*/
 
-.area {
-  fill: steelblue;
+.areaFundsRaised {
+  fill: rgba(100,188,187,1);
+  stroke: #057E7D;
   clip-path: url(#clip);
 }
 
- .area1 {
-  fill: red;
+.areaFundsSpent {
+  fill: rgba(195,100,94,.7);
+  stroke:red;
   clip-path: url(#clip);
+}
+text.tip-text {
+  color: #666;
+  font-size: 10px;
+}
+
+text.slider-title {
+  font-size: 20px;
+}
+  .legend rect {
+  fill:white;
+  stroke:#ccc;
+  opacity:0.8;
+}
+
+g.tick{
+font-size:11px;
 }
 
 .axis path,

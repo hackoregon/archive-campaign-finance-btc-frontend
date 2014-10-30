@@ -20,16 +20,16 @@
         function render(){
 	  console.log("render");
           if (!scope.fundingExpenditures) {
-             return;
+            return;
           }
 	  console.log("scope.fundingExpenditures", scope.fundingExpenditures);
 
 	  var inData = scope.fundingExpenditures.data;
 	  console.log("inData", inData);
 
-	  var margin = {top: 10, right: 10, bottom: 100, left: 40},
-	  margin2 = {top: 430, right: 10, bottom: 20, left: 40},
-	  width = 960 - margin.left - margin.right,
+	  var margin = {top: 10, right: 10, bottom: 100, left: 100},
+	  margin2 = {top: 430, right: 10, bottom: 20, left: 100},
+	  width = 750 - margin.left - margin.right,
 	  height = 500 - margin.top - margin.bottom,
 	  height2 = 500 - margin2.top - margin2.bottom;
 
@@ -54,17 +54,30 @@
 	    .attr("height", height + margin.top + margin.bottom);
 
 	  var count = 0;
-	  var area = d3.svg.area()
-	    .interpolate("cardinal")
+
+	  var areaFundsRaised = d3.svg.area()
+	    .interpolate("linear")
 	    .x(function(d) { return x(d.tran_date); })
 	    .y0(height)
 	    .y1(function(d) { return y(d.total_in); });
 
-	  var area2 = d3.svg.area()
-	    .interpolate("monotone")
+	  var areaFundsSpent = d3.svg.area()
+	    .interpolate("linear")
+	    .x(function(d) { return x(d.tran_date); })
+	    .y0(height)
+	    .y1(function(d) { return y(d.total_out); });
+
+	  var areaFundsRaisedMini = d3.svg.area()
+	    .interpolate("linear")
 	    .x(function(d) { return x2(d.tran_date); })
 	    .y0(height2)
 	    .y1(function(d) { return y2(d.total_in); });
+
+	  var areaFundsSpentMini = d3.svg.area()
+	    .interpolate("linear")
+	    .x(function(d) { return x2(d.tran_date); })
+	    .y0(height2)
+	    .y1(function(d) { return y2(d.total_out); });
 
 	  svg.append("defs").append("clipPath")
 	    .attr("id", "clip")
@@ -80,15 +93,9 @@
 	    .attr("class", "context")
 	    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-	  /* TEST API ENDPOINT*/
+	  var parsedDates = inData.map(function(d) { return type(d); })
 
-	 //  console.log("d3.y max inData ", d3.max(inData.map(function(d) { return d.total_in; })));
-	 //  console.log("before",inData);
-	    var parsedDates = inData.map(function(d) { return type(d); })
-	  // console.log("after", parsedDates);
-	 //  // console.log("d3.extent inData ",d3.extent(parsedDates.map(function(d) { return d.tran_date; })));
-
-	 //  //parse js object
+	  //  //parse js object
 	  console.log("extent", d3.extent(parsedDates.map(function(d) { return d.tran_date; })));
 	  x.domain(d3.extent(parsedDates.map(function(d) { return d.tran_date; })));
 	  y.domain([0, d3.max(parsedDates.map(function(d) { return d.total_in; }))]);
@@ -99,9 +106,31 @@
 
 	  focus.append("path")
 	    .datum(parsedDates)
-	    .attr("class", "area")
-	    .attr("d", area);
+	    .attr("class", "areaFundsRaised")
+	    .attr("data-legend", function () { return "Funds Raised";})
+	    .attr("d", areaFundsRaised);
 
+	  console.log("parsedDates",parsedDates);
+
+	  /*For later use: appending text
+	    focus.selectAll("g")
+            .data(parsedDates)
+	    .enter()
+	    .append("text")
+	    .attr("x", function(d) {console.log("adding text");return  x(d.tran_date);})
+	    .attr("y", function(d){return y(d.total_in);})
+	    .text(function (d, i) {return "hi";})
+	    .attr("font-family", "sans-serif")
+	    .attr("font-size", "10px")
+	    .attr("fill", "red")
+	    .attr("class", "myText");*/
+
+	  focus.append("path")
+	    .datum(parsedDates)
+	    .attr("class", "areaFundsSpent")
+	    .attr("data-legend", function () { return "Funds Spent";})
+	    .attr("d", areaFundsSpent);
+	  
 	  focus.append("g")
 	    .attr("class", "x axis")
 	    .attr("transform", "translate(0," + height + ")")
@@ -113,8 +142,13 @@
 
 	  context.append("path")
 	    .datum(parsedDates)
-	    .attr("class", "area")
-	    .attr("d", area2);
+	    .attr("class", "areaFundsRaised")
+	    .attr("d", areaFundsRaisedMini);
+
+	  context.append("path")
+	    .datum(parsedDates)
+	    .attr("class", "areaFundsSpent")
+	    .attr("d", areaFundsSpentMini);
 
 	  context.append("g")
 	    .attr("class", "x axis")
@@ -128,86 +162,39 @@
 	    .attr("y", -6)
 	    .attr("height", height2 + 7);
 
+	   focus.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (-80) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Funds Raised and Spent ($)");
 
+	  focus.append("text")
+            .attr("text-anchor", "left")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (0) +","+(height+40)+")")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Tip: Drag your mouse cursor along this mini graph to zoom in and slide.")
+	  .attr("class","tip-text");
+
+	  focus.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (width/2) +","+(15)+")")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Funds Raised and Spent Over Time")
+	  .attr("class","slider-title");
+
+	   var legend = svg.append("g")
+	    .attr("class","legend")
+	    .attr("transform","translate(620,50)")
+	    .style("font-size","16px")
+	    .call(d3.legend);
 	  function brushed() {
-	    console.log("extent", brush.extent());
 	    x.domain(brush.empty() ? x2.domain() : brush.extent());
-	    focus.select(".area").attr("d", area);
-	    /* focus.select(".area1").attr("d", area1); */
+	    focus.select(".areaFundsRaised").attr("d", areaFundsRaised);
+	    focus.select(".areaFundsSpent").attr("d", areaFundsSpent);
 	    focus.select(".x.axis").call(xAxis);
 	  }
 
-	 function type(d) {
-	   d.tran_date = parseDate2(d.tran_date);
-	   return d;		// 
+	  function type(d) {
+	    d.tran_date = parseDate2(d.tran_date);
+	    return d;		// 
 	  }
-
-
-	  /** OLD VERSION**/	  
-
-	  // console.log("d3.extent inDate ",d3.extent(inData.map(function(d) { return d.tran_date; })));
-	  // console.log("d3.y max inData ", d3.max(inData.map(function(d) { return d.total_in; })));
-	  // console.log("before",inData);
-	  // var newArr= inData.map(function(d) { return type(d); })
-	  // console.log("after",newArr);
-	  
-	  // d3.csv("sp500.csv", type, function(error, data) {
-
-	  //   x.domain(d3.extent(data.map(function(d) { return d.date; })));
-	  //   console.log("d3.extent",d3.extent(data.map(function(d) { return d.date; })));
-	    
-	  //   console.log("x.domain",x.domain);
-	  //   y.domain([0, d3.max(data.map(function(d) { return d.price; }))]);
-	  //   x2.domain(x.domain());
-	  //   y2.domain(y.domain());
-
-	  //   console.log("data from csv", data);
-	  //   focus.append("path")
-	  //     .datum(data)
-	  //     .attr("class", "area")
-	  //     .attr("d", area);
-
-	  //   focus.append("g")
-	  //     .attr("class", "x axis")
-	  //     .attr("transform", "translate(0," + height + ")")
-	  //     .call(xAxis);
-
-	  //   focus.append("g")
-	  //     .attr("class", "y axis")
-	  //     .call(yAxis);
-
-	  //   context.append("path")
-	  //     .datum(data)
-	  //     .attr("class", "area")
-	  //     .attr("d", area2);
-
-	  //   context.append("g")
-	  //     .attr("class", "x axis")
-	  //     .attr("transform", "translate(0," + height2 + ")")
-	  //     .call(xAxis2);
-
-	  //   context.append("g")
-	  //     .attr("class", "x brush")
-	  //     .call(brush)
-	  //     .selectAll("rect")
-	  //     .attr("y", -6)
-	  //     .attr("height", height2 + 7);
-	  // });
-
-	  // function brushed() {
-	  //   console.log("extent", brush.extent());
-	  //   x.domain(brush.empty() ? x2.domain() : brush.extent());
-	  //   focus.select(".area").attr("d", area);
-	  //   /* focus.select(".area1").attr("d", area1); */
-	  //   focus.select(".x.axis").call(xAxis);
-	  // }
-
-	  
-	  // function type(d) {
-	  //   d.date = parseDate(d.date);
-	  //   d.price = +d.price;
-	  //   return d;
-	  // }
         };
       }
     };

@@ -39,6 +39,7 @@
         },
         candidateSumByDate: function(campaignId) {
           return candidateSumByDateUrl({campaignId: campaignId});
+	},
         oregonSummary: function() {
           return allOregonSummary;
         },
