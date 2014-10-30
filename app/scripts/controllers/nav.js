@@ -22,6 +22,9 @@ angular.module('frontendApp').controller('NavCtrl', function($scope, $location, 
         else if(next.search( /\/oregon/ ) != -1) {
             $scope.site.area = SITE.OREGON;
         }
+        else if(next.search( /\/faq/ ) != -1) {
+            $scope.site.area = SITE.FAQ;
+        }
         else {
             $scope.site.area = SITE.SEARCH;
         }
@@ -30,5 +33,6 @@ angular.module('frontendApp').controller('NavCtrl', function($scope, $location, 
 }).constant('SITE', {
     'BALLOT': 1,
     'SEARCH': 2,
-    'OREGON': 3
+    'OREGON': 3,
+    'FAQ': 4
 });
