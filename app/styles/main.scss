@@ -37,6 +37,10 @@ input[type='text'].read-only {
   left: clear;
 }
 
+.tiny-logo {
+  width: 250px;  
+}
+
 .container {
   .navbar-header {
   float: right;
@@ -61,6 +65,7 @@ input[type='text'].read-only {
     margin-top: 30px;
     padding: 0 15px 15px 15px;
     border-bottom: 5px solid black;
+    width: 70%;
   }
 
   .sticker {
@@ -329,6 +334,18 @@ font-size:11px;
 
 /*** Campaign Detail Page ============================================= ***/
 
+.grassroots-fact {
+  margin-top: 25px;
+}
+
+.total-raised {
+  color: green;
+}
+
+.total-spent {
+  color: red;
+}
+
 .campaign-detail {
   .detail-header {
     border-bottom: 5px solid black;
@@ -336,12 +353,19 @@ font-size:11px;
   .total-lable {
 
   }
+
   h3 {
     font-family: OpenSansBold;
     letter-spacing: 0.5px;
     margin-top: 5px;
     margin-bottom: 5px;
   }
+
+  h4 {
+    font-size: 22px;
+    color: gray;
+  }
+
   .btn-toggle {
     position: relative;
     top: 2px;

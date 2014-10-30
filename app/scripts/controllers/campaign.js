@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-  angular.module('frontendApp').controller('CampaignCtrl', function($scope, $routeParams, CampaignService, $http) {
+  angular.module('frontendApp').controller('CampaignCtrl', function($scope, $routeParams, CampaignService, $http, Title) {
 
+    Title.setTitle('Campaign Detail Page');
 
     $scope.campaignId = $routeParams.campaignId;
 
@@ -21,6 +22,8 @@
     };
 
     CampaignService.getCampaign($routeParams.campaignId).then(function(result) {
+
+      Title.setTitle(result.candidate_name + " Detail Page");
       $scope.viewModel.campaign = result;
       $scope.photo = ($scope.viewModel.campaign.photo || $scope.defaults.photo);
 

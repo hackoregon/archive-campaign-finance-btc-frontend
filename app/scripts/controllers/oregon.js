@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-  angular.module('frontendApp').controller('OregonCtrl', function($scope, $q, CampaignService) {
+  angular.module('frontendApp').controller('OregonCtrl', function($scope, $q, CampaignService, Title) {
+
+    Title.setTitle('Oregon Summary Page');
 
     var startDate = new Date(2010, 1, 1).getTime();
     var endDate = new Date(2014, 9, 1).getTime();

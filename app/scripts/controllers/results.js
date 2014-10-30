@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-  angular.module('frontendApp').controller('ResultsCtrl', function($scope, $routeParams, CampaignService, SEARCH_TYPE) {
+  angular.module('frontendApp').controller('ResultsCtrl', function($scope, $routeParams, CampaignService, Title, SEARCH_TYPE) {
+
+    Title.setTitle('Search Page');
 
     $scope.viewModel = {
       searchType: $routeParams.searchType,
