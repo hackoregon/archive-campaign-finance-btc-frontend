@@ -12,7 +12,7 @@ angular.module('frontendApp')
           suffix = ' k';
         }
         if (suffix === '') {
-          return numeral(number).format('$0,0.00');
+          return numeral(number).format('$0,0');
         } else {
           return numeral(number).format('$0.0') + suffix;
         }

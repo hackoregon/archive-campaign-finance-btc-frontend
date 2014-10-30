@@ -75,7 +75,7 @@
                 .attr("dy", ".35em")
                 .style("text-anchor", "end")
                 .text(function (d) {
-                return numeral(d).format('$0,0.00');
+                return numeral(d).format('$0,0');
             });
 
           group.selectAll("path")
