@@ -74,19 +74,19 @@ input[type='text'].read-only {
 /** slider css*/
 
 .areaFundsRaised {
-  fill: rgba(100,188,187,1);
-  stroke: #057E7D;
+  fill: #46B4E4;
+  stroke: #077FD5;
   clip-path: url(#clip);
 }
 
 .areaFundsSpent {
-  fill: rgba(195,100,94,.7);
-  stroke:red;
+  fill: rgba(255, 129, 63, 0.74);
+  stroke: #FC530A;
   clip-path: url(#clip);
 }
 text.tip-text {
   color: #666;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 text.slider-title {
