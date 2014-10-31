@@ -20,6 +20,9 @@
       var promise = deferred.promise;
       $http.get(urls.campaignSearch(searchTerm))
         .then(function (result) {
+          if (result.data === '(null)') {
+            result.data = null;
+          }
           var campaigns = _(result.data).map(function(item){
             var campaign = new Campaign();
             campaign.fromObject(item);
