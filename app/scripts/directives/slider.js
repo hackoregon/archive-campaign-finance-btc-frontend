@@ -200,7 +200,7 @@
      focus.append("text")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
             .attr("transform", "translate("+ (-80) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
-            .text("Funds Raised and Spent ($)");
+            .text("Funds Raised & Spent ($)");
 
             focus.append("text")
             .attr("text-anchor", "left")  // this makes it easy to centre the text as the transform is applied to the anchor
@@ -211,7 +211,7 @@
             focus.append("text")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
             .attr("transform", "translate("+ (width/2) +","+(15)+")")  // text is drawn off the screen top left, move down and out and rotate
-            .text("Funds Raised and Spent Over Time")
+            .text("Funds Raised & Spent Over Time")
             .attr("class","slider-title");
 
             var legend = svg.append("g")
